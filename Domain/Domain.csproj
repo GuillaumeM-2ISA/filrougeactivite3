@@ -7,7 +7,6 @@
   <ItemGroup>
     <Folder Include="DTO\Requests\" />
     <Folder Include="DTO\Responses\" />
-    <Folder Include="Exceptions\" />
   </ItemGroup>
 
 </Project>
