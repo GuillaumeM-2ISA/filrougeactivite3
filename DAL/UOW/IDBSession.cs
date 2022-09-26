@@ -6,5 +6,7 @@ namespace DAL.UOW
     {
         IDbConnection Connection { get; }
         IDbTransaction Transaction { get; set; }
+
+        void Dispose();
     }
 }
