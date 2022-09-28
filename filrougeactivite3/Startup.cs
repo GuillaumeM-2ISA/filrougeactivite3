@@ -30,7 +30,10 @@ namespace filrougeactivite3
             services.AddBLLExtension();
             services.AddDomain();
             services.AddFluentValidationAutoValidation();
-            services.AddControllers();
+            services.AddControllers(options =>
+            {
+                //options.Filters.Add(new ApiExceptionFilterAttribute());
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
