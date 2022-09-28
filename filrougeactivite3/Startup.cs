@@ -1,4 +1,6 @@
 using BLLS;
+using Domain;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -26,7 +28,8 @@ namespace filrougeactivite3
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddBLLExtension();
-
+            services.AddDomain();
+            services.AddFluentValidationAutoValidation();
             services.AddControllers();
         }
 
