@@ -1,4 +1,5 @@
 ﻿using DAL.UOW;
+using Domain.Entities;
 using Domain.Exceptions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -12,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace BLLS
 {
-    class SecurityService
+    class SecurityService : ISecurityService
     {
         private readonly IConfiguration _configuration;
         private readonly IUnitOfWork _dbContext;
@@ -25,17 +26,17 @@ namespace BLLS
 
         public async Task<string> SigninAsync(string username, string password)
         {
-            if (username == "admin" && password == "admin")
-            {
-                return GenerateJwtToken("admin", new List<string>() { "ADMIN", "USER" });
-            }
-            else if (username == "user" && password == "user")
-            {
-                return GenerateJwtToken("user", new List<string>() { "USER" });
-            }
-            Member member = await _dbContext.Members.GetMemberByNicknameAndPassword(username, password);
-            //string role = await _dbContext.Members.GetRoleByIdAsync(username);
-            return GenerateJwtToken(username, new List<string>() { member.role });
+            //if (username == "admin" && password == "admin")
+            //{
+            //    return GenerateJwtToken("admin", new List<string>() { "ADMIN", "USER" });
+            //}
+            //else if (username == "user" && password == "user")
+            //{
+            //    return GenerateJwtToken("user", new List<string>() { "USER" });
+            //}
+
+            Member member = await _dbContext.Members.GetByNicknameAndPasswordAsync(username, password);
+            return GenerateJwtToken(username, new List<string>() { member.Type });
 
             throw new AuthentificationFailException();
             // Si l'utilisateur existe ou non

@@ -41,5 +41,7 @@ namespace DAL.UOW
         {
             _dbSession.Dispose();
         }
+
+        public IMemberRepository Members { get => new MemberRepository(_dbSession); }
     }
 }

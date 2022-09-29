@@ -13,6 +13,7 @@ namespace DAL
         public static void AddDALExtension(this IServiceCollection services)
         {
             services.AddScoped<IDBSession, DBSession>();
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
         }
     }
 }

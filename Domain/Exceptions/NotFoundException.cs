@@ -8,7 +8,7 @@ namespace Domain.Exceptions
 {
     public class NotFoundException : Exception
     {
-        public NotFoundException(int idRessource) : base($"La ressource {idRessource} n'a pas été trouvée")
+        public NotFoundException() : base($"La ressource n'a pas été trouvée")
         {
 
         }
