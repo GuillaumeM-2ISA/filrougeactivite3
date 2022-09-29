@@ -12,7 +12,7 @@ namespace BLLS
     {
         public static void AddBLLExtension(this IServiceCollection services)
         {
-            
+            services.AddTransient<ISecurityService, SecurityService>();
 
             services.AddDALExtension();
         }
