@@ -39,6 +39,30 @@ namespace DAL.UOW.Repositories
                 return member;
         }
 
+        public async Task<bool> GetByNicknameAsync(string nickname)
+        {
+            string query = @"SELECT * FROM Member WHERE Nickname = @Nickname";
+
+            Member member = (await _db.Connection.QueryAsync<Member>(query, new { Nickname = nickname }, transaction: _db.Transaction)).FirstOrDefault();
+
+            if (member == null)
+                return false;
+            else
+                return true;
+        }
+
+        public async Task<bool> GetByEmailAsync(string email)
+        {
+            string query = @"SELECT * FROM Member WHERE Email = @Email";
+
+            Member member = (await _db.Connection.QueryAsync<Member>(query, new { Email = email }, transaction: _db.Transaction)).FirstOrDefault();
+
+            if (member == null)
+                return false;
+            else
+                return true;
+        }
+
         public async Task<Member> GetByNicknameAndPasswordAsync(string nickname, string password)
         {
             string query = @"SELECT * FROM Member WHERE Nickname = @Nickname AND Password = @Password";
@@ -70,9 +94,9 @@ namespace DAL.UOW.Repositories
         {
             string query = @"UPDATE Member SET 
                             Nickname = @Nickname,
-                            Type = @Type, 
                             Email = @Email,
                             Password = @Password,
+                            UpdatedAt = @UpdatedAt 
                             WHERE Id = @Id";
 
             int nbLigneAffected = await _db.Connection.ExecuteAsync(query,
@@ -80,9 +104,9 @@ namespace DAL.UOW.Repositories
                 {
                     Id = memberModified.Id,
                     Nickname = memberModified.Nickname,
-                    Type = memberModified.Type,
                     Email = memberModified.Email,
-                    Password = memberModified.Password
+                    Password = memberModified.Password,
+                    UpdatedAt = DateTime.Now
                 }, transaction: _db.Transaction);
 
             if (nbLigneAffected == 1)
@@ -97,17 +121,23 @@ namespace DAL.UOW.Repositories
 
         public async Task<Member> AddAsync(Member member)
         {
-            string query = @"INSERT INTO Member (Nickname, Type, Email, Password)
+            if (await GetByNicknameAsync(member.Nickname) || await GetByEmailAsync(member.Email))
+            {
+                throw new InsertSQLFailureException(member);
+            }
+
+            string query = @"INSERT INTO Member (Nickname, Type, Email, Password, CreatedAt)
                             OUTPUT INSERTED.Id
-                            VALUES (@Nickname, @Type, @Email, @Password)";
+                            VALUES (@Nickname, @Type, @Email, @Password, @CreatedAt)";
 
             int? lastId = await _db.Connection.ExecuteScalarAsync<int?>(query,
                          new
                          {
                              Nickname = member.Nickname,
-                             Type = member.Type,
+                             Type = "Member",
                              Email = member.Email,
-                             Password = member.Password
+                             Password = member.Password,
+                             CreatedAt = DateTime.Now
                          }, transaction: _db.Transaction);
 
             if (lastId.HasValue)

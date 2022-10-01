@@ -1,5 +1,8 @@
 ﻿using BLLS;
+using Domain.DTO.Requests.Members;
 using Domain.DTO.Requests.Security;
+using Domain.DTO.Responses.Members;
+using Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -13,9 +16,11 @@ namespace API.Controllers
     public class MembersController : ControllerBase
     {
         private readonly ISecurityService _securityService;
-        public MembersController(ISecurityService securityService)
+        private readonly IMemberService _memberService;
+        public MembersController(ISecurityService securityService, IMemberService memberService)
         {
             _securityService = securityService;
+            _memberService = memberService;
         }
 
         [HttpPost("login")]
@@ -24,6 +29,30 @@ namespace API.Controllers
             string token = await _securityService.SigninAsync(authentificationRequestDTO.Nickname, authentificationRequestDTO.Password);
 
             return Ok(new { Token = token });
+        }
+
+        [HttpPost("register")]
+        public async Task<IActionResult> Register([FromBody] CreateMemberRequestDTO createMemberRequestDTO)
+        {
+            Member newMember = new Member
+            {
+                Nickname = createMemberRequestDTO.Nickname,
+                Email = createMemberRequestDTO.Email,
+                Password = createMemberRequestDTO.Password
+            };
+
+            Member member = await _memberService.RegisterAsync(newMember);
+
+            string token = await _securityService.SigninAsync(createMemberRequestDTO.Nickname, createMemberRequestDTO.Password);
+
+            var response = new CreateMemberResponseDTO()
+            {
+                Nickname = member.Nickname,
+                Email = member.Email,
+                Token = token
+            };
+
+            return Ok(response);
         }
     }
 }
