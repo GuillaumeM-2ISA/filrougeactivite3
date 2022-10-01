@@ -36,9 +36,9 @@ namespace BLLS
             //}
 
             Member member = await _dbContext.Members.GetByNicknameAndPasswordAsync(username, password);
-            return GenerateJwtToken(username, new List<string>() { member.Type });
+            if (member.Type == "Moderator") return GenerateJwtToken(username, new List<string>() { "MEMBER", "MODERATOR" });
+            return GenerateJwtToken(username, new List<string>() { "MEMBER" });
 
-            throw new AuthentificationFailException();
             // Si l'utilisateur existe ou non
             // Généré le token avec les bon roles
             // Renvoie le token ou AuthentificationFailException

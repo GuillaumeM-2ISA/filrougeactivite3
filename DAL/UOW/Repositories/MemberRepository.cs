@@ -51,7 +51,7 @@ namespace DAL.UOW.Repositories
                 }, transaction: _db.Transaction)).FirstOrDefault();
 
             if (member == null)
-                throw new NotFoundException();
+                throw new AuthentificationFailException();
             else
                 return member;
         }
