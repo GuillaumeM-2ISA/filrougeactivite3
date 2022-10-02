@@ -35,6 +35,7 @@ namespace BLLS
             //    return GenerateJwtToken("user", new List<string>() { "USER" });
             //}
 
+            password = Convert.ToBase64String(MemberService.GenerateSaltedHash(Encoding.UTF8.GetBytes(password), Encoding.UTF8.GetBytes("12356789")));
             Member member = await _dbContext.Members.GetByNicknameAndPasswordAsync(username, password);
             if (member.Type == "Moderator") return GenerateJwtToken(username, new List<string>() { "MEMBER", "MODERATOR" });
             return GenerateJwtToken(username, new List<string>() { "MEMBER" });

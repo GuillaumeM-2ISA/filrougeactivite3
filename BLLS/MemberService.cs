@@ -31,7 +31,7 @@ namespace BLLS
         }
 
         // https://stackoverflow.com/questions/2138429/hash-and-salt-passwords-in-c-sharp
-        private byte[] GenerateSaltedHash(byte[] plainText, byte[] salt)
+        public static byte[] GenerateSaltedHash(byte[] plainText, byte[] salt)
         {
             HashAlgorithm algorithm = new SHA256Managed();
 
