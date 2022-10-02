@@ -39,7 +39,7 @@ namespace DAL.UOW.Repositories
                 return member;
         }
 
-        public async Task<bool> GetByNicknameAsync(string nickname)
+        public async Task<bool> IsGettableByNicknameAsync(string nickname)
         {
             string query = @"SELECT * FROM Member WHERE Nickname = @Nickname";
 
@@ -51,7 +51,7 @@ namespace DAL.UOW.Repositories
                 return true;
         }
 
-        public async Task<bool> GetByEmailAsync(string email)
+        public async Task<bool> IsGettableByEmailAsync(string email)
         {
             string query = @"SELECT * FROM Member WHERE Email = @Email";
 
@@ -121,9 +121,14 @@ namespace DAL.UOW.Repositories
 
         public async Task<Member> AddAsync(Member member)
         {
-            if (await GetByNicknameAsync(member.Nickname) || await GetByEmailAsync(member.Email))
+            if (await IsGettableByNicknameAsync(member.Nickname))
             {
-                throw new InsertSQLFailureException(member);
+                throw new NicknameMustBeUniqueException();
+            }
+
+            if (await IsGettableByEmailAsync(member.Email))
+            {
+                throw new EmailMustBeUniqueException();
             }
 
             string query = @"INSERT INTO Member (Nickname, Type, Email, Password, CreatedAt)
