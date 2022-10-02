@@ -10,5 +10,7 @@ namespace DAL.UOW.Repositories
         Task<bool> IsGettableByEmailAsync(string email);
 
         Task<Member> GetByNicknameAndPasswordAsync(string nickname, string password);
+
+        Task<Member> UpdatePasswordAsync(Member memberModified);
     }
 }

@@ -54,5 +54,34 @@ namespace API.Controllers
 
             return Ok(response);
         }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdatePassword([FromRoute] int id, [FromBody] UpdatePasswordRequestDTO updatePasswordRequestDTO)
+        {
+            // Vérification
+            if (id != updatePasswordRequestDTO.Id) return BadRequest();
+
+            /// DTO -> ObjetMétier
+            var modifiedMember = new Member()
+            {
+                Id = updatePasswordRequestDTO.Id,
+                Password = updatePasswordRequestDTO.Password
+            };
+
+            //Actions
+            var member = await _memberService.UpdatePasswordAsync(modifiedMember);
+
+            //Creation Reponse
+            if (member is null) return NotFound();
+
+            var reponse = new MemberResponseDTO()
+            {
+                Nickname = member.Nickname,
+                Email = member.Email
+
+            };
+
+            return Ok(reponse);
+        }
     }
 }

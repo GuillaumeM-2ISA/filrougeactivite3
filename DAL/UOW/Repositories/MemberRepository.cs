@@ -119,6 +119,31 @@ namespace DAL.UOW.Repositories
             }
         }
 
+        public async Task<Member> UpdatePasswordAsync(Member memberModified)
+        {
+            string query = @"UPDATE Member SET 
+                            Password = @Password,
+                            UpdatedAt = @UpdatedAt 
+                            WHERE Id = @Id";
+
+            int nbLigneAffected = await _db.Connection.ExecuteAsync(query,
+                new
+                {
+                    Id = memberModified.Id,
+                    Password = memberModified.Password,
+                    UpdatedAt = DateTime.Now
+                }, transaction: _db.Transaction);
+
+            if (nbLigneAffected == 1)
+            {
+                return await GetByIdAsync(memberModified.Id);
+            }
+            else
+            {
+                throw new UpdateSQLFailureException(memberModified);
+            }
+        }
+
         public async Task<Member> AddAsync(Member member)
         {
             if (await IsGettableByNicknameAsync(member.Nickname))
