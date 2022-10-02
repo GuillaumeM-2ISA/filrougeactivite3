@@ -3,6 +3,7 @@ using Domain.DTO.Requests.Members;
 using Domain.DTO.Requests.Security;
 using Domain.DTO.Responses.Members;
 using Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace API.Controllers
 {
     [ApiController]
     [Route("api/members")]
+    [Authorize]
     public class MembersController : ControllerBase
     {
         private readonly ISecurityService _securityService;
@@ -23,6 +25,7 @@ namespace API.Controllers
             _memberService = memberService;
         }
 
+        [AllowAnonymous]
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] AuthentificationRequestDTO authentificationRequestDTO)
         {
@@ -31,6 +34,7 @@ namespace API.Controllers
             return Ok(new { Token = token });
         }
 
+        [AllowAnonymous]
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] CreateMemberRequestDTO createMemberRequestDTO)
         {
