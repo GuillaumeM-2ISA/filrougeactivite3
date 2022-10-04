@@ -1,3 +1,4 @@
+using API.Filters;
 using BLLS;
 using Domain;
 using FluentValidation.AspNetCore;
@@ -16,7 +17,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace filrougeactivite3
+namespace API
 {
     public class Startup
     {
