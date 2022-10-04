@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
+    /// <summary>
+    /// Classe Category représentant une catégorie sur le forum
+    /// </summary>
     public class Category : Entity
     {
+        /// <summary>
+        /// Propriété du nom de la catégorie
+        /// </summary>
         public string Name { get; set; }
     }
 }
