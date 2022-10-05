@@ -27,6 +27,11 @@ namespace BLLS
             return await _dbContext.Topics.GetAllAsync();
         }
 
+        public async Task<IEnumerable<Topic>> GetTopicsByCategoryIdAsync(int categoryId)
+        {
+            return await _dbContext.Topics.GetTopicsByCategoryIdAsync(categoryId);
+        }
+
         public async Task<Topic> GetTopicByIdAsync(int id)
         {
             return await _dbContext.Topics.GetByIdAsync(id);
@@ -50,6 +55,11 @@ namespace BLLS
         public async Task<IEnumerable<Response>> GetResponsesAsync()
         {
             return await _dbContext.Responses.GetAllAsync();
+        }
+
+        public async Task<IEnumerable<Response>> GetResponsesByTopicIdAsync(int topicId)
+        {
+            return await _dbContext.Responses.GetResponsesByTopicIdAsync(topicId);
         }
 
         public async Task<Response> GetResponseByIdAsync(int id)

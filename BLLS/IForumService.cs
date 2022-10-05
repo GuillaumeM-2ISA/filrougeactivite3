@@ -54,6 +54,13 @@ namespace BLLS
         Task<IEnumerable<Response>> GetResponsesAsync();
 
         /// <summary>
+        /// Obtenir toutes les réponses par son sujet
+        /// </summary>
+        /// <param name="topicId"></param>
+        /// <returns></returns>
+        Task<IEnumerable<Response>> GetResponsesByTopicIdAsync(int topicId);
+
+        /// <summary>
         /// Obtenir un sujet par son id
         /// </summary>
         /// <param name="id"></param>
@@ -65,6 +72,13 @@ namespace BLLS
         /// </summary>
         /// <returns></returns>
         Task<IEnumerable<Topic>> GetTopicsAsync();
+
+        /// <summary>
+        /// Obtenir tous les sujets par sa categorie
+        /// </summary>
+        /// <param name="categoryId"></param>
+        /// <returns></returns>
+        Task<IEnumerable<Topic>> GetTopicsByCategoryIdAsync(int categoryId);
 
         /// <summary>
         /// Modifier un sujet

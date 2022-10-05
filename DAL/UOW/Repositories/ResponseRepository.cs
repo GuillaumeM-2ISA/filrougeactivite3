@@ -27,6 +27,15 @@ namespace DAL.UOW.Repositories
             return responses;
         }
 
+        public async Task<IEnumerable<Response>> GetResponsesByTopicIdAsync(int topicId)
+        {
+            string query = @"SELECT * FROM Response WHERE TopicId = @TopicId";
+
+            IEnumerable<Response> responses = await _db.Connection.QueryAsync<Response>(query, new { TopicId = topicId }, transaction: _db.Transaction);
+
+            return responses;
+        }
+
         public async Task<Response> GetByIdAsync(int id)
         {
             string query = @"SELECT * FROM Response WHERE Id = @Id";
