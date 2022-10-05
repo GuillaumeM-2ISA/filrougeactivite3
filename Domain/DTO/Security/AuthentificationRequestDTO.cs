@@ -7,10 +7,19 @@ using System.Threading.Tasks;
 
 namespace Domain.DTO.Requests.Security
 {
+    /// <summary>
+    /// Classe DTO de requête d'authentification
+    /// </summary>
     public class AuthentificationRequestDTO
     {
+        /// <summary>
+        /// Pseudonyme du DTO de requête d'authentification
+        /// </summary>
         public string Nickname { get; set; }
 
+        /// <summary>
+        /// Mot de passe du DTO de requête d'authentification
+        /// </summary>
         public string Password { get; set; }
     }
 

@@ -7,10 +7,19 @@ using System.Threading.Tasks;
 
 namespace Domain.DTO.Requests.Members
 {
+    /// <summary>
+    /// Classe DTO de requête de mise à jour du mot de passe
+    /// </summary>
     public class UpdatePasswordRequestDTO
     {
+        /// <summary>
+        /// Identifiant du DTO de requête de mise à jour du mot de passe
+        /// </summary>
         public int Id { get; set; }
 
+        /// <summary>
+        /// Mot de passe du DTO de requête de mise à jour du mot de passe
+        /// </summary>
         public string Password { get; set; }
     }
 
