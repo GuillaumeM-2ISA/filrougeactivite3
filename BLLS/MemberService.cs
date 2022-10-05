@@ -18,6 +18,16 @@ namespace BLLS
             _dbContext = dbContext;
         }
 
+        public async Task<Member> GetMemberByIdAsync(int id)
+        {
+            return await _dbContext.Members.GetByIdAsync(id);
+        }
+
+        public async Task<Member> GetMemberByEmailAsync(string email)
+        {
+            return await _dbContext.Members.GetByEmailAsync(email);
+        }
+
         public async Task<Member> RegisterAsync(Member newMember)
         {
             newMember.Password = Convert.ToBase64String(GenerateSaltedHash(Encoding.UTF8.GetBytes(newMember.Password), Encoding.UTF8.GetBytes("12356789")));

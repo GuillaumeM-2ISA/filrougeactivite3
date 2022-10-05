@@ -43,5 +43,11 @@ namespace DAL.UOW
         }
 
         public IMemberRepository Members { get => new MemberRepository(_dbSession); }
+
+        public ITopicRepository Topics { get => new TopicRepository(_dbSession); }
+
+        public IResponseRepository Responses { get => new ResponseRepository(_dbSession); }
+
+        public ICategoryRepository Categories { get => new CategoryRepository(_dbSession); }
     }
 }

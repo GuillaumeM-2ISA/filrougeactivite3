@@ -39,6 +39,18 @@ namespace DAL.UOW.Repositories
                 return member;
         }
 
+        public async Task<Member> GetByEmailAsync(string email)
+        {
+            string query = @"SELECT * FROM Member WHERE Email = @Email";
+
+            Member member = (await _db.Connection.QueryAsync<Member>(query, new { Email = email }, transaction: _db.Transaction)).FirstOrDefault();
+
+            if (member == null)
+                throw new NotFoundException();
+            else
+                return member;
+        }
+
         public async Task<bool> IsGettableByNicknameAsync(string nickname)
         {
             string query = @"SELECT * FROM Member WHERE Nickname = @Nickname";

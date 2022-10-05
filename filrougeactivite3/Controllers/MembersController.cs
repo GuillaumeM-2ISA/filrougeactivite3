@@ -25,6 +25,11 @@ namespace API.Controllers
             _memberService = memberService;
         }
 
+        /// <summary>
+        /// Se connecter
+        /// </summary>
+        /// <param name="authentificationRequestDTO"></param>
+        /// <returns></returns>
         [AllowAnonymous]
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] AuthentificationRequestDTO authentificationRequestDTO)
@@ -34,6 +39,11 @@ namespace API.Controllers
             return Ok(new { Token = token });
         }
 
+        /// <summary>
+        /// S'enregistrer
+        /// </summary>
+        /// <param name="createMemberRequestDTO"></param>
+        /// <returns></returns>
         [AllowAnonymous]
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] CreateMemberRequestDTO createMemberRequestDTO)
@@ -59,6 +69,12 @@ namespace API.Controllers
             return Ok(response);
         }
 
+        /// <summary>
+        /// Mettre à jour son mot de passe
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="updatePasswordRequestDTO"></param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdatePassword([FromRoute] int id, [FromBody] UpdatePasswordRequestDTO updatePasswordRequestDTO)
         {

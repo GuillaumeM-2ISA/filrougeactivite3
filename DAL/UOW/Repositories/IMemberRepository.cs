@@ -6,6 +6,13 @@ namespace DAL.UOW.Repositories
     public interface IMemberRepository : IGenericRepository<Member>
     {
         /// <summary>
+        /// Méthode récupérant le membre par son adresse email
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        Task<Member> GetByEmailAsync(string email);
+
+        /// <summary>
         /// Méthode vérifiant que l'on puisse obtenir le membre par son pseudonyme
         /// </summary>
         /// <param name="nickname"></param>

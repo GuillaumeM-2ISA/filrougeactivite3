@@ -6,6 +6,20 @@ namespace BLLS
     public interface IMemberService
     {
         /// <summary>
+        /// Obtenir un membre par son identifiant
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        Task<Member> GetMemberByIdAsync(int id);
+
+        /// <summary>
+        /// Obtenir un membre par son adresse email
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        Task<Member> GetMemberByEmailAsync(string email);
+
+        /// <summary>
         /// Enregistre le nouveau membre
         /// </summary>
         /// <param name="newMember"></param>

@@ -6,6 +6,12 @@ namespace DAL.UOW
     {
         IMemberRepository Members { get; }
 
+        ITopicRepository Topics { get; }
+
+        IResponseRepository Responses { get; }
+
+        ICategoryRepository Categories { get; }
+
         void BeginTransaction();
         void Commit();
         void RollBack();
