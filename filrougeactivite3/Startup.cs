@@ -53,7 +53,7 @@ namespace API
             services.AddFluentValidationAutoValidation();
             services.AddControllers(options =>
             {
-                //options.Filters.Add(new ApiExceptionFilterAttribute());
+                options.Filters.Add(new ApiExceptionFilterAttribute());
             });
         }
 
