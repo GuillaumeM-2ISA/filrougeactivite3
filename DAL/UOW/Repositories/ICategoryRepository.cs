@@ -11,5 +11,12 @@ namespace DAL.UOW.Repositories
         /// </summary>
         /// <returns></returns>
         Task<IEnumerable<Category>> GetAllAsync();
+
+        /// <summary>
+        /// Méthode récupérant une catégorie spécifique par son id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        Task<Category> GetByIdAsync(int id);
     }
 }

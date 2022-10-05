@@ -30,5 +30,10 @@ namespace Domain.Entities
         /// Propriété de l'id de l'auteur de la réponse
         /// </summary>
         public int MemberId { get; set; }
+
+        /// <summary>
+        /// Propriété du membre de la réponse
+        /// </summary>
+        public Member Member { get; set; }
     }
 }

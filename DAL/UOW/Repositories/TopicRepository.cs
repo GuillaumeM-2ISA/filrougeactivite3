@@ -20,7 +20,7 @@ namespace DAL.UOW.Repositories
 
         public async Task<IEnumerable<Topic>> GetAllAsync()
         {
-            string query = @"SELECT * FROM Topic";
+            string query = @"SELECT * FROM Topic AS t INNER JOIN Membre AS m ON t.MemberId = m.Id";
 
             IEnumerable<Topic> topics = await _db.Connection.QueryAsync<Topic>(query, transaction: _db.Transaction);
 
@@ -29,7 +29,7 @@ namespace DAL.UOW.Repositories
 
         public async Task<IEnumerable<Topic>> GetTopicsByCategoryIdAsync(int categoryId)
         {
-            string query = @"SELECT * FROM Topic WHERE CategoryId = @CategoryId";
+            string query = @"SELECT * FROM Topic AS t INNER JOIN Membre AS m ON t.MemberId = m.Id WHERE t.CategoryId = @CategoryId";
 
             IEnumerable<Topic> topics = await _db.Connection.QueryAsync<Topic>(query, new { CategoryId = categoryId }, transaction: _db.Transaction);
 
@@ -38,7 +38,7 @@ namespace DAL.UOW.Repositories
 
         public async Task<Topic> GetByIdAsync(int id)
         {
-            string query = @"SELECT * FROM Topic WHERE Id = @Id";
+            string query = @"SELECT * FROM Topic AS t INNER JOIN Membre AS m ON t.MemberId = m.Id WHERE t.Id = @Id";
 
             Topic topic = (await _db.Connection.QueryAsync<Topic>(query, new { Id = id }, transaction: _db.Transaction)).FirstOrDefault();
 

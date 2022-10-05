@@ -103,5 +103,49 @@ namespace API.Controllers
 
             return Ok(reponse);
         }
+
+        /// <summary>
+        /// Obtenir tous les membres
+        /// </summary>
+        /// <returns></returns>
+        [Authorize(Roles = "MODERATOR")]
+        [HttpGet("")]
+        public async Task<IActionResult> GetMembers()
+        {
+            var members = await _memberService.GetMembersAsync();
+
+            //Construction de la réponse
+            var membersResponse = members.Select(member => new MemberResponseDTO
+            {
+                Nickname = member.Nickname,
+                Email = member.Email
+            });
+
+            return Ok(membersResponse);
+        }
+
+        /// <summary>
+        /// Obtenir un membre spécifique par son id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [Authorize(Roles = "MODERATOR")]
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetMemberById([FromRoute] int id)
+        {
+            // Actions
+            Member member = await _memberService.GetMemberByIdAsync(id);
+
+            if (member is null) return NotFound();
+
+            // Réponse
+            MemberResponseDTO memberResponse = new MemberResponseDTO()
+            {
+                Nickname = member.Nickname,
+                Email = member.Email
+            };
+
+            return Ok(memberResponse);
+        }
     }
 }

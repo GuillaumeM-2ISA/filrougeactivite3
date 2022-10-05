@@ -40,5 +40,10 @@ namespace Domain.Entities
         /// Propriété de l'id du créateur du sujet
         /// </summary>
         public int MemberId { get; set; }
+
+        /// <summary>
+        /// Propriété du membre du sujet
+        /// </summary>
+        public Member Member { get; set; }
     }
 }

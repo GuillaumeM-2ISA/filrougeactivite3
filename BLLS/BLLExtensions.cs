@@ -14,6 +14,7 @@ namespace BLLS
         {
             services.AddTransient<ISecurityService, SecurityService>();
             services.AddTransient<IMemberService, MemberService>();
+            services.AddTransient<IForumService, ForumService>();
 
             services.AddDALExtension();
         }

@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace BLLS
 {
-    interface IForumService
+    public interface IForumService
     {
         /// <summary>
         /// Ajouter une réponse
@@ -33,6 +33,13 @@ namespace BLLS
         /// <param name="id"></param>
         /// <returns></returns>
         Task<bool> DeleteTopicAsync(int id);
+
+        /// <summary>
+        /// Obtenir une catégorie spécifique par son id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        Task<Category> GetCategoryByIdAsync(int id);
 
         /// <summary>
         /// Obtenir toutes les catégories

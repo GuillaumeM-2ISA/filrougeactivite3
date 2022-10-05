@@ -22,6 +22,11 @@ namespace BLLS
             return await _dbContext.Categories.GetAllAsync();
         }
 
+        public async Task<Category> GetCategoryByIdAsync(int id)
+        {
+            return await _dbContext.Categories.GetByIdAsync(id);
+        }
+
         public async Task<IEnumerable<Topic>> GetTopicsAsync()
         {
             return await _dbContext.Topics.GetAllAsync();

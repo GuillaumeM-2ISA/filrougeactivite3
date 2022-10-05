@@ -1,10 +1,17 @@
 ﻿using Domain.Entities;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace BLLS
 {
     public interface IMemberService
     {
+        /// <summary>
+        /// Obtenir tous les membres
+        /// </summary>
+        /// <returns></returns>
+        Task<IEnumerable<Member>> GetMembersAsync();
+
         /// <summary>
         /// Obtenir un membre par son identifiant
         /// </summary>

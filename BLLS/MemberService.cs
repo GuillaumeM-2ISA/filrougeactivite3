@@ -18,6 +18,11 @@ namespace BLLS
             _dbContext = dbContext;
         }
 
+        public async Task<IEnumerable<Member>> GetMembersAsync()
+        {
+            return await _dbContext.Members.GetAllAsync();
+        }
+
         public async Task<Member> GetMemberByIdAsync(int id)
         {
             return await _dbContext.Members.GetByIdAsync(id);
