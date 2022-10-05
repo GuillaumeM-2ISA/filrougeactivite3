@@ -31,6 +31,12 @@ namespace BLLS
         }
 
         // https://stackoverflow.com/questions/2138429/hash-and-salt-passwords-in-c-sharp
+        /// <summary>
+        /// Génère un hash à partir d'un texte et d'un grain de sel
+        /// </summary>
+        /// <param name="plainText"></param>
+        /// <param name="salt"></param>
+        /// <returns></returns>
         public static byte[] GenerateSaltedHash(byte[] plainText, byte[] salt)
         {
             HashAlgorithm algorithm = new SHA256Managed();

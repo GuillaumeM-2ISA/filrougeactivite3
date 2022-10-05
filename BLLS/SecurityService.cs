@@ -45,6 +45,12 @@ namespace BLLS
             // Renvoie le token ou AuthentificationFailException
         }
 
+        /// <summary>
+        /// Génère un token JWT à partir d'un pseudonyme et des roles
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="roles"></param>
+        /// <returns></returns>
         private string GenerateJwtToken(string username, List<string> roles)
         {
             //Add User Infos
