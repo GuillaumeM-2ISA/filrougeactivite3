@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,6 @@ namespace Domain.DTO.Responses.Responses
         /// <summary>
         /// Pseudonyme du membre du DTO de réponse de réponse
         /// </summary>
-        public string MemberNickname { get; set; }
+        public int MemberId { get; set; }
     }
 }
