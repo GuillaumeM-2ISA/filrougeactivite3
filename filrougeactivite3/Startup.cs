@@ -11,11 +11,14 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
+using NSwag;
+using NSwag.Generation.Processors.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ZymLabs.NSwag.FluentValidation;
 
 namespace API
 {
@@ -55,6 +58,60 @@ namespace API
             {
                 options.Filters.Add(new ApiExceptionFilterAttribute());
             });
+
+            //Documentation Swagger
+            services.AddOpenApiDocument((c, serviceProvider) =>
+            {
+                c.Title = "2isa Forum";
+                c.DocumentName = "API";
+                c.Description = "Mon API";
+                c.Version = "V1";
+                c.AddSecurity("Bearer", new OpenApiSecurityScheme()
+                {
+                    Description =
+            "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter 'Bearer' [space] and then your token in the text input below.\r\n\r\nExample: \"Bearer 12345abcdef\"",
+                    Name = "Authorization",
+                    In = OpenApiSecurityApiKeyLocation.Header,
+                    Type = OpenApiSecuritySchemeType.Http,
+                    Scheme = "Bearer"
+                });
+                c.AddSecurity(JwtBearerDefaults.AuthenticationScheme, new OpenApiSecurityScheme
+                {
+                    Name = "Authorization",
+                    Description = "Input your Bearer token to access this API",
+                    In = OpenApiSecurityApiKeyLocation.Header,
+                    Type = OpenApiSecuritySchemeType.Http,
+                    Scheme = JwtBearerDefaults.AuthenticationScheme,
+                    BearerFormat = "JWT",
+                });
+                c.OperationProcessors.Add(new AspNetCoreOperationSecurityScopeProcessor());
+                //c.OperationProcessors.Add(new SwaggerGlobalAuthProcessor());
+
+
+
+                var fluentValidationSchemaProcessor = serviceProvider.CreateScope().ServiceProvider.GetService<FluentValidationSchemaProcessor>();
+
+
+
+                // Add the fluent validations schema processor
+                c.SchemaProcessors.Add(fluentValidationSchemaProcessor);
+            });
+
+
+
+            //FluentValidationDocumention RuleSet
+            // Add the FluentValidationSchemaProcessor as a scoped service
+            services.AddScoped<FluentValidationSchemaProcessor>(provider =>
+            {
+                var validationRules = provider.GetService<IEnumerable<FluentValidationRule>>();
+                var loggerFactory = provider.GetService<ILoggerFactory>();
+
+
+
+                return new FluentValidationSchemaProcessor(provider, validationRules, loggerFactory);
+            });
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -64,6 +121,12 @@ namespace API
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            //Génération du json
+            app.UseOpenApi();
+
+            //Interface utilisateur de la documentation
+            app.UseSwaggerUi3();
 
             app.UseRouting();
 

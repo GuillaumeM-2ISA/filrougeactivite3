@@ -66,7 +66,9 @@ namespace API.Controllers
                 Token = token
             };
 
-            return Ok(response);
+            //return Ok(response);
+
+            return CreatedAtAction(nameof(GetMemberById), new { Id = member.Id }, response);
         }
 
         /// <summary>
@@ -92,7 +94,7 @@ namespace API.Controllers
             var member = await _memberService.UpdatePasswordAsync(modifiedMember);
 
             //Creation Reponse
-            if (member is null) return NotFound();
+            //if (member is null) return NotFound();
 
             var reponse = new MemberResponseDTO()
             {

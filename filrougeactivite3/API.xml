@@ -1,0 +1,163 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>API</name>
+    </assembly>
+    <members>
+        <member name="M:API.Controllers.ForumController.GetCategories">
+            <summary>
+            Obtenir toutes les catégories
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.ForumController.GetTopics(System.Int32)">
+            <summary>
+            Obtenir tous les sujets d'une catégorie
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.ForumController.GetTopicById(System.Int32,System.Int32)">
+            <summary>
+            Obtenir un sujet spécifique
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.ForumController.CreateTopic(Domain.DTO.Requests.Topic.CreateTopicRequestDTO)">
+            <summary>
+            Ajouter un sujet
+            </summary>
+            <param name="createTopicRequestDTO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.ForumController.UpdateTopic(System.Int32,System.Int32,Domain.DTO.Requests.Topic.UpdateTopicRequestDTO)">
+            <summary>
+            Mettre à jour un sujet
+            </summary>
+            <param name="categoryId"></param>
+            <param name="id"></param>
+            <param name="updateTopicRequestDTO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.ForumController.DeleteBookById(System.Int32,System.Int32)">
+            <summary>
+            Supprimer un sujet
+            </summary>
+            <param name="categoryId"></param>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.ForumController.GetResponses(System.Int32,System.Int32)">
+            <summary>
+            Obtenir toutes les réponses d'un sujet
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.ForumController.GetResponseById(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Obtenir une réponse spécifique
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.ForumController.CreateResponse(System.Int32,System.Int32,Domain.DTO.Requests.Responses.CreateResponseRequestDTO)">
+            <summary>
+            Ajouter une réponse à un sujet
+            </summary>
+            <param name="categoryId"></param>
+            <param name="topicId"></param>
+            <param name="createResponseRequestDTO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.ForumController.DeleteResponseById(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Supprimer une réponse d'un sujet
+            </summary>
+            <param name="categoryId"></param>
+            <param name="topicId"></param>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.MembersController.Login(Domain.DTO.Requests.Security.AuthentificationRequestDTO)">
+            <summary>
+            Se connecter
+            </summary>
+            <param name="authentificationRequestDTO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.MembersController.Register(Domain.DTO.Requests.Members.CreateMemberRequestDTO)">
+            <summary>
+            S'enregistrer
+            </summary>
+            <param name="createMemberRequestDTO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.MembersController.UpdatePassword(System.Int32,Domain.DTO.Requests.Members.UpdatePasswordRequestDTO)">
+            <summary>
+            Mettre à jour son mot de passe
+            </summary>
+            <param name="id"></param>
+            <param name="updatePasswordRequestDTO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.MembersController.GetMembers">
+            <summary>
+            Obtenir tous les membres
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:API.Controllers.MembersController.GetMemberById(System.Int32)">
+            <summary>
+            Obtenir un membre spécifique par son id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Filters.ApiExceptionFilterAttribute.HandleException(Microsoft.AspNetCore.Mvc.Filters.ExceptionContext)">
+            <summary>
+            Handle the good exception for the context
+            </summary>
+            <param name="context">Context of exception</param>
+        </member>
+        <member name="M:API.Filters.ApiExceptionFilterAttribute.HandleInvalidModelStateException(Microsoft.AspNetCore.Mvc.Filters.ExceptionContext)">
+            <summary>
+            Handle Invalid Model State exception 
+            </summary>
+            <param name="context">Context of exception</param>
+        </member>
+        <member name="M:API.Filters.ApiExceptionFilterAttribute.HandleNotFoundException(Microsoft.AspNetCore.Mvc.Filters.ExceptionContext)">
+            <summary>
+            Handle a not found ressource exception 
+            </summary>
+            <param name="context">Context of exception</param>
+        </member>
+        <member name="M:API.Filters.ApiExceptionFilterAttribute.HandleUnauthorizedAccessException(Microsoft.AspNetCore.Mvc.Filters.ExceptionContext)">
+            <summary>
+            Handle for Unauthorized Access Exception
+            </summary>
+            <param name="context">Context of the exception</param>
+        </member>
+        <member name="M:API.Filters.ApiExceptionFilterAttribute.HandleForbiddenAccessException(Microsoft.AspNetCore.Mvc.Filters.ExceptionContext)">
+            <summary>
+            Handle a forbidden Access excception
+            </summary>
+            <param name="context">Context of the exception</param>
+        </member>
+        <member name="M:API.Filters.ApiExceptionFilterAttribute.CreationFailException(Microsoft.AspNetCore.Mvc.Filters.ExceptionContext)">
+            <summary>
+            Handle a not found ressource exception 
+            </summary>
+            <param name="context">Context of exception</param>
+        </member>
+        <member name="M:API.Filters.ApiExceptionFilterAttribute.UpdateFailException(Microsoft.AspNetCore.Mvc.Filters.ExceptionContext)">
+            <summary>
+            Handle a not found ressource exception 
+            </summary>
+            <param name="context">Context of exception</param>
+        </member>
+        <member name="M:API.Filters.ApiExceptionFilterAttribute.HandleUnknownException(Microsoft.AspNetCore.Mvc.Filters.ExceptionContext)">
+            <summary>
+            Handle for an Unknow Exception
+            </summary>
+            <param name="context">Context of the exception</param>
+        </member>
+    </members>
+</doc>
