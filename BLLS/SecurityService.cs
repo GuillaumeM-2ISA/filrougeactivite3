@@ -26,23 +26,17 @@ namespace BLLS
 
         public async Task<string> SigninAsync(string username, string password)
         {
-            //if (username == "admin" && password == "admin")
-            //{
-            //    return GenerateJwtToken("admin", new List<string>() { "ADMIN", "USER" });
-            //}
-            //else if (username == "user" && password == "user")
-            //{
-            //    return GenerateJwtToken("user", new List<string>() { "USER" });
-            //}
-
+            //Chiffrement du mot de passe passé en paramètre
             password = Convert.ToBase64String(MemberService.GenerateSaltedHash(Encoding.UTF8.GetBytes(password), Encoding.UTF8.GetBytes("12356789")));
+            
+            //Vérification en BDD du pseudonyme et du mot de passe chiffré
             Member member = await _dbContext.Members.GetByNicknameAndPasswordAsync(username, password);
+            
+            //Si c'est un modérateur, alors retourne en génèrant un token JWT avec pour role (MEMBER et MODERATOR)
             if (member.Type == "Moderator") return GenerateJwtToken(username, new List<string>() { "MEMBER", "MODERATOR" });
-            return GenerateJwtToken(username, new List<string>() { "MEMBER" });
 
-            // Si l'utilisateur existe ou non
-            // Généré le token avec les bon roles
-            // Renvoie le token ou AuthentificationFailException
+            //Retourne en génèrant un token JWT avec pour role (MEMBER)
+            return GenerateJwtToken(username, new List<string>() { "MEMBER" });
         }
 
         /// <summary>

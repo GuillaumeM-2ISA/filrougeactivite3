@@ -166,7 +166,7 @@ namespace API.Controllers
             var topic = await _forumService.ModifyTopicAsync(topicModified);
 
             //Creation Reponse
-            if (topic is null) return NotFound();
+            //if (topic is null) return NotFound();
 
             var category = await _forumService.GetCategoryByIdAsync(topic.CategoryId);
 
@@ -189,7 +189,7 @@ namespace API.Controllers
         /// <returns></returns>
         [Authorize(Roles = "MODERATOR")]
         [HttpDelete("categories/{categoryId}/topics/{id}")]
-        public async Task<IActionResult> DeleteBookById([FromRoute] int categoryId, [FromRoute] int id)
+        public async Task<IActionResult> DeleteTopicById([FromRoute] int categoryId, [FromRoute] int id)
         {
             var isDeleted = await _forumService.DeleteTopicAsync(id);
             return (isDeleted) ? NoContent() : NotFound();

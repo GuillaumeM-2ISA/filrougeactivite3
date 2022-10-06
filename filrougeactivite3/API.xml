@@ -38,7 +38,7 @@
             <param name="updateTopicRequestDTO"></param>
             <returns></returns>
         </member>
-        <member name="M:API.Controllers.ForumController.DeleteBookById(System.Int32,System.Int32)">
+        <member name="M:API.Controllers.ForumController.DeleteTopicById(System.Int32,System.Int32)">
             <summary>
             Supprimer un sujet
             </summary>

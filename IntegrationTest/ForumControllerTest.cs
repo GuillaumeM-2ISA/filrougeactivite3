@@ -193,5 +193,49 @@ namespace IntegrationTest
             //clean 
             SignOut();
         }
+
+        [Fact]
+        public async void UpdateTopicShouldBeABadRequest()
+        {
+            //Arrange
+            string uri = "/api/forum/categories/1/topics/1";
+
+            UpdateTopicRequestDTO updateTopicRequestDTO = new UpdateTopicRequestDTO()
+            {
+                Id = 0,
+                Title = "Framework .NET C#",
+                Description = "L'utilisez-vous ?",
+                CategoryId = 1
+            };
+
+            await SignIn("toto", "totopassword");
+
+            //Act
+            HttpResponseMessage response = await _client.PutAsJsonAsync<UpdateTopicRequestDTO>(uri, updateTopicRequestDTO);
+
+            //Assert
+            Assert.True(response.StatusCode == HttpStatusCode.BadRequest);
+
+            //clean 
+            SignOut();
+        }
+
+        [Fact]
+        public async void DeleteTopicShouldBeOkAndDeleted()
+        {
+            //Arrange
+            string uri = "/api/forum/categories/1/topics/1";
+
+            await SignIn("toto", "totopassword");
+
+            //Act
+            HttpResponseMessage response = await _client.DeleteAsync(uri);
+
+            //Assert
+            Assert.True(response.StatusCode == HttpStatusCode.NoContent);
+
+            //clean 
+            SignOut();
+        }
     }
 }

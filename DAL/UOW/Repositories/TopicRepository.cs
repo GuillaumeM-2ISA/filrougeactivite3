@@ -50,6 +50,10 @@ namespace DAL.UOW.Repositories
 
         public async Task<bool> DeleteAsync(int id)
         {
+            string queryResponse = @"DELETE FROM Response WHERE TopicId = @TopicId";
+
+            int nbLigneAffectedResponse = await _db.Connection.ExecuteAsync(queryResponse, new { TopicId = id }, transaction: _db.Transaction);
+
             string query = @"DELETE FROM Topic WHERE Id = @Id";
 
             int nbLigneAffected = await _db.Connection.ExecuteAsync(query, new { Id = id }, transaction: _db.Transaction);
