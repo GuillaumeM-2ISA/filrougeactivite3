@@ -26,7 +26,7 @@ namespace DocFx
             app.UseFileServer(new FileServerOptions()
             {
                 RequestPath = configDocFxUI.Path,
-                FileProvider = new EmbeddedFileProvider(Assembly.GetExecutingAssembly(), "_site")
+                FileProvider = new EmbeddedFileProvider(Assembly.GetExecutingAssembly(), "DocFx._site")
             });
         }
     }
