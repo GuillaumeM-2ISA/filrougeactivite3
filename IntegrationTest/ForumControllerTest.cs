@@ -1,4 +1,6 @@
-﻿using Domain.DTO.Requests.Topic;
+﻿using Domain.DTO.Requests.Responses;
+using Domain.DTO.Requests.Topic;
+using Domain.DTO.Responses.Responses;
 using Domain.DTO.Responses.Topics;
 using IntegrationTest.Fixture;
 using Microsoft.Data.SqlClient;
@@ -225,6 +227,125 @@ namespace IntegrationTest
         {
             //Arrange
             string uri = "/api/forum/categories/1/topics/1";
+
+            await SignIn("toto", "totopassword");
+
+            //Act
+            HttpResponseMessage response = await _client.DeleteAsync(uri);
+
+            //Assert
+            Assert.True(response.StatusCode == HttpStatusCode.NoContent);
+
+            //clean 
+            SignOut();
+        }
+
+        [Fact]
+        public async void GetResponsesShouldBeOk()
+        {
+            //Arrange
+            string uri = "/api/forum/categories/1/topics/1/responses";
+
+            //Act
+            HttpResponseMessage response = await _client.GetAsync(uri);
+
+            //Assert
+            Assert.True(response.StatusCode == HttpStatusCode.OK);
+        }
+
+        [Fact]
+        public async void GetResponseByIdShouldBeOk()
+        {
+            //Arrange
+            string uri = "/api/forum/categories/1/topics/1/responses/1";
+
+            //Act
+            HttpResponseMessage response = await _client.GetAsync(uri);
+
+            //Assert
+            Assert.True(response.StatusCode == HttpStatusCode.OK);
+        }
+
+        [Fact]
+        public async void GetResponseByIdShouldBeNotFound()
+        {
+            //Arrange
+            string uri = "/api/forum/categories/1/topics/1/responses/3";
+
+            //Act
+            HttpResponseMessage response = await _client.GetAsync(uri);
+
+            //Assert
+            Assert.True(response.StatusCode == HttpStatusCode.NotFound);
+        }
+
+        [Fact]
+        public async void CreateResponseShouldBeOkAndCreated()
+        {
+            //Arrange
+            string uri = "/api/forum/categories/1/topics/1/responses";
+
+            CreateResponseRequestDTO createResponseRequestDTO = new CreateResponseRequestDTO()
+            {
+                Content = "Non, mais je souhaiterai le découvrir",
+                TopicId = 1,
+                MemberId = 2
+            };
+
+            ResponseResponseDTO expected = new ResponseResponseDTO()
+            {
+                Content = "Non, mais je souhaiterai le découvrir",
+                TopicTitle = "Framework .NET C#",
+                MemberId = 2
+            };
+
+            await SignIn("titi", "titipassword");
+
+            //Act
+            HttpResponseMessage response = await _client.PostAsJsonAsync<CreateResponseRequestDTO>(uri, createResponseRequestDTO);
+
+            //Assert
+            Assert.True(response.StatusCode == HttpStatusCode.Created);
+            ResponseResponseDTO responseResponseDTO = await response.Content.ReadFromJsonAsync<ResponseResponseDTO>();
+
+            Assert.True(responseResponseDTO.Content == expected.Content);
+            Assert.True(responseResponseDTO.TopicTitle == expected.TopicTitle);
+            Assert.True(responseResponseDTO.MemberId == expected.MemberId);
+
+            //clean 
+            SignOut();
+        }
+
+        [Fact]
+        public async void CreateResponseShouldBeABadRequest()
+        {
+            //Arrange
+            string uri = "/api/forum/categories/1/topics/1/responses";
+
+            CreateResponseRequestDTO createResponseRequestDTO = new CreateResponseRequestDTO()
+            {
+                Content = "Non, mais je souhaiterai le découvrir",
+                TopicId = 1,
+                MemberId = 0
+            };
+
+            await SignIn("titi", "titipassword");
+
+            //Act
+            HttpResponseMessage response = await _client.PostAsJsonAsync<CreateResponseRequestDTO>(uri, createResponseRequestDTO);
+
+            //Assert
+            Assert.True(response.StatusCode == HttpStatusCode.BadRequest);
+
+            //clean 
+            SignOut();
+        }
+
+        [Fact]
+        public async void DeleteResponseShouldBeOkAndDeleted()
+        {
+            //Arrange
+            string uri = "/api/forum/categories/1/topics/1/responses/2";
 
             await SignIn("toto", "totopassword");
 

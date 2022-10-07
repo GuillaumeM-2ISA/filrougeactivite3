@@ -12,12 +12,14 @@
   <ItemGroup>
     <PackageReference Include="FluentValidation.AspNetCore" Version="11.2.2" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.17" />
+    <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="6.0.9" />
     <PackageReference Include="NSwag.AspNetCore" Version="13.17.0" />
     <PackageReference Include="ZymLabs.NSwag.FluentValidation.AspNetCore" Version="0.6.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\BLLS\BLLS.csproj" />
+    <ProjectReference Include="..\DocFx\DocFx.csproj" />
     <ProjectReference Include="..\Domain\Domain.csproj" />
   </ItemGroup>
 

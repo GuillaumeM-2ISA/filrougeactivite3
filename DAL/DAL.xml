@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DAL</name>
+    </assembly>
+    <members>
+        <member name="M:DAL.UOW.Repositories.ICategoryRepository.GetAllAsync">
+            <summary>
+            Méthode récupérant toutes les catégories
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DAL.UOW.Repositories.ICategoryRepository.GetByIdAsync(System.Int32)">
+            <summary>
+            Méthode récupérant une catégorie spécifique par son id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DAL.UOW.Repositories.IGenericRepository`1.GetAllAsync">
+            <summary>
+            Méthode récupérant toutes les entités d'un type spécifique
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DAL.UOW.Repositories.IGenericRepository`1.GetByIdAsync(System.Int32)">
+            <summary>
+            Méthode récupérant l'entité d'un type spécifique
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DAL.UOW.Repositories.IGenericRepository`1.AddAsync(`0)">
+            <summary>
+            Méthode ajoutant une entité d'un type spécifique
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DAL.UOW.Repositories.IGenericRepository`1.UpdateAsync(`0)">
+            <summary>
+            Méthode modifiant une entité d'un type spécifique
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DAL.UOW.Repositories.IGenericRepository`1.DeleteAsync(System.Int32)">
+            <summary>
+            Méthode supprimant une entité d'un type spécifique
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DAL.UOW.Repositories.IMemberRepository.GetByEmailAsync(System.String)">
+            <summary>
+            Méthode récupérant le membre par son adresse email
+            </summary>
+            <param name="email"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DAL.UOW.Repositories.IMemberRepository.IsGettableByNicknameAsync(System.String)">
+            <summary>
+            Méthode vérifiant que l'on puisse obtenir le membre par son pseudonyme
+            </summary>
+            <param name="nickname"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DAL.UOW.Repositories.IMemberRepository.IsGettableByEmailAsync(System.String)">
+            <summary>
+            Méthode vérifiant que l'on puisse obtenir le membre par son adresse email
+            </summary>
+            <param name="email"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DAL.UOW.Repositories.IMemberRepository.GetByNicknameAndPasswordAsync(System.String,System.String)">
+            <summary>
+            Méthode récupérant le membre par son pseudonyme et son mot de passe
+            </summary>
+            <param name="nickname"></param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DAL.UOW.Repositories.IMemberRepository.UpdatePasswordAsync(Domain.Entities.Member)">
+            <summary>
+            Méthode mettant à jour le mot de passe du membre
+            </summary>
+            <param name="memberModified"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DAL.UOW.Repositories.IResponseRepository.GetResponsesByTopicIdAsync(System.Int32)">
+            <summary>
+            Méthode récupérant toutes les réponses associé à un sujet spécifique
+            </summary>
+            <param name="topicId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DAL.UOW.Repositories.ITopicRepository.GetTopicsByCategoryIdAsync(System.Int32)">
+            <summary>
+            Méthode récupérant tous les sujets associé à une catégorie spécifique
+            </summary>
+            <param name="categoryId"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

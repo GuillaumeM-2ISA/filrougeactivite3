@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BLLS</name>
+    </assembly>
+    <members>
+        <member name="M:BLLS.IForumService.AddResponseAsync(Domain.Entities.Response)">
+            <summary>
+            Ajouter une réponse
+            </summary>
+            <param name="newResponse"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BLLS.IForumService.AddTopicAsync(Domain.Entities.Topic)">
+            <summary>
+            Ajouter un sujet
+            </summary>
+            <param name="newTopic"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BLLS.IForumService.DeleteResponseAsync(System.Int32)">
+            <summary>
+            Supprimer une réponse
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BLLS.IForumService.DeleteTopicAsync(System.Int32)">
+            <summary>
+            Supprimer un sujet
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BLLS.IForumService.GetCategoryByIdAsync(System.Int32)">
+            <summary>
+            Obtenir une catégorie spécifique par son id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BLLS.IForumService.GetCategoriesAsync">
+            <summary>
+            Obtenir toutes les catégories
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BLLS.IForumService.GetResponseByIdAsync(System.Int32)">
+            <summary>
+            Obtenir une réponse par son id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BLLS.IForumService.GetResponsesAsync">
+            <summary>
+            Obtenir toutes les réponses
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BLLS.IForumService.GetResponsesByTopicIdAsync(System.Int32)">
+            <summary>
+            Obtenir toutes les réponses par son sujet
+            </summary>
+            <param name="topicId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BLLS.IForumService.GetTopicByIdAsync(System.Int32)">
+            <summary>
+            Obtenir un sujet par son id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BLLS.IForumService.GetTopicsAsync">
+            <summary>
+            Obtenir tous les sujets
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BLLS.IForumService.GetTopicsByCategoryIdAsync(System.Int32)">
+            <summary>
+            Obtenir tous les sujets par sa categorie
+            </summary>
+            <param name="categoryId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BLLS.IForumService.ModifyTopicAsync(Domain.Entities.Topic)">
+            <summary>
+            Modifier un sujet
+            </summary>
+            <param name="modifiedTopic"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BLLS.IMemberService.GetMembersAsync">
+            <summary>
+            Obtenir tous les membres
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BLLS.IMemberService.GetMemberByIdAsync(System.Int32)">
+            <summary>
+            Obtenir un membre par son identifiant
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BLLS.IMemberService.GetMemberByEmailAsync(System.String)">
+            <summary>
+            Obtenir un membre par son adresse email
+            </summary>
+            <param name="email"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BLLS.IMemberService.RegisterAsync(Domain.Entities.Member)">
+            <summary>
+            Enregistre le nouveau membre
+            </summary>
+            <param name="newMember"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BLLS.IMemberService.UpdatePasswordAsync(Domain.Entities.Member)">
+            <summary>
+            Modifie le mot de passe du membre
+            </summary>
+            <param name="modifiedMember"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BLLS.ISecurityService.SigninAsync(System.String,System.String)">
+            <summary>
+            Renvoie le token généré par le serveur
+            </summary>
+            <param name="username"></param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BLLS.MemberService.GenerateSaltedHash(System.Byte[],System.Byte[])">
+            <summary>
+            Génère un hash à partir d'un texte et d'un grain de sel
+            </summary>
+            <param name="plainText"></param>
+            <param name="salt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BLLS.SecurityService.GenerateJwtToken(System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            Génère un token JWT à partir d'un pseudonyme et des roles
+            </summary>
+            <param name="username"></param>
+            <param name="roles"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

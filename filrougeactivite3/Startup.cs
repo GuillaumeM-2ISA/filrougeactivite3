@@ -19,6 +19,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ZymLabs.NSwag.FluentValidation;
+using DocFx;
 
 namespace API
 {
@@ -121,6 +122,11 @@ namespace API
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseDocFxUI((settings) =>
+            {
+                settings.Path = "/doc";
+            });
 
             //Génération du json
             app.UseOpenApi();

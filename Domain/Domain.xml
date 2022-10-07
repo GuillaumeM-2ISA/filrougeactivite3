@@ -1,0 +1,353 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Domain</name>
+    </assembly>
+    <members>
+        <member name="T:Domain.DTO.Requests.Members.CreateMemberRequestDTO">
+            <summary>
+            Classe DTO de requête de création de membre
+            </summary>
+        </member>
+        <member name="P:Domain.DTO.Requests.Members.CreateMemberRequestDTO.Nickname">
+            <summary>
+            Pseudonyme du DTO de requête de création de membre
+            </summary>
+        </member>
+        <member name="P:Domain.DTO.Requests.Members.CreateMemberRequestDTO.Email">
+            <summary>
+            Adresse email du DTO de requête de création de membre
+            </summary>
+        </member>
+        <member name="P:Domain.DTO.Requests.Members.CreateMemberRequestDTO.Password">
+            <summary>
+            Mot de passe du DTO de requête de création de membre
+            </summary>
+        </member>
+        <member name="T:Domain.DTO.Requests.Members.UpdatePasswordRequestDTO">
+            <summary>
+            Classe DTO de requête de mise à jour du mot de passe
+            </summary>
+        </member>
+        <member name="P:Domain.DTO.Requests.Members.UpdatePasswordRequestDTO.Id">
+            <summary>
+            Identifiant du DTO de requête de mise à jour du mot de passe
+            </summary>
+        </member>
+        <member name="P:Domain.DTO.Requests.Members.UpdatePasswordRequestDTO.Password">
+            <summary>
+            Mot de passe du DTO de requête de mise à jour du mot de passe
+            </summary>
+        </member>
+        <member name="T:Domain.DTO.Requests.Responses.CreateResponseRequestDTO">
+            <summary>
+            Classe DTO de requête de création de réponse
+            </summary>
+        </member>
+        <member name="P:Domain.DTO.Requests.Responses.CreateResponseRequestDTO.Content">
+            <summary>
+            Contenu du DTO de requête de création de réponse
+            </summary>
+        </member>
+        <member name="P:Domain.DTO.Requests.Responses.CreateResponseRequestDTO.TopicId">
+            <summary>
+            Identifiant du sujet du DTO de requête de création de réponse
+            </summary>
+        </member>
+        <member name="P:Domain.DTO.Requests.Responses.CreateResponseRequestDTO.MemberId">
+            <summary>
+            Identifiant du membre du DTO de requête de création de réponse
+            </summary>
+        </member>
+        <member name="T:Domain.DTO.Requests.Topic.CreateTopicRequestDTO">
+            <summary>
+            Classe DTO de requête de création du sujet
+            </summary>
+        </member>
+        <member name="P:Domain.DTO.Requests.Topic.CreateTopicRequestDTO.Title">
+            <summary>
+            Titre du DTO de requête de création du sujet
+            </summary>
+        </member>
+        <member name="P:Domain.DTO.Requests.Topic.CreateTopicRequestDTO.Description">
+            <summary>
+            Description du DTO de requête de création du sujet
+            </summary>
+        </member>
+        <member name="P:Domain.DTO.Requests.Topic.CreateTopicRequestDTO.CategoryId">
+            <summary>
+            Identifiant de la catégorie du DTO de requête de création du sujet
+            </summary>
+        </member>
+        <member name="P:Domain.DTO.Requests.Topic.CreateTopicRequestDTO.MemberId">
+            <summary>
+            Identifiant du membre du DTO de requête de création du sujet
+            </summary>
+        </member>
+        <member name="T:Domain.DTO.Requests.Topic.UpdateTopicRequestDTO">
+            <summary>
+            Classe DTO de requête de mise à jour du sujet
+            </summary>
+        </member>
+        <member name="P:Domain.DTO.Requests.Topic.UpdateTopicRequestDTO.Id">
+            <summary>
+            Identifiant du DTO de requête de mise à jour du sujet
+            </summary>
+        </member>
+        <member name="P:Domain.DTO.Requests.Topic.UpdateTopicRequestDTO.Title">
+            <summary>
+            Titre du DTO de requête de mise à jour du sujet
+            </summary>
+        </member>
+        <member name="P:Domain.DTO.Requests.Topic.UpdateTopicRequestDTO.Description">
+            <summary>
+            Description du DTO de requête de mise à jour du sujet
+            </summary>
+        </member>
+        <member name="P:Domain.DTO.Requests.Topic.UpdateTopicRequestDTO.CategoryId">
+            <summary>
+            Identifiant de la catégorie du DTO de requête de mise à jour du sujet
+            </summary>
+        </member>
+        <member name="T:Domain.DTO.Requests.Security.AuthentificationRequestDTO">
+            <summary>
+            Classe DTO de requête d'authentification
+            </summary>
+        </member>
+        <member name="P:Domain.DTO.Requests.Security.AuthentificationRequestDTO.Nickname">
+            <summary>
+            Pseudonyme du DTO de requête d'authentification
+            </summary>
+        </member>
+        <member name="P:Domain.DTO.Requests.Security.AuthentificationRequestDTO.Password">
+            <summary>
+            Mot de passe du DTO de requête d'authentification
+            </summary>
+        </member>
+        <member name="T:Domain.DTO.Responses.Categories.CategoryResponseDTO">
+            <summary>
+            Classe DTO de réponse de la catégorie
+            </summary>
+        </member>
+        <member name="P:Domain.DTO.Responses.Categories.CategoryResponseDTO.Name">
+            <summary>
+            Nom du DTO de réponse de la catégorie
+            </summary>
+        </member>
+        <member name="T:Domain.DTO.Responses.Members.CreateMemberResponseDTO">
+            <summary>
+            Classe DTO de réponse de la création de membre
+            </summary>
+        </member>
+        <member name="P:Domain.DTO.Responses.Members.CreateMemberResponseDTO.Nickname">
+            <summary>
+            Pseudonyme du DTO de réponse de la création de membre
+            </summary>
+        </member>
+        <member name="P:Domain.DTO.Responses.Members.CreateMemberResponseDTO.Email">
+            <summary>
+            Email du DTO de réponse de la création de membre
+            </summary>
+        </member>
+        <member name="P:Domain.DTO.Responses.Members.CreateMemberResponseDTO.Token">
+            <summary>
+            Token du DTO de réponse de la création de membre
+            </summary>
+        </member>
+        <member name="T:Domain.DTO.Responses.Members.MemberResponseDTO">
+            <summary>
+            Classe DTO de réponse de membre
+            </summary>
+        </member>
+        <member name="P:Domain.DTO.Responses.Members.MemberResponseDTO.Nickname">
+            <summary>
+            Pseudonyme du DTO de réponse de membre
+            </summary>
+        </member>
+        <member name="P:Domain.DTO.Responses.Members.MemberResponseDTO.Email">
+            <summary>
+            Adresse email du DTO de réponse de membre
+            </summary>
+        </member>
+        <member name="T:Domain.DTO.Responses.Responses.ResponseResponseDTO">
+            <summary>
+            Classe DTO de réponse de réponse
+            </summary>
+        </member>
+        <member name="P:Domain.DTO.Responses.Responses.ResponseResponseDTO.Content">
+            <summary>
+            Contenu du DTO de réponse de réponse
+            </summary>
+        </member>
+        <member name="P:Domain.DTO.Responses.Responses.ResponseResponseDTO.TopicTitle">
+            <summary>
+            Titre du sujet du DTO de réponse de réponse
+            </summary>
+        </member>
+        <member name="P:Domain.DTO.Responses.Responses.ResponseResponseDTO.MemberId">
+            <summary>
+            Pseudonyme du membre du DTO de réponse de réponse
+            </summary>
+        </member>
+        <member name="T:Domain.DTO.Responses.Topics.TopicResponseDTO">
+            <summary>
+            Classe DTO de réponse de sujet
+            </summary>
+        </member>
+        <member name="P:Domain.DTO.Responses.Topics.TopicResponseDTO.Title">
+            <summary>
+            Titre du DTO de réponse de sujet
+            </summary>
+        </member>
+        <member name="P:Domain.DTO.Responses.Topics.TopicResponseDTO.Description">
+            <summary>
+            Description du DTO de réponse de sujet
+            </summary>
+        </member>
+        <member name="P:Domain.DTO.Responses.Topics.TopicResponseDTO.CategoryName">
+            <summary>
+            Nom de la catégorie du DTO de réponse de sujet
+            </summary>
+        </member>
+        <member name="P:Domain.DTO.Responses.Topics.TopicResponseDTO.MemberId">
+            <summary>
+            Pseudonyme du membre du DTO de réponse de sujet
+            </summary>
+        </member>
+        <member name="T:Domain.DTO.Security.TokenResponseDTO">
+            <summary>
+            Classe DTO de réponse du token
+            </summary>
+        </member>
+        <member name="P:Domain.DTO.Security.TokenResponseDTO.Token">
+            <summary>
+            Token du DTO de réponse du token
+            </summary>
+        </member>
+        <member name="T:Domain.Entities.Category">
+            <summary>
+            Classe Category représentant une catégorie sur le forum
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Category.Name">
+            <summary>
+            Propriété du nom de la catégorie
+            </summary>
+        </member>
+        <member name="T:Domain.Entities.Entity">
+            <summary>
+            Classe abstraite représentant les entités
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Entity.Id">
+            <summary>
+            Propriété de l'id des entités
+            </summary>
+        </member>
+        <member name="T:Domain.Entities.Member">
+            <summary>
+            Classe Member représentant un membre sur le forum
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Member.Nickname">
+            <summary>
+            Propriété du pseudonyme du membre
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Member.Type">
+            <summary>
+            Propriété du type du membre
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Member.Email">
+            <summary>
+            Propriété de l'adresse email du membre
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Member.Password">
+            <summary>
+            Propriété du mot de passe du membre
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Member.CreatedAt">
+            <summary>
+            Propriété de la date de création du membre
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Member.UpdateAt">
+            <summary>
+            Propriété de la date de mise à jour du membre
+            </summary>
+        </member>
+        <member name="T:Domain.Entities.Response">
+            <summary>
+            Classe Response représentant une réponse sur le forum
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Response.SentOn">
+            <summary>
+            Propriété de date d'envoi de la réponse
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Response.Content">
+            <summary>
+            Propriété du contenu de la réponse
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Response.TopicId">
+            <summary>
+            Propriété de l'id du sujet de la réponse
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Response.MemberId">
+            <summary>
+            Propriété de l'id de l'auteur de la réponse
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Response.Member">
+            <summary>
+            Propriété du membre de la réponse
+            </summary>
+        </member>
+        <member name="T:Domain.Entities.Topic">
+            <summary>
+            Classe Topic représentant un sujet sur le forum
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Topic.CreatedAt">
+            <summary>
+            Propriété de date de création du sujet
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Topic.Title">
+            <summary>
+            Propriété du titre du sujet
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Topic.Description">
+            <summary>
+            Propriété de la description du sujet
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Topic.UpdatedAt">
+            <summary>
+            Propriété de la date de mise à jour du sujet
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Topic.CategoryId">
+            <summary>
+            Propriété de l'id de la catégorie du sujet
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Topic.MemberId">
+            <summary>
+            Propriété de l'id du créateur du sujet
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Topic.Member">
+            <summary>
+            Propriété du membre du sujet
+            </summary>
+        </member>
+    </members>
+</doc>
