@@ -30,6 +30,6 @@ namespace Domain.DTO.Responses.Topics
         /// <summary>
         /// Pseudonyme du membre du DTO de réponse de sujet
         /// </summary>
-        public int MemberId { get; set; }
+        public string MemberNickname { get; set; }
     }
 }

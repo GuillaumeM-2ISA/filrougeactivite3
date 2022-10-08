@@ -63,7 +63,7 @@ namespace API.Controllers
                 Title = topic.Title,
                 Description = topic.Description,
                 CategoryName = category.Name,
-                MemberId = topic.MemberId
+                MemberNickname = topic.Member.Nickname
             });
 
             return Ok(topicsResponse);
@@ -88,7 +88,7 @@ namespace API.Controllers
                 Title = topic.Title,
                 Description = topic.Description,
                 CategoryName = category.Name,
-                MemberId = topic.MemberId
+                MemberNickname = topic.Member.Nickname
             };
 
             return Ok(topicResponse);
@@ -129,7 +129,7 @@ namespace API.Controllers
                     Title = topic.Title,
                     Description = topic.Description,
                     CategoryName = category.Name,
-                    MemberId = topic.MemberId
+                    MemberNickname = topic.Member.Nickname
                 });
             }
             else
@@ -175,7 +175,7 @@ namespace API.Controllers
                 Title = topic.Title,
                 Description = topic.Description,
                 CategoryName = category.Name,
-                MemberId = topic.MemberId
+                MemberNickname = topic.Member.Nickname
             };
 
             return Ok(reponse);
@@ -211,7 +211,7 @@ namespace API.Controllers
             {
                 Content = response.Content,
                 TopicTitle = topic.Title,
-                MemberId = response.MemberId
+                MemberNickname = response.Member.Nickname
             });
 
             return Ok(responsesResponse);
@@ -235,7 +235,7 @@ namespace API.Controllers
             {
                 Content = response.Content,
                 TopicTitle = topic.Title,
-                MemberId = response.MemberId
+                MemberNickname = response.Member.Nickname
             };
 
             return Ok(ResponseResponse);
@@ -276,7 +276,7 @@ namespace API.Controllers
                 {
                     Content = response.Content,
                     TopicTitle = topic.Title,
-                    MemberId = response.MemberId
+                    MemberNickname = response.Member.Nickname
                 });
             }
             else

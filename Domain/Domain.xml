@@ -184,7 +184,7 @@
             Titre du sujet du DTO de réponse de réponse
             </summary>
         </member>
-        <member name="P:Domain.DTO.Responses.Responses.ResponseResponseDTO.MemberId">
+        <member name="P:Domain.DTO.Responses.Responses.ResponseResponseDTO.MemberNickname">
             <summary>
             Pseudonyme du membre du DTO de réponse de réponse
             </summary>
@@ -209,7 +209,7 @@
             Nom de la catégorie du DTO de réponse de sujet
             </summary>
         </member>
-        <member name="P:Domain.DTO.Responses.Topics.TopicResponseDTO.MemberId">
+        <member name="P:Domain.DTO.Responses.Topics.TopicResponseDTO.MemberNickname">
             <summary>
             Pseudonyme du membre du DTO de réponse de sujet
             </summary>

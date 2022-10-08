@@ -22,7 +22,11 @@ namespace DAL.UOW.Repositories
         {
             string query = @"SELECT * FROM Response AS r INNER JOIN Member AS m ON r.MemberId = m.Id";
 
-            IEnumerable<Response> responses = await _db.Connection.QueryAsync<Response>(query, transaction: _db.Transaction);
+            IEnumerable<Response> responses = await _db.Connection.QueryAsync<Response, Member, Response>(query, (response, member) =>
+            {
+                response.Member = member;
+                return response;
+            }, transaction: _db.Transaction);
 
             return responses;
         }
@@ -31,7 +35,11 @@ namespace DAL.UOW.Repositories
         {
             string query = @"SELECT * FROM Response AS r INNER JOIN Member AS m ON r.MemberId = m.Id WHERE r.TopicId = @TopicId";
 
-            IEnumerable<Response> responses = await _db.Connection.QueryAsync<Response>(query, new { TopicId = topicId }, transaction: _db.Transaction);
+            IEnumerable<Response> responses = await _db.Connection.QueryAsync<Response, Member, Response>(query, (response, member) =>
+            {
+                response.Member = member;
+                return response;
+            }, new { TopicId = topicId }, transaction: _db.Transaction);
 
             return responses;
         }
@@ -40,7 +48,11 @@ namespace DAL.UOW.Repositories
         {
             string query = @"SELECT * FROM Response AS r INNER JOIN Member AS m ON r.MemberId = m.Id WHERE r.Id = @Id";
 
-            Response response = (await _db.Connection.QueryAsync<Response>(query, new { Id = id }, transaction: _db.Transaction)).FirstOrDefault();
+            Response response = (await _db.Connection.QueryAsync<Response, Member, Response>(query, (response, member) =>
+            {
+                response.Member = member;
+                return response;
+            }, new { Id = id }, transaction: _db.Transaction)).FirstOrDefault();
 
             if (response == null)
                 throw new NotFoundException();

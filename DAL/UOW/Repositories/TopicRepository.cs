@@ -22,7 +22,11 @@ namespace DAL.UOW.Repositories
         {
             string query = @"SELECT * FROM Topic AS t INNER JOIN Member AS m ON t.MemberId = m.Id";
 
-            IEnumerable<Topic> topics = await _db.Connection.QueryAsync<Topic>(query, transaction: _db.Transaction);
+            IEnumerable<Topic> topics = await _db.Connection.QueryAsync<Topic, Member, Topic>(query, (topic, member) =>
+            {
+                topic.Member = member;
+                return topic;
+            }, transaction: _db.Transaction);
 
             return topics;
         }
@@ -31,7 +35,11 @@ namespace DAL.UOW.Repositories
         {
             string query = @"SELECT * FROM Topic AS t INNER JOIN Member AS m ON t.MemberId = m.Id WHERE t.CategoryId = @CategoryId";
 
-            IEnumerable<Topic> topics = await _db.Connection.QueryAsync<Topic>(query, new { CategoryId = categoryId }, transaction: _db.Transaction);
+            IEnumerable<Topic> topics = await _db.Connection.QueryAsync<Topic, Member, Topic>(query, (topic, member) =>
+            {
+                topic.Member = member;
+                return topic;
+            }, new { CategoryId = categoryId }, transaction: _db.Transaction);
 
             return topics;
         }
@@ -40,7 +48,11 @@ namespace DAL.UOW.Repositories
         {
             string query = @"SELECT * FROM Topic AS t INNER JOIN Member AS m ON t.MemberId = m.Id WHERE t.Id = @Id";
 
-            Topic topic = (await _db.Connection.QueryAsync<Topic>(query, new { Id = id }, transaction: _db.Transaction)).FirstOrDefault();
+            Topic topic = (await _db.Connection.QueryAsync<Topic, Member, Topic>(query, (topic, member) =>
+            {
+                topic.Member = member;
+                return topic;
+            }, new { Id = id }, transaction: _db.Transaction)).FirstOrDefault();
 
             if (topic == null)
                 throw new NotFoundException();
