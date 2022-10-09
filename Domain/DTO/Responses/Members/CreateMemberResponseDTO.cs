@@ -25,5 +25,13 @@ namespace Domain.DTO.Responses.Members
         /// Token du DTO de réponse de la création de membre
         /// </summary>
         public string Token { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            return obj is CreateMemberResponseDTO dTO &&
+                   Nickname == dTO.Nickname &&
+                   Email == dTO.Email &&
+                   Token == dTO.Token;
+        }
     }
 }

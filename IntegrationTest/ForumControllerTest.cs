@@ -109,7 +109,7 @@ namespace IntegrationTest
                 Title = createTopicRequestDTO.Title,
                 Description = createTopicRequestDTO.Description,
                 CategoryName = "Développement",
-                MemberId = 1
+                MemberNickname = "toto"
             };
 
             await SignIn("toto", "totopassword");
@@ -124,7 +124,7 @@ namespace IntegrationTest
             Assert.True(topicResponseDTO.Title == expected.Title);
             Assert.True(topicResponseDTO.Description == expected.Description);
             Assert.True(topicResponseDTO.CategoryName == expected.CategoryName);
-            Assert.True(topicResponseDTO.MemberId == expected.MemberId);
+            Assert.True(topicResponseDTO.MemberNickname == expected.MemberNickname);
 
             //clean 
             SignOut();
@@ -175,7 +175,7 @@ namespace IntegrationTest
                 Title = "Framework .NET C#",
                 Description = "L'utilisez-vous ?",
                 CategoryName = "Développement",
-                MemberId = 1
+                MemberNickname = "toto"
             };
 
             await SignIn("toto", "totopassword");
@@ -190,7 +190,7 @@ namespace IntegrationTest
             Assert.True(topicResponseDTO.Title == expected.Title);
             Assert.True(topicResponseDTO.Description == expected.Description);
             Assert.True(topicResponseDTO.CategoryName == expected.CategoryName);
-            Assert.True(topicResponseDTO.MemberId == expected.MemberId);
+            Assert.True(topicResponseDTO.MemberNickname == expected.MemberNickname);
 
             //clean 
             SignOut();
@@ -296,7 +296,7 @@ namespace IntegrationTest
             {
                 Content = "Non, mais je souhaiterai le découvrir",
                 TopicTitle = "Framework .NET C#",
-                MemberId = 2
+                MemberNickname = "titi"
             };
 
             await SignIn("titi", "titipassword");
@@ -310,7 +310,7 @@ namespace IntegrationTest
 
             Assert.True(responseResponseDTO.Content == expected.Content);
             Assert.True(responseResponseDTO.TopicTitle == expected.TopicTitle);
-            Assert.True(responseResponseDTO.MemberId == expected.MemberId);
+            Assert.True(responseResponseDTO.MemberNickname == expected.MemberNickname);
 
             //clean 
             SignOut();

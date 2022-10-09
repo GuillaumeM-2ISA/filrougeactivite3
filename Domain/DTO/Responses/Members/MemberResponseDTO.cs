@@ -20,5 +20,12 @@ namespace Domain.DTO.Responses.Members
         /// Adresse email du DTO de réponse de membre
         /// </summary>
         public string Email { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            return obj is MemberResponseDTO dTO &&
+                   Nickname == dTO.Nickname &&
+                   Email == dTO.Email;
+        }
     }
 }
