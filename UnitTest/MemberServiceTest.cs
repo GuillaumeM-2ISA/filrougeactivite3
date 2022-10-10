@@ -14,13 +14,15 @@ namespace UnitTest
 {
     public class MemberServiceTest
     {
-        /*
         [Fact]
         public async void GetMembersAsyncShouldBeOk()
         {
             //Arrange
             IUnitOfWork dbContext = Mock.Of<IUnitOfWork>();
             IMemberRepository Members = Mock.Of<IMemberRepository>();
+            Mock.Get(dbContext)
+                .Setup(dbContext => dbContext.Members)
+                .Returns(Members);
 
             List<Member> expectedContent = new List<Member>()
                 {
@@ -44,10 +46,16 @@ namespace UnitTest
         {
             //Arrange
             IUnitOfWork dbContext = Mock.Of<IUnitOfWork>();
+            IMemberRepository Members = Mock.Of<IMemberRepository>();
+            Mock.Get(dbContext)
+                .Setup(dbContext => dbContext.Members)
+                .Returns(Members);
 
             Member expectedContent = new Member() {Id = 2, Nickname = "titi", Type = "Member", Email = "titi@toto.fr", Password = "4vtbZCx1En4VqfCnDyfYitoW+dlLjaMppEpqsaHyKCo=", CreatedAt = DateTime.Parse("08/10/2022 12:03:38")};
 
             MemberService memberService = new MemberService(dbContext);
+
+            Mock.Get(Members).Setup(Members => Members.GetByIdAsync(2)).ReturnsAsync(expectedContent);
 
             //Act
             Member member = await memberService.GetMemberByIdAsync(2);
@@ -61,10 +69,16 @@ namespace UnitTest
         {
             //Arrange
             IUnitOfWork dbContext = Mock.Of<IUnitOfWork>();
+            IMemberRepository Members = Mock.Of<IMemberRepository>();
+            Mock.Get(dbContext)
+                .Setup(dbContext => dbContext.Members)
+                .Returns(Members);
 
             Member expectedContent = new Member() { Id = 2, Nickname = "titi", Type = "Member", Email = "titi@toto.fr", Password = "4vtbZCx1En4VqfCnDyfYitoW+dlLjaMppEpqsaHyKCo=", CreatedAt = DateTime.Parse("08/10/2022 12:03:38") };
 
             MemberService memberService = new MemberService(dbContext);
+
+            Mock.Get(Members).Setup(Members => Members.GetByEmailAsync("titi@toto.fr")).ReturnsAsync(expectedContent);
 
             //Act
             Member member = await memberService.GetMemberByEmailAsync("titi@toto.fr");
@@ -72,6 +86,5 @@ namespace UnitTest
             //Assert
             Assert.Equal(expectedContent, member);
         }
-        */
     }
 }
