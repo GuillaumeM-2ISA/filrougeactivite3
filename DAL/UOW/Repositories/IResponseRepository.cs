@@ -12,5 +12,12 @@ namespace DAL.UOW.Repositories
         /// <param name="topicId"></param>
         /// <returns></returns>
         Task<IEnumerable<Response>> GetResponsesByTopicIdAsync(int topicId);
+
+        /// <summary>
+        /// Méthode supprimant toutes les réponses associé à un sujet spécifique
+        /// </summary>
+        /// <param name="topicId"></param>
+        /// <returns></returns>
+        Task<bool> DeleteByTopicIdAsync(int topicId);
     }
 }

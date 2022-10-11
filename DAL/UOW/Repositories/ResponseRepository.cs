@@ -70,6 +70,15 @@ namespace DAL.UOW.Repositories
 
         }
 
+        public async Task<bool> DeleteByTopicIdAsync(int topicId)
+        {
+            string query = @"DELETE FROM Response WHERE TopicId = @topicId";
+
+            int nbLigneAffected = await _db.Connection.ExecuteAsync(query, new { topicId = topicId }, transaction: _db.Transaction);
+
+            return nbLigneAffected >= 0;
+        }
+
         public async Task<Response> UpdateAsync(Response responseModified)
         {
             string query = @"UPDATE Response SET 

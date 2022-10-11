@@ -1,5 +1,6 @@
 ﻿using DAL.UOW;
 using Domain.Entities;
+using Domain.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,7 +55,16 @@ namespace BLLS
 
         public async Task<bool> DeleteTopicAsync(int id)
         {
-            return await _dbContext.Topics.DeleteAsync(id);
+            _dbContext.BeginTransaction();
+            var isResponsesDeleted = await _dbContext.Responses.DeleteByTopicIdAsync(id);
+            var isTopicDeleted = await _dbContext.Topics.DeleteAsync(id);
+            if (isResponsesDeleted && isTopicDeleted)
+            {
+                _dbContext.Commit();
+                return true;
+            }
+            _dbContext.RollBack();
+            throw new DeleteTopicFailureException();
         }
 
         public async Task<IEnumerable<Response>> GetResponsesAsync()
