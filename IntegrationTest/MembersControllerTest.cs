@@ -131,7 +131,7 @@ namespace IntegrationTest
         }
 
         [Fact]
-        public async void UpdatePasswordShouldBeABadRequest()
+        public async void UpdatePasswordShouldBeUnauthorizedAndBadRequest()
         {
             //Arrange
             string uri = "/api/members/5";
@@ -148,7 +148,7 @@ namespace IntegrationTest
             HttpResponseMessage response = await _client.PutAsJsonAsync<UpdatePasswordRequestDTO>(uri, updatePasswordRequestDTO);
 
             //Assert
-            Assert.True(response.StatusCode == HttpStatusCode.BadRequest);
+            Assert.True(response.StatusCode == HttpStatusCode.Unauthorized);
 
             //clean 
             SignOut();

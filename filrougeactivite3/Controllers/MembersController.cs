@@ -82,7 +82,8 @@ namespace API.Controllers
         public async Task<IActionResult> UpdatePassword([FromRoute] int id, [FromBody] UpdatePasswordRequestDTO updatePasswordRequestDTO)
         {
             // Vérifications
-            string idMemberToken = HttpContext.User.Claims.First(claim => claim.Type == ClaimTypes.NameIdentifier)?.Value;
+            //string idMemberToken = HttpContext.User.Claims.First(claim => claim.Type == ClaimTypes.NameIdentifier)?.Value;
+            string idMemberToken = HttpContext.User.Claims.ElementAt(2).Value;
             if (id != int.Parse(idMemberToken)) return Unauthorized();
 
             if (id != updatePasswordRequestDTO.Id) return BadRequest();
