@@ -27,6 +27,7 @@ namespace API.Controllers
             _memberService = memberService;
         }
 
+        #region Category
         /// <summary>
         /// Obtenir toutes les catégories
         /// </summary>
@@ -45,7 +46,9 @@ namespace API.Controllers
 
             return Ok(categoriesResponse);
         }
+        #endregion
 
+        #region Topic
         /// <summary>
         /// Obtenir tous les sujets d'une catégorie
         /// </summary>
@@ -194,7 +197,9 @@ namespace API.Controllers
             var isDeleted = await _forumService.DeleteTopicAsync(id);
             return (isDeleted) ? NoContent() : NotFound();
         }
+        #endregion
 
+        #region Response
         /// <summary>
         /// Obtenir toutes les réponses d'un sujet
         /// </summary>
@@ -299,5 +304,6 @@ namespace API.Controllers
             var isDeleted = await _forumService.DeleteResponseAsync(id);
             return (isDeleted) ? NoContent() : NotFound();
         }
+        #endregion
     }
 }
