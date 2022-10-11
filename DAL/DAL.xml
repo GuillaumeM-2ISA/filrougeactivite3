@@ -94,6 +94,13 @@
             <param name="topicId"></param>
             <returns></returns>
         </member>
+        <member name="M:DAL.UOW.Repositories.IResponseRepository.DeleteByTopicIdAsync(System.Int32)">
+            <summary>
+            Méthode supprimant toutes les réponses associé à un sujet spécifique
+            </summary>
+            <param name="topicId"></param>
+            <returns></returns>
+        </member>
         <member name="M:DAL.UOW.Repositories.ITopicRepository.GetTopicsByCategoryIdAsync(System.Int32)">
             <summary>
             Méthode récupérant tous les sujets associé à une catégorie spécifique
