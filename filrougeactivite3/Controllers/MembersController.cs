@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace API.Controllers
@@ -80,7 +81,10 @@ namespace API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdatePassword([FromRoute] int id, [FromBody] UpdatePasswordRequestDTO updatePasswordRequestDTO)
         {
-            // Vérification
+            // Vérifications
+            string idMemberToken = HttpContext.User.Claims.First(claim => claim.Type == ClaimTypes.NameIdentifier)?.Value;
+            if (id != int.Parse(idMemberToken)) return Unauthorized();
+
             if (id != updatePasswordRequestDTO.Id) return BadRequest();
 
             /// DTO -> ObjetMétier

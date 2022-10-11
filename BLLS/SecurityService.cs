@@ -17,6 +17,7 @@ namespace BLLS
     {
         private readonly IConfiguration _configuration;
         private readonly IUnitOfWork _dbContext;
+        private string idMember;
 
         public SecurityService(IConfiguration configuration, IUnitOfWork dbContext)
         {
@@ -31,6 +32,8 @@ namespace BLLS
             
             //Vérification en BDD du pseudonyme et du mot de passe chiffré
             Member member = await _dbContext.Members.GetByNicknameAndPasswordAsync(username, password);
+
+            idMember = member.Id.ToString();
             
             //Si c'est un modérateur, alors retourne en génèrant un token JWT avec pour role (MEMBER et MODERATOR)
             if (member.Type == "Moderator") return GenerateJwtToken(username, new List<string>() { "MEMBER", "MODERATOR" });
@@ -51,7 +54,7 @@ namespace BLLS
             var claims = new List<Claim>(){
                 new Claim(JwtRegisteredClaimNames.Sub, username),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                new Claim(ClaimTypes.NameIdentifier, username)
+                new Claim(ClaimTypes.NameIdentifier, idMember)
             };
 
             //Add Roles
