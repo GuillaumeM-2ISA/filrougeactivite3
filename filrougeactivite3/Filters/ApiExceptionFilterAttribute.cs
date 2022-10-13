@@ -24,6 +24,10 @@ namespace API.Filters
                 { typeof(NotFoundException), HandleNotFoundException },
                 { typeof(UnauthorizedAccessException), HandleUnauthorizedAccessException },
                 { typeof(ForbiddenAccessException), HandleForbiddenAccessException },
+                { typeof(AuthentificationFailException), HandleAuthentificationFailException },
+                { typeof(DeleteTopicFailureException), HandleDeleteTopicFailureException },
+                { typeof(EmailMustBeUniqueException), HandleEmailMustBeUniqueException },
+                { typeof(NicknameMustBeUniqueException), HandleNicknameMustBeUniqueException },
 
             };
         }
@@ -193,6 +197,98 @@ namespace API.Filters
             context.Result = new ObjectResult(details)
             {
                 StatusCode = StatusCodes.Status500InternalServerError
+            };
+
+            context.ExceptionHandled = true;
+        }
+
+        /// <summary>
+        /// Handle an authentification fail exception 
+        /// </summary>
+        /// <param name="context">Context of exception</param>
+        private void HandleAuthentificationFailException(ExceptionContext context)
+        {
+            var exception = context.Exception as AuthentificationFailException;
+
+            var details = new ProblemDetails()
+            {
+                Type = "https://www.rfc-editor.org/rfc/rfc7235#section-3.1",
+                Title = "Authentication information are invalid",
+                Detail = exception?.Message
+            };
+
+            context.Result = new ObjectResult(details)
+            {
+                StatusCode = StatusCodes.Status401Unauthorized
+            };
+
+            context.ExceptionHandled = true;
+        }
+
+        /// <summary>
+        /// Handle a delete topic failure exception 
+        /// </summary>
+        /// <param name="context">Context of exception</param>
+        private void HandleDeleteTopicFailureException(ExceptionContext context)
+        {
+            var exception = context.Exception as DeleteTopicFailureException;
+
+            var details = new ProblemDetails()
+            {
+                Type = "https://www.rfc-editor.org/rfc/rfc7231#section-6.5.1",
+                Title = "Delete request failed",
+                Detail = exception?.Message
+            };
+
+            context.Result = new ObjectResult(details)
+            {
+                StatusCode = StatusCodes.Status400BadRequest
+            };
+
+            context.ExceptionHandled = true;
+        }
+
+        /// <summary>
+        /// Handle an email exception that must be unique
+        /// </summary>
+        /// <param name="context">Context of exception</param>
+        private void HandleEmailMustBeUniqueException(ExceptionContext context)
+        {
+            var exception = context.Exception as EmailMustBeUniqueException;
+
+            var details = new ProblemDetails()
+            {
+                Type = "https://www.rfc-editor.org/rfc/rfc7231#section-6.5.1",
+                Title = "Email isn't unique",
+                Detail = exception?.Message
+            };
+
+            context.Result = new ObjectResult(details)
+            {
+                StatusCode = StatusCodes.Status400BadRequest
+            };
+
+            context.ExceptionHandled = true;
+        }
+
+        /// <summary>
+        /// Handle an nickname exception that must be unique
+        /// </summary>
+        /// <param name="context">Context of exception</param>
+        private void HandleNicknameMustBeUniqueException(ExceptionContext context)
+        {
+            var exception = context.Exception as NicknameMustBeUniqueException;
+
+            var details = new ProblemDetails()
+            {
+                Type = "https://www.rfc-editor.org/rfc/rfc7231#section-6.5.1",
+                Title = "Nickname isn't unique",
+                Detail = exception?.Message
+            };
+
+            context.Result = new ObjectResult(details)
+            {
+                StatusCode = StatusCodes.Status400BadRequest
             };
 
             context.ExceptionHandled = true;
