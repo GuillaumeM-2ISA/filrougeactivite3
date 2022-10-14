@@ -38,8 +38,8 @@ namespace Domain.DTO.Requests.Topic
         public UpdateTopicRequestDTOValidator()
         {
             RuleFor(x => x.Id).NotNull().NotEmpty();
-            RuleFor(x => x.Title).NotNull().NotEmpty();
-            RuleFor(x => x.Description).NotNull().NotEmpty();
+            RuleFor(x => x.Title).NotNull().NotEmpty().MaximumLength(250);
+            RuleFor(x => x.Description).NotNull().NotEmpty().MaximumLength(250);
             RuleFor(x => x.CategoryId).NotNull().NotEmpty();
         }
     }

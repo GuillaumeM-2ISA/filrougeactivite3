@@ -37,8 +37,8 @@ namespace Domain.DTO.Requests.Topic
     {
         public CreateTopicRequestDTOValidator()
         {
-            RuleFor(x => x.Title).NotNull().NotEmpty();
-            RuleFor(x => x.Description).NotNull().NotEmpty();
+            RuleFor(x => x.Title).NotNull().NotEmpty().MaximumLength(250);
+            RuleFor(x => x.Description).NotNull().NotEmpty().MaximumLength(250);
             RuleFor(x => x.CategoryId).NotNull().NotEmpty();
             RuleFor(x => x.MemberId).NotNull().NotEmpty();
         }

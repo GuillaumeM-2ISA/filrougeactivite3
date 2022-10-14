@@ -27,7 +27,7 @@ namespace Domain.DTO.Requests.Security
     {
         public AuthentificationRequestDTOValidator()
         {
-            RuleFor(x => x.Nickname).NotNull().NotEmpty();
+            RuleFor(x => x.Nickname).NotNull().NotEmpty().MaximumLength(250);
             RuleFor(x => x.Password).NotNull().NotEmpty();
         }
     }

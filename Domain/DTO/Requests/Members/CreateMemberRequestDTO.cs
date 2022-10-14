@@ -32,9 +32,9 @@ namespace Domain.DTO.Requests.Members
     {
         public CreateMemberRequestDTOValidator()
         {
-            RuleFor(x => x.Nickname).NotNull().NotEmpty();
-            RuleFor(x => x.Email).NotNull().NotEmpty();
-            RuleFor(x => x.Password).NotNull().NotEmpty();
+            RuleFor(x => x.Nickname).NotNull().NotEmpty().MaximumLength(250);
+            RuleFor(x => x.Email).NotNull().NotEmpty().MaximumLength(250);
+            RuleFor(x => x.Password).NotNull().NotEmpty().MaximumLength(250);
         }
     }
 }

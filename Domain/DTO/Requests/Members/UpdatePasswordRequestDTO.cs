@@ -28,7 +28,7 @@ namespace Domain.DTO.Requests.Members
         public UpdatePasswordRequestDTOValidator()
         {
             RuleFor(x => x.Id).NotNull().NotEmpty();
-            RuleFor(x => x.Password).NotNull().NotEmpty();
+            RuleFor(x => x.Password).NotNull().NotEmpty().MaximumLength(250);
         }
     }
 }
