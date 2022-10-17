@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTest", "UnitTest\UnitTe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegrationTest", "IntegrationTest\IntegrationTest.csproj", "{BB10DBDF-C512-4440-BABA-D9C19BDBBBAD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocFx", "DocFx\DocFx.csproj", "{0A15DD00-084C-46D2-A608-53DD7E97253B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DocFx", "DocFx\DocFx.csproj", "{0A15DD00-084C-46D2-A608-53DD7E97253B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinForms", "WinForms\WinForms.csproj", "{C3FC75DA-3A22-419D-8160-75284A5EFEFE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{0A15DD00-084C-46D2-A608-53DD7E97253B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A15DD00-084C-46D2-A608-53DD7E97253B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A15DD00-084C-46D2-A608-53DD7E97253B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3FC75DA-3A22-419D-8160-75284A5EFEFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3FC75DA-3A22-419D-8160-75284A5EFEFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3FC75DA-3A22-419D-8160-75284A5EFEFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3FC75DA-3A22-419D-8160-75284A5EFEFE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
