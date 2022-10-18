@@ -76,6 +76,7 @@ namespace WinForms
             // 
             this.passwordTextbox.Location = new System.Drawing.Point(339, 192);
             this.passwordTextbox.Name = "passwordTextbox";
+            this.passwordTextbox.PasswordChar = '*';
             this.passwordTextbox.Size = new System.Drawing.Size(125, 27);
             this.passwordTextbox.TabIndex = 4;
             // 

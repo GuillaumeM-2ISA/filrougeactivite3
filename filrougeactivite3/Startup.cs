@@ -35,6 +35,13 @@ namespace API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // API REST
+            services.AddControllers().AddJsonOptions(options =>
+            {
+                options.JsonSerializerOptions.IgnoreNullValues = true; // On ne sérialise pas les propriétés à null
+                options.JsonSerializerOptions.PropertyNamingPolicy = null; // Pas de CamelCase sur les noms des propriétés
+            });
+
             //JWT Authentication
             services
             .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
