@@ -13,6 +13,11 @@ namespace Domain.DTO.Responses.Topics
     public class TopicResponseDTO
     {
         /// <summary>
+        /// Id du DTO de réponse du sujet
+        /// </summary>
+        public int Id { get; set; }
+
+        /// <summary>
         /// Titre du DTO de réponse de sujet
         /// </summary>
         public string Title { get; set; }

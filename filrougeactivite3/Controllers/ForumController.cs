@@ -63,6 +63,7 @@ namespace API.Controllers
             //Construction de la réponse
             var topicsResponse = topics.Select(topic => new TopicResponseDTO
             {
+                Id = topic.Id,
                 Title = topic.Title,
                 Description = topic.Description,
                 CategoryId = category.Id,
@@ -88,6 +89,7 @@ namespace API.Controllers
             // Réponse
             TopicResponseDTO topicResponse = new TopicResponseDTO()
             {
+                Id = topic.Id,
                 Title = topic.Title,
                 Description = topic.Description,
                 CategoryId = category.Id,
@@ -129,6 +131,7 @@ namespace API.Controllers
 
                 return CreatedAtAction(nameof(GetTopicById), new { categoryId = topic.CategoryId, id = topic.Id }, new TopicResponseDTO()
                 {
+                    Id = topic.Id,
                     Title = topic.Title,
                     Description = topic.Description,
                     CategoryId = category.Id,
@@ -175,6 +178,7 @@ namespace API.Controllers
 
             var reponse = new TopicResponseDTO()
             {
+                Id = topic.Id,
                 Title = topic.Title,
                 Description = topic.Description,
                 CategoryId = category.Id,
@@ -214,6 +218,7 @@ namespace API.Controllers
             //Construction de la réponse
             var responsesResponse = responses.Select(response => new ResponseResponseDTO
             {
+                Id = response.Id,
                 Content = response.Content,
                 TopicId = topic.Id,
                 MemberId = response.MemberId
@@ -238,6 +243,7 @@ namespace API.Controllers
             // Réponse
             ResponseResponseDTO ResponseResponse = new ResponseResponseDTO()
             {
+                Id = response.Id,
                 Content = response.Content,
                 TopicId = topic.Id,
                 MemberId = response.MemberId
@@ -279,6 +285,7 @@ namespace API.Controllers
 
                 return CreatedAtAction(nameof(GetTopicById), new { categoryId = topic.CategoryId, id = topic.Id }, new ResponseResponseDTO()
                 {
+                    Id = response.Id,
                     Content = response.Content,
                     TopicId = topic.Id,
                     MemberId = response.MemberId

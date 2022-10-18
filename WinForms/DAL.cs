@@ -50,5 +50,11 @@ namespace WinForms
             else
                 return null;
         }
+
+        public async Task<bool> DeleteTopicAsync(int categoryId, int id)
+        {
+            var res = await _client.DeleteAsync($"{Settings1.Default.ConnectionString}/forum/categories/{categoryId}/topics/{id}");
+            return res.IsSuccessStatusCode;
+        }
     }
 }
