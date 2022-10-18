@@ -34,6 +34,7 @@ namespace WinForms
             this.label2 = new System.Windows.Forms.Label();
             this.nicknameTextbox = new System.Windows.Forms.TextBox();
             this.passwordTextbox = new System.Windows.Forms.TextBox();
+            this.labelError = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnConnect
@@ -44,6 +45,7 @@ namespace WinForms
             this.btnConnect.TabIndex = 0;
             this.btnConnect.Text = "Se connecter";
             this.btnConnect.UseVisualStyleBackColor = true;
+            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
             // 
             // label1
             // 
@@ -77,11 +79,23 @@ namespace WinForms
             this.passwordTextbox.Size = new System.Drawing.Size(125, 27);
             this.passwordTextbox.TabIndex = 4;
             // 
+            // labelError
+            // 
+            this.labelError.AutoSize = true;
+            this.labelError.ForeColor = System.Drawing.Color.Red;
+            this.labelError.Location = new System.Drawing.Point(209, 232);
+            this.labelError.Name = "labelError";
+            this.labelError.Size = new System.Drawing.Size(331, 20);
+            this.labelError.TabIndex = 5;
+            this.labelError.Text = "Le pseudonyme ou le mot de passe sont invalide";
+            this.labelError.Visible = false;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelError);
             this.Controls.Add(this.passwordTextbox);
             this.Controls.Add(this.nicknameTextbox);
             this.Controls.Add(this.label2);
@@ -101,5 +115,6 @@ namespace WinForms
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox nicknameTextbox;
         private System.Windows.Forms.TextBox passwordTextbox;
+        private System.Windows.Forms.Label labelError;
     }
 }

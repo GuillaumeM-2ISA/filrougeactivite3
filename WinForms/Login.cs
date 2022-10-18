@@ -12,9 +12,27 @@ namespace WinForms
 {
     public partial class Login : Form
     {
+        DAL _dal = new DAL();
+
         public Login()
         {
             InitializeComponent();
+        }
+
+        private async void btnConnect_Click(object sender, EventArgs e)
+        {
+            var jwt = await _dal.Login(nicknameTextbox.Text, passwordTextbox.Text);
+
+            if (jwt != null)
+            {
+                DevelopmentForm developmentForm = new DevelopmentForm();
+                developmentForm.Show();
+                this.Hide();
+            }
+            else
+            {
+                labelError.Visible = true;
+            }
         }
     }
 }

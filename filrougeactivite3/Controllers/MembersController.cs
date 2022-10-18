@@ -88,7 +88,7 @@ namespace API.Controllers
 
             if (id != updatePasswordRequestDTO.Id) return BadRequest();
 
-            /// DTO -> ObjetMétier
+            // DTO -> ObjetMétier
             var modifiedMember = new Member()
             {
                 Id = updatePasswordRequestDTO.Id,
