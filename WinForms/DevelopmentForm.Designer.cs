@@ -319,9 +319,12 @@ namespace WinForms
             // 
             // dgvTopics
             // 
+            this.dgvTopics.AllowUserToAddRows = false;
+            this.dgvTopics.AllowUserToDeleteRows = false;
             this.dgvTopics.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTopics.Location = new System.Drawing.Point(19, 12);
             this.dgvTopics.Name = "dgvTopics";
+            this.dgvTopics.ReadOnly = true;
             this.dgvTopics.RowHeadersWidth = 51;
             this.dgvTopics.RowTemplate.Height = 29;
             this.dgvTopics.Size = new System.Drawing.Size(728, 406);
