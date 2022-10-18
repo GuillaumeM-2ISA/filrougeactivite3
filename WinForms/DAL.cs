@@ -1,4 +1,5 @@
 ﻿using Domain.DTO.Requests.Security;
+using Domain.DTO.Requests.Topic;
 using Domain.DTO.Responses.Topics;
 using Domain.Entities;
 using System;
@@ -45,7 +46,7 @@ namespace WinForms
                 string content = await res.Content.ReadAsStringAsync();
                 var lstDTO = JsonSerializer.Deserialize<List<TopicResponseDTO>>(content);
 
-                return lstDTO.ConvertAll(topic => new Topic { Title = topic.Title, Description = topic.Description, CategoryId = topic.CategoryId, MemberId = topic.MemberId });
+                return lstDTO.ConvertAll(topic => new Topic { Id = topic.Id, Title = topic.Title, Description = topic.Description, CategoryId = topic.CategoryId, MemberId = topic.MemberId });
             }
             else
                 return null;
@@ -55,6 +56,26 @@ namespace WinForms
         {
             var res = await _client.DeleteAsync($"{Settings1.Default.ConnectionString}/forum/categories/{categoryId}/topics/{id}");
             return res.IsSuccessStatusCode;
+        }
+
+        public async Task<Topic> AddTopicAsync(string titre, string description, int categoryId, int memberId)
+        {
+            CreateTopicRequestDTO createTopicRequestDTO = new() { Title = titre, Description = description, CategoryId = categoryId, MemberId = memberId};
+
+            var jsonBodyParameter = new StringContent(JsonSerializer.Serialize(createTopicRequestDTO), Encoding.UTF8, "application/json");
+
+            var res = await _client.PostAsync($"{Settings1.Default.ConnectionString}/forum/categories/{categoryId}/topics/", jsonBodyParameter);
+
+            if (res.IsSuccessStatusCode)
+            {
+                string content = await res.Content.ReadAsStringAsync();
+
+                var DTOTopic = JsonSerializer.Deserialize<TopicResponseDTO>(content);
+
+                return new Topic() { Id = DTOTopic.Id, Title = DTOTopic.Title, Description = DTOTopic.Description, CategoryId = DTOTopic.CategoryId, MemberId = DTOTopic.MemberId };
+            }
+            else
+                return null;
         }
     }
 }

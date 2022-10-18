@@ -51,5 +51,12 @@ namespace WinForms
                 await RefreshAsync();
             }
         }
+
+        private async void btnAdd_Click(object sender, EventArgs e)
+        {
+            var newTopic = await _dal.AddTopicAsync(newTitleTextbox.Text, newDescriptionTextbox.Text, 1, );
+
+            await RefreshAsync(newTopic.Id);
+        }
     }
 }
