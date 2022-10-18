@@ -45,7 +45,7 @@ namespace WinForms
                 string content = await res.Content.ReadAsStringAsync();
                 var lstDTO = JsonSerializer.Deserialize<List<TopicResponseDTO>>(content);
 
-                return lstDTO.ConvertAll(topic => new Topic { Title = topic.Title, Description = topic.Description });
+                return lstDTO.ConvertAll(topic => new Topic { Title = topic.Title, Description = topic.Description, CategoryId = topic.CategoryId, MemberId = topic.MemberId });
             }
             else
                 return null;

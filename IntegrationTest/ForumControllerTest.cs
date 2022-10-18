@@ -108,8 +108,8 @@ namespace IntegrationTest
             {
                 Title = createTopicRequestDTO.Title,
                 Description = createTopicRequestDTO.Description,
-                CategoryName = "Développement",
-                MemberNickname = "toto"
+                CategoryId = 1,
+                MemberId = 1
             };
 
             await SignIn("toto", "totopassword");
@@ -123,8 +123,8 @@ namespace IntegrationTest
 
             Assert.True(topicResponseDTO.Title == expected.Title);
             Assert.True(topicResponseDTO.Description == expected.Description);
-            Assert.True(topicResponseDTO.CategoryName == expected.CategoryName);
-            Assert.True(topicResponseDTO.MemberNickname == expected.MemberNickname);
+            Assert.True(topicResponseDTO.CategoryId == expected.CategoryId);
+            Assert.True(topicResponseDTO.MemberId == expected.MemberId);
 
             //clean 
             SignOut();
@@ -174,8 +174,8 @@ namespace IntegrationTest
             {
                 Title = "Framework .NET C#",
                 Description = "L'utilisez-vous ?",
-                CategoryName = "Développement",
-                MemberNickname = "toto"
+                CategoryId = 1,
+                MemberId = 1
             };
 
             await SignIn("toto", "totopassword");
@@ -189,8 +189,8 @@ namespace IntegrationTest
 
             Assert.True(topicResponseDTO.Title == expected.Title);
             Assert.True(topicResponseDTO.Description == expected.Description);
-            Assert.True(topicResponseDTO.CategoryName == expected.CategoryName);
-            Assert.True(topicResponseDTO.MemberNickname == expected.MemberNickname);
+            Assert.True(topicResponseDTO.CategoryId == expected.CategoryId);
+            Assert.True(topicResponseDTO.MemberId == expected.MemberId);
 
             //clean 
             SignOut();
@@ -295,8 +295,8 @@ namespace IntegrationTest
             ResponseResponseDTO expected = new ResponseResponseDTO()
             {
                 Content = "Non, mais je souhaiterai le découvrir",
-                TopicTitle = "Framework .NET C#",
-                MemberNickname = "titi"
+                TopicId = 1,
+                MemberId = 2
             };
 
             await SignIn("titi", "titipassword");
@@ -309,8 +309,8 @@ namespace IntegrationTest
             ResponseResponseDTO responseResponseDTO = await response.Content.ReadFromJsonAsync<ResponseResponseDTO>();
 
             Assert.True(responseResponseDTO.Content == expected.Content);
-            Assert.True(responseResponseDTO.TopicTitle == expected.TopicTitle);
-            Assert.True(responseResponseDTO.MemberNickname == expected.MemberNickname);
+            Assert.True(responseResponseDTO.TopicId == expected.TopicId);
+            Assert.True(responseResponseDTO.MemberId == expected.MemberId);
 
             //clean 
             SignOut();

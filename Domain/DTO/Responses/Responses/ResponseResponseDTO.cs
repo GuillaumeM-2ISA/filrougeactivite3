@@ -18,13 +18,13 @@ namespace Domain.DTO.Responses.Responses
         public string Content { get; set; }
 
         /// <summary>
-        /// Titre du sujet du DTO de réponse de réponse
+        /// Id du sujet du DTO de réponse de réponse
         /// </summary>
-        public string TopicTitle { get; set; }
+        public int TopicId { get; set; }
 
         /// <summary>
-        /// Pseudonyme du membre du DTO de réponse de réponse
+        /// Id du membre du DTO de réponse de réponse
         /// </summary>
-        public string MemberNickname { get; set; }
+        public int MemberId { get; set; }
     }
 }

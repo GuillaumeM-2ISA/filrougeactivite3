@@ -65,8 +65,8 @@ namespace API.Controllers
             {
                 Title = topic.Title,
                 Description = topic.Description,
-                CategoryName = category.Name,
-                MemberNickname = topic.Member.Nickname
+                CategoryId = category.Id,
+                MemberId = topic.MemberId
             });
 
             return Ok(topicsResponse);
@@ -90,8 +90,8 @@ namespace API.Controllers
             {
                 Title = topic.Title,
                 Description = topic.Description,
-                CategoryName = category.Name,
-                MemberNickname = topic.Member.Nickname
+                CategoryId = category.Id,
+                MemberId = topic.MemberId
             };
 
             return Ok(topicResponse);
@@ -131,8 +131,8 @@ namespace API.Controllers
                 {
                     Title = topic.Title,
                     Description = topic.Description,
-                    CategoryName = category.Name,
-                    MemberNickname = topic.Member.Nickname
+                    CategoryId = category.Id,
+                    MemberId = topic.MemberId
                 });
             }
             else
@@ -177,8 +177,8 @@ namespace API.Controllers
             {
                 Title = topic.Title,
                 Description = topic.Description,
-                CategoryName = category.Name,
-                MemberNickname = topic.Member.Nickname
+                CategoryId = category.Id,
+                MemberId = topic.MemberId
             };
 
             return Ok(reponse);
@@ -215,8 +215,8 @@ namespace API.Controllers
             var responsesResponse = responses.Select(response => new ResponseResponseDTO
             {
                 Content = response.Content,
-                TopicTitle = topic.Title,
-                MemberNickname = response.Member.Nickname
+                TopicId = topic.Id,
+                MemberId = response.MemberId
             });
 
             return Ok(responsesResponse);
@@ -239,8 +239,8 @@ namespace API.Controllers
             ResponseResponseDTO ResponseResponse = new ResponseResponseDTO()
             {
                 Content = response.Content,
-                TopicTitle = topic.Title,
-                MemberNickname = response.Member.Nickname
+                TopicId = topic.Id,
+                MemberId = response.MemberId
             };
 
             return Ok(ResponseResponse);
@@ -280,8 +280,8 @@ namespace API.Controllers
                 return CreatedAtAction(nameof(GetTopicById), new { categoryId = topic.CategoryId, id = topic.Id }, new ResponseResponseDTO()
                 {
                     Content = response.Content,
-                    TopicTitle = topic.Title,
-                    MemberNickname = response.Member.Nickname
+                    TopicId = topic.Id,
+                    MemberId = response.MemberId
                 });
             }
             else

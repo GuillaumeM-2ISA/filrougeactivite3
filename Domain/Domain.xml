@@ -179,14 +179,14 @@
             Contenu du DTO de réponse de réponse
             </summary>
         </member>
-        <member name="P:Domain.DTO.Responses.Responses.ResponseResponseDTO.TopicTitle">
+        <member name="P:Domain.DTO.Responses.Responses.ResponseResponseDTO.TopicId">
             <summary>
-            Titre du sujet du DTO de réponse de réponse
+            Id du sujet du DTO de réponse de réponse
             </summary>
         </member>
-        <member name="P:Domain.DTO.Responses.Responses.ResponseResponseDTO.MemberNickname">
+        <member name="P:Domain.DTO.Responses.Responses.ResponseResponseDTO.MemberId">
             <summary>
-            Pseudonyme du membre du DTO de réponse de réponse
+            Id du membre du DTO de réponse de réponse
             </summary>
         </member>
         <member name="T:Domain.DTO.Responses.Topics.TopicResponseDTO">
@@ -204,14 +204,14 @@
             Description du DTO de réponse de sujet
             </summary>
         </member>
-        <member name="P:Domain.DTO.Responses.Topics.TopicResponseDTO.CategoryName">
+        <member name="P:Domain.DTO.Responses.Topics.TopicResponseDTO.CategoryId">
             <summary>
-            Nom de la catégorie du DTO de réponse de sujet
+            Id de la catégorie du DTO de réponse de sujet
             </summary>
         </member>
-        <member name="P:Domain.DTO.Responses.Topics.TopicResponseDTO.MemberNickname">
+        <member name="P:Domain.DTO.Responses.Topics.TopicResponseDTO.MemberId">
             <summary>
-            Pseudonyme du membre du DTO de réponse de sujet
+            Id du membre du DTO de réponse de sujet
             </summary>
         </member>
         <member name="T:Domain.DTO.Security.TokenResponseDTO">

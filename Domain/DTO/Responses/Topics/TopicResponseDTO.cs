@@ -23,13 +23,13 @@ namespace Domain.DTO.Responses.Topics
         public string Description { get; set; }
 
         /// <summary>
-        /// Nom de la catégorie du DTO de réponse de sujet
+        /// Id de la catégorie du DTO de réponse de sujet
         /// </summary>
-        public string CategoryName { get; set; }
+        public int CategoryId { get; set; }
 
         /// <summary>
-        /// Pseudonyme du membre du DTO de réponse de sujet
+        /// Id du membre du DTO de réponse de sujet
         /// </summary>
-        public string MemberNickname { get; set; }
+        public int MemberId { get; set; }
     }
 }
