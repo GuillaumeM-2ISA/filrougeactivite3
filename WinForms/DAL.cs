@@ -1,4 +1,6 @@
 ﻿using Domain.DTO.Requests.Security;
+using Domain.DTO.Responses.Topics;
+using Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +34,21 @@ namespace WinForms
             }
             
             return null;
+        }
+
+        public async Task<List<Topic>> GetAllTopicsByCategoryIdAsync(int id)
+        {
+            var res = await _client.GetAsync($"{Settings1.Default.ConnectionString}/forum/categories/{id}/topics");
+
+            if (res.IsSuccessStatusCode)
+            {
+                string content = await res.Content.ReadAsStringAsync();
+                var lstDTO = JsonSerializer.Deserialize<List<TopicResponseDTO>>(content);
+
+                return lstDTO.ConvertAll(topic => new Topic { Title = topic.Title, Description = topic.Description });
+            }
+            else
+                return null;
         }
     }
 }

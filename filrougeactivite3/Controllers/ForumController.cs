@@ -156,7 +156,7 @@ namespace API.Controllers
             if (id != updateTopicRequestDTO.Id) return BadRequest();
 
 
-            /// DTO -> ObjetMétier
+            // DTO -> ObjetMétier
             var topicModified = new Topic()
             {
                 Id = updateTopicRequestDTO.Id,
