@@ -90,7 +90,7 @@ namespace WinForms
         {
             var topic = (Topic)bsTopics.Current;
 
-            TopicForm topicForm = new TopicForm(topic.Id);
+            TopicForm topicForm = new TopicForm(1, topic.Id);
             topicForm.Show();
             this.Hide();
         }

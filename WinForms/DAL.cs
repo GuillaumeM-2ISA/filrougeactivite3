@@ -1,5 +1,6 @@
 ﻿using Domain.DTO.Requests.Security;
 using Domain.DTO.Requests.Topic;
+using Domain.DTO.Responses.Responses;
 using Domain.DTO.Responses.Topics;
 using Domain.Entities;
 using System;
@@ -129,6 +130,21 @@ namespace WinForms
                 var DTOTopic = JsonSerializer.Deserialize<TopicResponseDTO>(content);
 
                 return new Topic() { Id = DTOTopic.Id, Title = DTOTopic.Title, Description = DTOTopic.Description, CategoryId = DTOTopic.CategoryId, MemberId = DTOTopic.MemberId };
+            }
+            else
+                return null;
+        }
+
+        public async Task<List<Response>> GetAllResponsesByTopicIdAsync(int categoryId, int id)
+        {
+            var res = await _client.GetAsync($"{Settings1.Default.ConnectionString}/forum/categories/{categoryId}/topics/{id}/responses");
+
+            if (res.IsSuccessStatusCode)
+            {
+                string content = await res.Content.ReadAsStringAsync();
+                var lstDTO = JsonSerializer.Deserialize<List<ResponseResponseDTO>>(content);
+
+                return lstDTO.ConvertAll(response => new Response { Id = response.Id, Content = response.Content, TopicId = response.TopicId, MemberId = response.MemberId });
             }
             else
                 return null;

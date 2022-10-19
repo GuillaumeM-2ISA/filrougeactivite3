@@ -38,38 +38,23 @@ namespace WinForms
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabAdd = new System.Windows.Forms.TabPage();
             this.labelError1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.newDescriptionTextbox = new System.Windows.Forms.TextBox();
-            this.newTitleTextbox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.tabEdit = new System.Windows.Forms.TabPage();
-            this.modifiedIdCategoryTextbox = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.labelError2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.modifiedDescriptionTextbox = new System.Windows.Forms.TextBox();
-            this.modifiedTitleTextbox = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.btnEdit = new System.Windows.Forms.Button();
             this.tabDelete = new System.Windows.Forms.TabPage();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.tabRead = new System.Windows.Forms.TabPage();
-            this.btnRead = new System.Windows.Forms.Button();
-            this.dgvTopics = new System.Windows.Forms.DataGridView();
+            this.dgvResponses = new System.Windows.Forms.DataGridView();
             this.btnRefresh = new System.Windows.Forms.Button();
-            this.bsTopics = new System.Windows.Forms.BindingSource(this.components);
+            this.bsResponses = new System.Windows.Forms.BindingSource(this.components);
+            this.contentTextbox = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabAdd.SuspendLayout();
-            this.tabEdit.SuspendLayout();
             this.tabDelete.SuspendLayout();
-            this.tabRead.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTopics)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsTopics)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvResponses)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsResponses)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -89,7 +74,7 @@ namespace WinForms
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
-            this.splitContainer1.Panel2.Controls.Add(this.dgvTopics);
+            this.splitContainer1.Panel2.Controls.Add(this.dgvResponses);
             this.splitContainer1.Panel2.Controls.Add(this.btnRefresh);
             this.splitContainer1.Size = new System.Drawing.Size(957, 582);
             this.splitContainer1.SplitterDistance = 183;
@@ -134,9 +119,7 @@ namespace WinForms
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabAdd);
-            this.tabControl1.Controls.Add(this.tabEdit);
             this.tabControl1.Controls.Add(this.tabDelete);
-            this.tabControl1.Controls.Add(this.tabRead);
             this.tabControl1.Location = new System.Drawing.Point(19, 424);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -145,10 +128,8 @@ namespace WinForms
             // 
             // tabAdd
             // 
+            this.tabAdd.Controls.Add(this.contentTextbox);
             this.tabAdd.Controls.Add(this.labelError1);
-            this.tabAdd.Controls.Add(this.label2);
-            this.tabAdd.Controls.Add(this.newDescriptionTextbox);
-            this.tabAdd.Controls.Add(this.newTitleTextbox);
             this.tabAdd.Controls.Add(this.label1);
             this.tabAdd.Controls.Add(this.btnAdd);
             this.tabAdd.Location = new System.Drawing.Point(4, 29);
@@ -165,42 +146,19 @@ namespace WinForms
             this.labelError1.ForeColor = System.Drawing.Color.Red;
             this.labelError1.Location = new System.Drawing.Point(16, 81);
             this.labelError1.Name = "labelError1";
-            this.labelError1.Size = new System.Drawing.Size(342, 20);
+            this.labelError1.Size = new System.Drawing.Size(244, 20);
             this.labelError1.TabIndex = 7;
-            this.labelError1.Text = "Les champs titre et description doivent être rempli";
+            this.labelError1.Text = "Le champs contenu doit être rempli";
             this.labelError1.Visible = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 48);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 20);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Description";
-            // 
-            // newDescriptionTextbox
-            // 
-            this.newDescriptionTextbox.Location = new System.Drawing.Point(107, 45);
-            this.newDescriptionTextbox.Name = "newDescriptionTextbox";
-            this.newDescriptionTextbox.Size = new System.Drawing.Size(351, 27);
-            this.newDescriptionTextbox.TabIndex = 5;
-            // 
-            // newTitleTextbox
-            // 
-            this.newTitleTextbox.Location = new System.Drawing.Point(107, 10);
-            this.newTitleTextbox.Name = "newTitleTextbox";
-            this.newTitleTextbox.Size = new System.Drawing.Size(203, 27);
-            this.newTitleTextbox.TabIndex = 4;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(16, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 20);
+            this.label1.Size = new System.Drawing.Size(64, 20);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Titre";
+            this.label1.Text = "Contenu";
             // 
             // btnAdd
             // 
@@ -210,92 +168,6 @@ namespace WinForms
             this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "Ajouter";
             this.btnAdd.UseVisualStyleBackColor = true;
-            // 
-            // tabEdit
-            // 
-            this.tabEdit.Controls.Add(this.modifiedIdCategoryTextbox);
-            this.tabEdit.Controls.Add(this.label5);
-            this.tabEdit.Controls.Add(this.labelError2);
-            this.tabEdit.Controls.Add(this.label3);
-            this.tabEdit.Controls.Add(this.modifiedDescriptionTextbox);
-            this.tabEdit.Controls.Add(this.modifiedTitleTextbox);
-            this.tabEdit.Controls.Add(this.label4);
-            this.tabEdit.Controls.Add(this.btnEdit);
-            this.tabEdit.Location = new System.Drawing.Point(4, 29);
-            this.tabEdit.Name = "tabEdit";
-            this.tabEdit.Padding = new System.Windows.Forms.Padding(3);
-            this.tabEdit.Size = new System.Drawing.Size(620, 104);
-            this.tabEdit.TabIndex = 1;
-            this.tabEdit.Text = "Modifier";
-            this.tabEdit.UseVisualStyleBackColor = true;
-            // 
-            // modifiedIdCategoryTextbox
-            // 
-            this.modifiedIdCategoryTextbox.Location = new System.Drawing.Point(459, 11);
-            this.modifiedIdCategoryTextbox.Name = "modifiedIdCategoryTextbox";
-            this.modifiedIdCategoryTextbox.Size = new System.Drawing.Size(50, 27);
-            this.modifiedIdCategoryTextbox.TabIndex = 13;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(327, 14);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(126, 20);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "Id de la catégorie";
-            // 
-            // labelError2
-            // 
-            this.labelError2.AutoSize = true;
-            this.labelError2.ForeColor = System.Drawing.Color.Red;
-            this.labelError2.Location = new System.Drawing.Point(18, 81);
-            this.labelError2.Name = "labelError2";
-            this.labelError2.Size = new System.Drawing.Size(342, 20);
-            this.labelError2.TabIndex = 11;
-            this.labelError2.Text = "Les champs titre et description doivent être rempli";
-            this.labelError2.Visible = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 50);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 20);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Description";
-            // 
-            // modifiedDescriptionTextbox
-            // 
-            this.modifiedDescriptionTextbox.Location = new System.Drawing.Point(109, 48);
-            this.modifiedDescriptionTextbox.Name = "modifiedDescriptionTextbox";
-            this.modifiedDescriptionTextbox.Size = new System.Drawing.Size(351, 27);
-            this.modifiedDescriptionTextbox.TabIndex = 9;
-            // 
-            // modifiedTitleTextbox
-            // 
-            this.modifiedTitleTextbox.Location = new System.Drawing.Point(109, 11);
-            this.modifiedTitleTextbox.Name = "modifiedTitleTextbox";
-            this.modifiedTitleTextbox.Size = new System.Drawing.Size(203, 27);
-            this.modifiedTitleTextbox.TabIndex = 8;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(18, 14);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(39, 20);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Titre";
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Location = new System.Drawing.Point(503, 39);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(94, 29);
-            this.btnEdit.TabIndex = 3;
-            this.btnEdit.Text = "Modifier";
-            this.btnEdit.UseVisualStyleBackColor = true;
             // 
             // tabDelete
             // 
@@ -317,38 +189,18 @@ namespace WinForms
             this.btnDelete.Text = "Supprimer";
             this.btnDelete.UseVisualStyleBackColor = true;
             // 
-            // tabRead
+            // dgvResponses
             // 
-            this.tabRead.Controls.Add(this.btnRead);
-            this.tabRead.Location = new System.Drawing.Point(4, 29);
-            this.tabRead.Name = "tabRead";
-            this.tabRead.Padding = new System.Windows.Forms.Padding(3);
-            this.tabRead.Size = new System.Drawing.Size(620, 104);
-            this.tabRead.TabIndex = 3;
-            this.tabRead.Text = "Consulter";
-            this.tabRead.UseVisualStyleBackColor = true;
-            // 
-            // btnRead
-            // 
-            this.btnRead.Location = new System.Drawing.Point(126, 39);
-            this.btnRead.Name = "btnRead";
-            this.btnRead.Size = new System.Drawing.Size(94, 29);
-            this.btnRead.TabIndex = 0;
-            this.btnRead.Text = "Consulter";
-            this.btnRead.UseVisualStyleBackColor = true;
-            // 
-            // dgvTopics
-            // 
-            this.dgvTopics.AllowUserToAddRows = false;
-            this.dgvTopics.AllowUserToDeleteRows = false;
-            this.dgvTopics.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTopics.Location = new System.Drawing.Point(19, 12);
-            this.dgvTopics.Name = "dgvTopics";
-            this.dgvTopics.ReadOnly = true;
-            this.dgvTopics.RowHeadersWidth = 51;
-            this.dgvTopics.RowTemplate.Height = 29;
-            this.dgvTopics.Size = new System.Drawing.Size(728, 406);
-            this.dgvTopics.TabIndex = 0;
+            this.dgvResponses.AllowUserToAddRows = false;
+            this.dgvResponses.AllowUserToDeleteRows = false;
+            this.dgvResponses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvResponses.Location = new System.Drawing.Point(19, 12);
+            this.dgvResponses.Name = "dgvResponses";
+            this.dgvResponses.ReadOnly = true;
+            this.dgvResponses.RowHeadersWidth = 51;
+            this.dgvResponses.RowTemplate.Height = 29;
+            this.dgvResponses.Size = new System.Drawing.Size(728, 406);
+            this.dgvResponses.TabIndex = 0;
             // 
             // btnRefresh
             // 
@@ -359,14 +211,23 @@ namespace WinForms
             this.btnRefresh.Text = "Actualiser";
             this.btnRefresh.UseVisualStyleBackColor = true;
             // 
-            // DevelopmentForm
+            // contentTextbox
+            // 
+            this.contentTextbox.Location = new System.Drawing.Point(87, 13);
+            this.contentTextbox.Name = "contentTextbox";
+            this.contentTextbox.Size = new System.Drawing.Size(344, 65);
+            this.contentTextbox.TabIndex = 8;
+            this.contentTextbox.Text = "";
+            // 
+            // TopicForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(957, 582);
             this.Controls.Add(this.splitContainer1);
-            this.Name = "DevelopmentForm";
+            this.Name = "TopicForm";
             this.Text = "Developpement";
+            this.Load += new System.EventHandler(this.TopicForm_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -374,12 +235,9 @@ namespace WinForms
             this.tabControl1.ResumeLayout(false);
             this.tabAdd.ResumeLayout(false);
             this.tabAdd.PerformLayout();
-            this.tabEdit.ResumeLayout(false);
-            this.tabEdit.PerformLayout();
             this.tabDelete.ResumeLayout(false);
-            this.tabRead.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTopics)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsTopics)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvResponses)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsResponses)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -392,29 +250,16 @@ namespace WinForms
         private System.Windows.Forms.Button btnAddress;
         private System.Windows.Forms.Button btnDev;
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnRefresh;
-        private System.Windows.Forms.DataGridView dgvTopics;
+        private System.Windows.Forms.DataGridView dgvResponses;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabAdd;
-        private System.Windows.Forms.TabPage tabEdit;
         private System.Windows.Forms.TabPage tabDelete;
-        private System.Windows.Forms.TextBox newTitleTextbox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox newDescriptionTextbox;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox modifiedDescriptionTextbox;
-        private System.Windows.Forms.TextBox modifiedTitleTextbox;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label labelError1;
-        private System.Windows.Forms.Label labelError2;
-        private System.Windows.Forms.TabPage tabRead;
-        private System.Windows.Forms.Button btnRead;
-        private System.Windows.Forms.BindingSource bsTopics;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox modifiedIdCategoryTextbox;
+        private System.Windows.Forms.BindingSource bsResponses;
+        private System.Windows.Forms.RichTextBox contentTextbox;
     }
 }
 
