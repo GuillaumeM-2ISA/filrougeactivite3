@@ -37,7 +37,8 @@ namespace WinForms
             this.btnDev = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabAdd = new System.Windows.Forms.TabPage();
-            this.labelError1 = new System.Windows.Forms.Label();
+            this.contentTextbox = new System.Windows.Forms.RichTextBox();
+            this.labelError = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.tabDelete = new System.Windows.Forms.TabPage();
@@ -45,7 +46,6 @@ namespace WinForms
             this.dgvResponses = new System.Windows.Forms.DataGridView();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.bsResponses = new System.Windows.Forms.BindingSource(this.components);
-            this.contentTextbox = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -129,7 +129,7 @@ namespace WinForms
             // tabAdd
             // 
             this.tabAdd.Controls.Add(this.contentTextbox);
-            this.tabAdd.Controls.Add(this.labelError1);
+            this.tabAdd.Controls.Add(this.labelError);
             this.tabAdd.Controls.Add(this.label1);
             this.tabAdd.Controls.Add(this.btnAdd);
             this.tabAdd.Location = new System.Drawing.Point(4, 29);
@@ -140,16 +140,24 @@ namespace WinForms
             this.tabAdd.Text = "Ajouter";
             this.tabAdd.UseVisualStyleBackColor = true;
             // 
-            // labelError1
+            // contentTextbox
             // 
-            this.labelError1.AutoSize = true;
-            this.labelError1.ForeColor = System.Drawing.Color.Red;
-            this.labelError1.Location = new System.Drawing.Point(16, 81);
-            this.labelError1.Name = "labelError1";
-            this.labelError1.Size = new System.Drawing.Size(244, 20);
-            this.labelError1.TabIndex = 7;
-            this.labelError1.Text = "Le champs contenu doit être rempli";
-            this.labelError1.Visible = false;
+            this.contentTextbox.Location = new System.Drawing.Point(87, 13);
+            this.contentTextbox.Name = "contentTextbox";
+            this.contentTextbox.Size = new System.Drawing.Size(344, 65);
+            this.contentTextbox.TabIndex = 8;
+            this.contentTextbox.Text = "";
+            // 
+            // labelError
+            // 
+            this.labelError.AutoSize = true;
+            this.labelError.ForeColor = System.Drawing.Color.Red;
+            this.labelError.Location = new System.Drawing.Point(16, 81);
+            this.labelError.Name = "labelError";
+            this.labelError.Size = new System.Drawing.Size(244, 20);
+            this.labelError.TabIndex = 7;
+            this.labelError.Text = "Le champs contenu doit être rempli";
+            this.labelError.Visible = false;
             // 
             // label1
             // 
@@ -168,6 +176,7 @@ namespace WinForms
             this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "Ajouter";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // tabDelete
             // 
@@ -188,6 +197,7 @@ namespace WinForms
             this.btnDelete.TabIndex = 4;
             this.btnDelete.Text = "Supprimer";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // dgvResponses
             // 
@@ -210,14 +220,7 @@ namespace WinForms
             this.btnRefresh.TabIndex = 1;
             this.btnRefresh.Text = "Actualiser";
             this.btnRefresh.UseVisualStyleBackColor = true;
-            // 
-            // contentTextbox
-            // 
-            this.contentTextbox.Location = new System.Drawing.Point(87, 13);
-            this.contentTextbox.Name = "contentTextbox";
-            this.contentTextbox.Size = new System.Drawing.Size(344, 65);
-            this.contentTextbox.TabIndex = 8;
-            this.contentTextbox.Text = "";
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // TopicForm
             // 
@@ -257,7 +260,7 @@ namespace WinForms
         private System.Windows.Forms.TabPage tabAdd;
         private System.Windows.Forms.TabPage tabDelete;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label labelError1;
+        private System.Windows.Forms.Label labelError;
         private System.Windows.Forms.BindingSource bsResponses;
         private System.Windows.Forms.RichTextBox contentTextbox;
     }

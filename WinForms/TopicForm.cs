@@ -41,5 +41,39 @@ namespace WinForms
 
             dgvResponses.DataSource = bsResponses;
         }
+
+        private async void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(contentTextbox.Text))
+            {
+                labelError.Visible = true;
+            }
+            else
+            {
+                var newResponse = await _dal.AddResponseAsync(this.idCategory, contentTextbox.Text, this.idTopic, _dal.IdMember);
+
+                await RefreshAsync(newResponse.Id);
+            }
+        }
+
+        private async void btnDelete_Click(object sender, EventArgs e)
+        {
+            var response = (Response)bsResponses.Current;
+
+            if (response != null)
+            {
+                bool res = await _dal.DeleteResponseAsync(this.idCategory, this.idTopic, response.Id);
+
+                if (!res)
+                    MessageBox.Show("Erreur lors de la suppression");
+
+                await RefreshAsync();
+            }
+        }
+
+        private async void btnRefresh_Click(object sender, EventArgs e)
+        {
+            await RefreshAsync();
+        }
     }
 }

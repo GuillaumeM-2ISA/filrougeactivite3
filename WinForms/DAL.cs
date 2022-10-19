@@ -1,4 +1,5 @@
-﻿using Domain.DTO.Requests.Security;
+﻿using Domain.DTO.Requests.Responses;
+using Domain.DTO.Requests.Security;
 using Domain.DTO.Requests.Topic;
 using Domain.DTO.Responses.Responses;
 using Domain.DTO.Responses.Topics;
@@ -145,6 +146,32 @@ namespace WinForms
                 var lstDTO = JsonSerializer.Deserialize<List<ResponseResponseDTO>>(content);
 
                 return lstDTO.ConvertAll(response => new Response { Id = response.Id, Content = response.Content, TopicId = response.TopicId, MemberId = response.MemberId });
+            }
+            else
+                return null;
+        }
+
+        public async Task<bool> DeleteResponseAsync(int categoryId, int topicId, int id)
+        {
+            var res = await _client.DeleteAsync($"{Settings1.Default.ConnectionString}/forum/categories/{categoryId}/topics/{topicId}/responses/{id}");
+            return res.IsSuccessStatusCode;
+        }
+
+        public async Task<Response> AddResponseAsync(int categoryId, string contenu, int topicId, int memberId)
+        {
+            CreateResponseRequestDTO createResponseRequestDTO = new() { Content = contenu, TopicId = topicId, MemberId = memberId };
+
+            var jsonBodyParameter = new StringContent(JsonSerializer.Serialize(createResponseRequestDTO), Encoding.UTF8, "application/json");
+
+            var res = await _client.PostAsync($"{Settings1.Default.ConnectionString}/forum/categories/{categoryId}/topics/{topicId}/responses", jsonBodyParameter);
+
+            if (res.IsSuccessStatusCode)
+            {
+                string content = await res.Content.ReadAsStringAsync();
+
+                var DTOResponse = JsonSerializer.Deserialize<ResponseResponseDTO>(content);
+
+                return new Response() { Id = DTOResponse.Id, Content = DTOResponse.Content, TopicId = DTOResponse.TopicId, MemberId = DTOResponse.MemberId };
             }
             else
                 return null;
