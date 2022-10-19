@@ -37,7 +37,7 @@ namespace API.Controllers
         {
             string token = await _securityService.SigninAsync(authentificationRequestDTO.Nickname, authentificationRequestDTO.Password);
 
-            return Ok(new { Token = token });
+            return Ok(token);
         }
 
         /// <summary>

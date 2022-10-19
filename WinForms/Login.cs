@@ -12,7 +12,7 @@ namespace WinForms
 {
     public partial class Login : Form
     {
-        DAL _dal = new DAL();
+        DAL _dal = DAL.getDAL();
 
         public Login()
         {

@@ -4,9 +4,11 @@ using Domain.DTO.Responses.Topics;
 using Domain.Entities;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Security.Claims;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -15,8 +17,25 @@ namespace WinForms
 {
     public class DAL
     {
+        static DAL _dal = null;
+
         HttpClient _client = new HttpClient();
         string _token;
+        int idMember = -1;
+        List<string> roles = new();
+
+        private DAL() { }
+
+        public static DAL getDAL()
+        {
+            if (_dal == null)
+                _dal = new DAL();
+
+            return _dal;
+        }
+
+        public int IdMember { get => idMember; }
+        public List<string> Roles { get => roles; }
 
         public async Task<string> Login(string nickname, string password)
         {
@@ -30,7 +49,24 @@ namespace WinForms
                 string content = await res.Content.ReadAsStringAsync();
                 _token = content;
                 _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _token);
-                
+
+                var handler = new JwtSecurityTokenHandler();
+                var tokenDecoded = handler.ReadJwtToken(_token);
+
+                foreach (var item in tokenDecoded.Claims)
+                {
+                    switch (item.Type)
+                    {
+                        case ClaimTypes.Role:
+                            roles.Add(item.Value);
+                            break;
+
+                        case ClaimTypes.NameIdentifier:
+                            idMember = int.Parse(item.Value);
+                            break;
+                    }
+                }
+
                 return _token;
             }
             

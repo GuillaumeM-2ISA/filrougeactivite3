@@ -13,7 +13,7 @@ namespace WinForms
 {
     public partial class DevelopmentForm : Form
     {
-        DAL _dal = new DAL();
+        DAL _dal = DAL.getDAL();
         List<Topic> _lstTopics;
 
         public DevelopmentForm()
@@ -54,7 +54,7 @@ namespace WinForms
 
         private async void btnAdd_Click(object sender, EventArgs e)
         {
-            var newTopic = await _dal.AddTopicAsync(newTitleTextbox.Text, newDescriptionTextbox.Text, 1, );
+            var newTopic = await _dal.AddTopicAsync(newTitleTextbox.Text, newDescriptionTextbox.Text, 1, _dal.IdMember);
 
             await RefreshAsync(newTopic.Id);
         }
