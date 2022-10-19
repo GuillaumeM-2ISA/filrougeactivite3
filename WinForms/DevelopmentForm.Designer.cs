@@ -37,7 +37,7 @@ namespace WinForms
             this.btnDev = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabAdd = new System.Windows.Forms.TabPage();
-            this.labelError1 = new System.Windows.Forms.Label();
+            this.labelError = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.newDescriptionTextbox = new System.Windows.Forms.TextBox();
             this.newTitleTextbox = new System.Windows.Forms.TextBox();
@@ -46,7 +46,6 @@ namespace WinForms
             this.tabEdit = new System.Windows.Forms.TabPage();
             this.modifiedIdCategoryTextbox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.labelError2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.modifiedDescriptionTextbox = new System.Windows.Forms.TextBox();
             this.modifiedTitleTextbox = new System.Windows.Forms.TextBox();
@@ -145,7 +144,7 @@ namespace WinForms
             // 
             // tabAdd
             // 
-            this.tabAdd.Controls.Add(this.labelError1);
+            this.tabAdd.Controls.Add(this.labelError);
             this.tabAdd.Controls.Add(this.label2);
             this.tabAdd.Controls.Add(this.newDescriptionTextbox);
             this.tabAdd.Controls.Add(this.newTitleTextbox);
@@ -159,16 +158,16 @@ namespace WinForms
             this.tabAdd.Text = "Ajouter";
             this.tabAdd.UseVisualStyleBackColor = true;
             // 
-            // labelError1
+            // labelError
             // 
-            this.labelError1.AutoSize = true;
-            this.labelError1.ForeColor = System.Drawing.Color.Red;
-            this.labelError1.Location = new System.Drawing.Point(16, 81);
-            this.labelError1.Name = "labelError1";
-            this.labelError1.Size = new System.Drawing.Size(342, 20);
-            this.labelError1.TabIndex = 7;
-            this.labelError1.Text = "Les champs titre et description doivent être rempli";
-            this.labelError1.Visible = false;
+            this.labelError.AutoSize = true;
+            this.labelError.ForeColor = System.Drawing.Color.Red;
+            this.labelError.Location = new System.Drawing.Point(16, 81);
+            this.labelError.Name = "labelError";
+            this.labelError.Size = new System.Drawing.Size(342, 20);
+            this.labelError.TabIndex = 7;
+            this.labelError.Text = "Les champs titre et description doivent être rempli";
+            this.labelError.Visible = false;
             // 
             // label2
             // 
@@ -216,7 +215,6 @@ namespace WinForms
             // 
             this.tabEdit.Controls.Add(this.modifiedIdCategoryTextbox);
             this.tabEdit.Controls.Add(this.label5);
-            this.tabEdit.Controls.Add(this.labelError2);
             this.tabEdit.Controls.Add(this.label3);
             this.tabEdit.Controls.Add(this.modifiedDescriptionTextbox);
             this.tabEdit.Controls.Add(this.modifiedTitleTextbox);
@@ -245,17 +243,6 @@ namespace WinForms
             this.label5.Size = new System.Drawing.Size(126, 20);
             this.label5.TabIndex = 12;
             this.label5.Text = "Id de la catégorie";
-            // 
-            // labelError2
-            // 
-            this.labelError2.AutoSize = true;
-            this.labelError2.ForeColor = System.Drawing.Color.Red;
-            this.labelError2.Location = new System.Drawing.Point(18, 81);
-            this.labelError2.Name = "labelError2";
-            this.labelError2.Size = new System.Drawing.Size(342, 20);
-            this.labelError2.TabIndex = 11;
-            this.labelError2.Text = "Les champs titre et description doivent être rempli";
-            this.labelError2.Visible = false;
             // 
             // label3
             // 
@@ -414,8 +401,7 @@ namespace WinForms
         private System.Windows.Forms.TextBox modifiedDescriptionTextbox;
         private System.Windows.Forms.TextBox modifiedTitleTextbox;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label labelError1;
-        private System.Windows.Forms.Label labelError2;
+        private System.Windows.Forms.Label labelError;
         private System.Windows.Forms.TabPage tabRead;
         private System.Windows.Forms.Button btnRead;
         private System.Windows.Forms.BindingSource bsTopics;

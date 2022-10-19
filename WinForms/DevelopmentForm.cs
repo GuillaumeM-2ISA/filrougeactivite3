@@ -57,9 +57,16 @@ namespace WinForms
 
         private async void btnAdd_Click(object sender, EventArgs e)
         {
-            var newTopic = await _dal.AddTopicAsync(newTitleTextbox.Text, newDescriptionTextbox.Text, 1, _dal.IdMember);
+            if (String.IsNullOrEmpty(newTitleTextbox.Text) && String.IsNullOrEmpty(newDescriptionTextbox.Text))
+            {
+                labelError.Visible = true;
+            }
+            else
+            {
+                var newTopic = await _dal.AddTopicAsync(newTitleTextbox.Text, newDescriptionTextbox.Text, 1, _dal.IdMember);
 
-            await RefreshAsync(newTopic.Id);
+                await RefreshAsync(newTopic.Id);
+            }
         }
 
         private async void btnEdit_Click(object sender, EventArgs e)
