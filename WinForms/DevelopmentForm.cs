@@ -35,6 +35,9 @@ namespace WinForms
             await RefreshAsync();
 
             dgvTopics.DataSource = bsTopics;
+            modifiedTitleTextbox.DataBindings.Add("Text", bsTopics, "Title", false, DataSourceUpdateMode.Never);
+            modifiedDescriptionTextbox.DataBindings.Add("Text", bsTopics, "Description", false, DataSourceUpdateMode.Never);
+            modifiedIdCategoryTextbox.DataBindings.Add("Text", bsTopics, "CategoryId", false, DataSourceUpdateMode.Never);
         }
 
         private async void btnDelete_Click(object sender, EventArgs e)
@@ -65,10 +68,24 @@ namespace WinForms
 
             if (topic != null)
             {
-                var updateUtil = await _dal.UpdateTopicAsync(topic.Id, modifiedTitleTextbox.Text, modifiedDescriptionTextbox.Text, 1);
+                var updateUtil = await _dal.UpdateTopicAsync(topic.Id, modifiedTitleTextbox.Text, modifiedDescriptionTextbox.Text, int.Parse(modifiedIdCategoryTextbox.Text));
             }
 
             await RefreshAsync(topic.Id);
+        }
+
+        private async void btnRefresh_Click(object sender, EventArgs e)
+        {
+            await RefreshAsync();
+        }
+
+        private void btnRead_Click(object sender, EventArgs e)
+        {
+            var topic = (Topic)bsTopics.Current;
+
+            TopicForm topicForm = new TopicForm(topic.Id);
+            topicForm.Show();
+            this.Hide();
         }
     }
 }

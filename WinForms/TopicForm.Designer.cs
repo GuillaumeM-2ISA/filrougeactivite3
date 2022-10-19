@@ -1,7 +1,7 @@
 ﻿
 namespace WinForms
 {
-    partial class DevelopmentForm
+    partial class TopicForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -210,7 +210,6 @@ namespace WinForms
             this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "Ajouter";
             this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // tabEdit
             // 
@@ -297,7 +296,6 @@ namespace WinForms
             this.btnEdit.TabIndex = 3;
             this.btnEdit.Text = "Modifier";
             this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // tabDelete
             // 
@@ -318,7 +316,6 @@ namespace WinForms
             this.btnDelete.TabIndex = 4;
             this.btnDelete.Text = "Supprimer";
             this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // tabRead
             // 
@@ -339,7 +336,6 @@ namespace WinForms
             this.btnRead.TabIndex = 0;
             this.btnRead.Text = "Consulter";
             this.btnRead.UseVisualStyleBackColor = true;
-            this.btnRead.Click += new System.EventHandler(this.btnRead_Click);
             // 
             // dgvTopics
             // 
@@ -362,7 +358,6 @@ namespace WinForms
             this.btnRefresh.TabIndex = 1;
             this.btnRefresh.Text = "Actualiser";
             this.btnRefresh.UseVisualStyleBackColor = true;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // DevelopmentForm
             // 
@@ -372,7 +367,6 @@ namespace WinForms
             this.Controls.Add(this.splitContainer1);
             this.Name = "DevelopmentForm";
             this.Text = "Developpement";
-            this.Load += new System.EventHandler(this.DevelopmentForm_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
