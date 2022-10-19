@@ -113,5 +113,25 @@ namespace WinForms
             else
                 return null;
         }
+
+        public async Task<Topic> UpdateTopicAsync(int id, string titre, string description, int categoryId)
+        {
+            UpdateTopicRequestDTO updateTopicRequestDTO = new() { Id = id, Title = titre, Description = description, CategoryId = categoryId };
+
+            var jsonBodyParameter = new StringContent(JsonSerializer.Serialize(updateTopicRequestDTO), Encoding.UTF8, "application/json");
+
+            var res = await _client.PutAsync($"{Settings1.Default.ConnectionString}/forum/categories/{categoryId}/topics/{id}", jsonBodyParameter);
+
+            if (res.IsSuccessStatusCode)
+            {
+                string content = await res.Content.ReadAsStringAsync();
+
+                var DTOTopic = JsonSerializer.Deserialize<TopicResponseDTO>(content);
+
+                return new Topic() { Id = DTOTopic.Id, Title = DTOTopic.Title, Description = DTOTopic.Description, CategoryId = DTOTopic.CategoryId, MemberId = DTOTopic.MemberId };
+            }
+            else
+                return null;
+        }
     }
 }

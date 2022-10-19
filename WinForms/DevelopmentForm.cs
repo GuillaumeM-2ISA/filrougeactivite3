@@ -58,5 +58,17 @@ namespace WinForms
 
             await RefreshAsync(newTopic.Id);
         }
+
+        private async void btnEdit_Click(object sender, EventArgs e)
+        {
+            var topic = (Topic)bsTopics.Current;
+
+            if (topic != null)
+            {
+                var updateUtil = await _dal.UpdateTopicAsync(topic.Id, modifiedTitleTextbox.Text, modifiedDescriptionTextbox.Text, 1);
+            }
+
+            await RefreshAsync(topic.Id);
+        }
     }
 }
