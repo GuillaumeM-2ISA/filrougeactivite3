@@ -20,7 +20,7 @@ namespace DAL.UOW.Repositories
 
         public async Task<IEnumerable<Response>> GetAllAsync()
         {
-            string query = @"SELECT * FROM Response AS r INNER JOIN Member AS m ON r.MemberId = m.Id";
+            string query = @"SELECT * FROM Response AS r INNER JOIN Member AS m ON r.MemberId = m.Id ORDER BY r.SentOn DESC";
 
             IEnumerable<Response> responses = await _db.Connection.QueryAsync<Response, Member, Response>(query, (response, member) =>
             {
@@ -33,7 +33,7 @@ namespace DAL.UOW.Repositories
 
         public async Task<IEnumerable<Response>> GetResponsesByTopicIdAsync(int topicId)
         {
-            string query = @"SELECT * FROM Response AS r INNER JOIN Member AS m ON r.MemberId = m.Id WHERE r.TopicId = @TopicId";
+            string query = @"SELECT * FROM Response AS r INNER JOIN Member AS m ON r.MemberId = m.Id WHERE r.TopicId = @TopicId ORDER BY r.SentOn DESC";
 
             IEnumerable<Response> responses = await _db.Connection.QueryAsync<Response, Member, Response>(query, (response, member) =>
             {
