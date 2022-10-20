@@ -94,7 +94,7 @@ namespace WinForms
             this.Controls.Add(this.label1);
             this.Controls.Add(this.newPasswordTextbox);
             this.Name = "UpdatePasswordForm";
-            this.Text = "UpdatePasswordForm";
+            this.Text = "Mise à jour du mot de passe";
             this.ResumeLayout(false);
             this.PerformLayout();
 

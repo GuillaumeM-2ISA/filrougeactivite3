@@ -374,7 +374,7 @@ namespace WinForms
             this.ClientSize = new System.Drawing.Size(957, 582);
             this.Controls.Add(this.splitContainer1);
             this.Name = "AddressForm";
-            this.Text = "Developpement";
+            this.Text = "Adresses utiles";
             this.Load += new System.EventHandler(this.DevelopmentForm_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
