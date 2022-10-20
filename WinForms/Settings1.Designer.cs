@@ -34,5 +34,17 @@ namespace WinForms {
                 this["ConnectionString"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:5000/api")]
+        public string ConnectionStringLocal {
+            get {
+                return ((string)(this["ConnectionStringLocal"]));
+            }
+            set {
+                this["ConnectionStringLocal"] = value;
+            }
+        }
     }
 }

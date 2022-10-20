@@ -1,6 +1,8 @@
-﻿using Domain.DTO.Requests.Responses;
+﻿using Domain.DTO.Requests.Members;
+using Domain.DTO.Requests.Responses;
 using Domain.DTO.Requests.Security;
 using Domain.DTO.Requests.Topic;
+using Domain.DTO.Responses.Members;
 using Domain.DTO.Responses.Responses;
 using Domain.DTO.Responses.Topics;
 using Domain.Entities;
@@ -39,12 +41,12 @@ namespace WinForms
         public int IdMember { get => idMember; }
         public List<string> Roles { get => roles; }
 
-        public async Task<string> Login(string nickname, string password)
+        public async Task<string> LoginAsync(string nickname, string password)
         {
             AuthentificationRequestDTO authentificationRequestDTO = new() { Nickname = nickname, Password = password };
             var jsonBodyParameter = new StringContent(JsonSerializer.Serialize(authentificationRequestDTO), Encoding.UTF8, "application/json");
 
-            var res = await _client.PostAsync($"{Settings1.Default.ConnectionString}/members/login", jsonBodyParameter);
+            var res = await _client.PostAsync($"{Settings1.Default.ConnectionStringLocal}/members/login", jsonBodyParameter);
 
             if (res.IsSuccessStatusCode)
             {
@@ -75,9 +77,24 @@ namespace WinForms
             return null;
         }
 
+        public async Task<string> UpdatePasswordAsync(int idMember, string newPassword)
+        {
+            UpdatePasswordRequestDTO updatePasswordRequestDTO = new() { Id = idMember, Password = newPassword };
+            var jsonBodyParameter = new StringContent(JsonSerializer.Serialize(updatePasswordRequestDTO), Encoding.UTF8, "application/json");
+
+            var res = await _client.PutAsync($"{Settings1.Default.ConnectionStringLocal}/members/{idMember}", jsonBodyParameter);
+
+            if (res.IsSuccessStatusCode)
+            {
+                return "Le mot de passe à été correctement modifié";
+            }
+            else
+                return null;
+        }
+
         public async Task<List<Topic>> GetAllTopicsByCategoryIdAsync(int id)
         {
-            var res = await _client.GetAsync($"{Settings1.Default.ConnectionString}/forum/categories/{id}/topics");
+            var res = await _client.GetAsync($"{Settings1.Default.ConnectionStringLocal}/forum/categories/{id}/topics");
 
             if (res.IsSuccessStatusCode)
             {
@@ -92,7 +109,7 @@ namespace WinForms
 
         public async Task<bool> DeleteTopicAsync(int categoryId, int id)
         {
-            var res = await _client.DeleteAsync($"{Settings1.Default.ConnectionString}/forum/categories/{categoryId}/topics/{id}");
+            var res = await _client.DeleteAsync($"{Settings1.Default.ConnectionStringLocal}/forum/categories/{categoryId}/topics/{id}");
             return res.IsSuccessStatusCode;
         }
 
@@ -102,7 +119,7 @@ namespace WinForms
 
             var jsonBodyParameter = new StringContent(JsonSerializer.Serialize(createTopicRequestDTO), Encoding.UTF8, "application/json");
 
-            var res = await _client.PostAsync($"{Settings1.Default.ConnectionString}/forum/categories/{categoryId}/topics/", jsonBodyParameter);
+            var res = await _client.PostAsync($"{Settings1.Default.ConnectionStringLocal}/forum/categories/{categoryId}/topics/", jsonBodyParameter);
 
             if (res.IsSuccessStatusCode)
             {
@@ -122,7 +139,7 @@ namespace WinForms
 
             var jsonBodyParameter = new StringContent(JsonSerializer.Serialize(updateTopicRequestDTO), Encoding.UTF8, "application/json");
 
-            var res = await _client.PutAsync($"{Settings1.Default.ConnectionString}/forum/categories/{categoryId}/topics/{id}", jsonBodyParameter);
+            var res = await _client.PutAsync($"{Settings1.Default.ConnectionStringLocal}/forum/categories/{categoryId}/topics/{id}", jsonBodyParameter);
 
             if (res.IsSuccessStatusCode)
             {
@@ -138,7 +155,7 @@ namespace WinForms
 
         public async Task<List<Response>> GetAllResponsesByTopicIdAsync(int categoryId, int id)
         {
-            var res = await _client.GetAsync($"{Settings1.Default.ConnectionString}/forum/categories/{categoryId}/topics/{id}/responses");
+            var res = await _client.GetAsync($"{Settings1.Default.ConnectionStringLocal}/forum/categories/{categoryId}/topics/{id}/responses");
 
             if (res.IsSuccessStatusCode)
             {
@@ -153,7 +170,7 @@ namespace WinForms
 
         public async Task<bool> DeleteResponseAsync(int categoryId, int topicId, int id)
         {
-            var res = await _client.DeleteAsync($"{Settings1.Default.ConnectionString}/forum/categories/{categoryId}/topics/{topicId}/responses/{id}");
+            var res = await _client.DeleteAsync($"{Settings1.Default.ConnectionStringLocal}/forum/categories/{categoryId}/topics/{topicId}/responses/{id}");
             return res.IsSuccessStatusCode;
         }
 
@@ -163,7 +180,7 @@ namespace WinForms
 
             var jsonBodyParameter = new StringContent(JsonSerializer.Serialize(createResponseRequestDTO), Encoding.UTF8, "application/json");
 
-            var res = await _client.PostAsync($"{Settings1.Default.ConnectionString}/forum/categories/{categoryId}/topics/{topicId}/responses", jsonBodyParameter);
+            var res = await _client.PostAsync($"{Settings1.Default.ConnectionStringLocal}/forum/categories/{categoryId}/topics/{topicId}/responses", jsonBodyParameter);
 
             if (res.IsSuccessStatusCode)
             {

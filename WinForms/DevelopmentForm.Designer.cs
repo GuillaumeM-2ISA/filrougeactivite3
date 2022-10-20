@@ -31,6 +31,7 @@ namespace WinForms
         {
             this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btnUpdatePassword = new System.Windows.Forms.Button();
             this.btnRelaxZone = new System.Windows.Forms.Button();
             this.btnQuestions = new System.Windows.Forms.Button();
             this.btnAddress = new System.Windows.Forms.Button();
@@ -80,6 +81,7 @@ namespace WinForms
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.btnUpdatePassword);
             this.splitContainer1.Panel1.Controls.Add(this.btnRelaxZone);
             this.splitContainer1.Panel1.Controls.Add(this.btnQuestions);
             this.splitContainer1.Panel1.Controls.Add(this.btnAddress);
@@ -94,6 +96,16 @@ namespace WinForms
             this.splitContainer1.SplitterDistance = 183;
             this.splitContainer1.TabIndex = 0;
             // 
+            // btnUpdatePassword
+            // 
+            this.btnUpdatePassword.Location = new System.Drawing.Point(15, 46);
+            this.btnUpdatePassword.Name = "btnUpdatePassword";
+            this.btnUpdatePassword.Size = new System.Drawing.Size(152, 51);
+            this.btnUpdatePassword.TabIndex = 5;
+            this.btnUpdatePassword.Text = "Mettre à jour le mot de passe";
+            this.btnUpdatePassword.UseVisualStyleBackColor = true;
+            this.btnUpdatePassword.Click += new System.EventHandler(this.btnUpdatePassword_Click);
+            // 
             // btnRelaxZone
             // 
             this.btnRelaxZone.Location = new System.Drawing.Point(15, 360);
@@ -102,6 +114,7 @@ namespace WinForms
             this.btnRelaxZone.TabIndex = 4;
             this.btnRelaxZone.Text = "Espace détente";
             this.btnRelaxZone.UseVisualStyleBackColor = true;
+            this.btnRelaxZone.Click += new System.EventHandler(this.btnRelaxZone_Click);
             // 
             // btnQuestions
             // 
@@ -111,6 +124,7 @@ namespace WinForms
             this.btnQuestions.TabIndex = 3;
             this.btnQuestions.Text = "Questions diverses";
             this.btnQuestions.UseVisualStyleBackColor = true;
+            this.btnQuestions.Click += new System.EventHandler(this.btnQuestions_Click);
             // 
             // btnAddress
             // 
@@ -120,9 +134,11 @@ namespace WinForms
             this.btnAddress.TabIndex = 2;
             this.btnAddress.Text = "Adresses utiles";
             this.btnAddress.UseVisualStyleBackColor = true;
+            this.btnAddress.Click += new System.EventHandler(this.btnAddress_Click);
             // 
             // btnDev
             // 
+            this.btnDev.Enabled = false;
             this.btnDev.Location = new System.Drawing.Point(15, 216);
             this.btnDev.Name = "btnDev";
             this.btnDev.Size = new System.Drawing.Size(152, 29);
@@ -407,6 +423,7 @@ namespace WinForms
         private System.Windows.Forms.BindingSource bsTopics;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox modifiedIdCategoryTextbox;
+        private System.Windows.Forms.Button btnUpdatePassword;
     }
 }
 

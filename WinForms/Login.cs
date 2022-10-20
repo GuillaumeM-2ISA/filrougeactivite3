@@ -21,7 +21,7 @@ namespace WinForms
 
         private async void btnConnect_Click(object sender, EventArgs e)
         {
-            var jwt = await _dal.Login(nicknameTextbox.Text, passwordTextbox.Text);
+            var jwt = await _dal.LoginAsync(nicknameTextbox.Text, passwordTextbox.Text);
 
             if (jwt != null)
             {
@@ -33,6 +33,13 @@ namespace WinForms
             {
                 labelError.Visible = true;
             }
+        }
+
+        private void btnContinue_Click(object sender, EventArgs e)
+        {
+            DevelopmentForm developmentForm = new DevelopmentForm();
+            developmentForm.Show();
+            this.Hide();
         }
     }
 }

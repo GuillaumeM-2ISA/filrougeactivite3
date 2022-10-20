@@ -15,6 +15,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="AddressForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="RelaxZoneForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="QuestionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="TopicForm.cs">
       <SubType>Form</SubType>
     </Compile>

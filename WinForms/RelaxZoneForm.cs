@@ -11,12 +11,12 @@ using System.Windows.Forms;
 
 namespace WinForms
 {
-    public partial class DevelopmentForm : Form
+    public partial class RelaxZoneForm : Form
     {
         DAL _dal = DAL.getDAL();
         List<Topic> _lstTopics;
 
-        public DevelopmentForm()
+        public RelaxZoneForm()
         {
             InitializeComponent();
 
@@ -37,7 +37,7 @@ namespace WinForms
 
         private async Task RefreshAsync(int id = 0)
         {
-            _lstTopics = await _dal.GetAllTopicsByCategoryIdAsync(1);
+            _lstTopics = await _dal.GetAllTopicsByCategoryIdAsync(4);
             bsTopics.DataSource = _lstTopics;
             bsTopics.ResetBindings(false);
 
@@ -65,7 +65,7 @@ namespace WinForms
 
             if (topic != null)
             {
-                bool res = await _dal.DeleteTopicAsync(1, topic.Id);
+                bool res = await _dal.DeleteTopicAsync(4, topic.Id);
 
                 if (!res)
                     MessageBox.Show("Erreur lors de la suppression");
@@ -82,7 +82,7 @@ namespace WinForms
             }
             else
             {
-                var newTopic = await _dal.AddTopicAsync(newTitleTextbox.Text, newDescriptionTextbox.Text, 1, _dal.IdMember);
+                var newTopic = await _dal.AddTopicAsync(newTitleTextbox.Text, newDescriptionTextbox.Text, 4, _dal.IdMember);
 
                 await RefreshAsync(newTopic.Id);
             }
@@ -109,7 +109,7 @@ namespace WinForms
         {
             var topic = (Topic)bsTopics.Current;
 
-            TopicForm topicForm = new TopicForm(1, topic.Id);
+            TopicForm topicForm = new TopicForm(4, topic.Id);
             topicForm.Show();
             this.Hide();
         }
@@ -118,27 +118,6 @@ namespace WinForms
         {
             UpdatePasswordForm updatePasswordForm = new UpdatePasswordForm();
             updatePasswordForm.ShowDialog();
-        }
-
-        private void btnAddress_Click(object sender, EventArgs e)
-        {
-            AddressForm addressForm = new AddressForm();
-            addressForm.Show();
-            this.Hide();
-        }
-
-        private void btnQuestions_Click(object sender, EventArgs e)
-        {
-            QuestionsForm questionsForm = new QuestionsForm();
-            questionsForm.Show();
-            this.Hide();
-        }
-
-        private void btnRelaxZone_Click(object sender, EventArgs e)
-        {
-            RelaxZoneForm relaxZoneForm = new RelaxZoneForm();
-            relaxZoneForm.Show();
-            this.Hide();
         }
     }
 }

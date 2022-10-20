@@ -24,6 +24,18 @@ namespace WinForms
             this.idTopic = id;
 
             InitializeComponent();
+
+            if (_dal.IdMember == -1)
+            {
+                btnUpdatePassword.Enabled = false;
+                btnAdd.Enabled = false;
+                btnDelete.Enabled = false;
+            }
+
+            if (!_dal.Roles.Contains("MODERATOR"))
+            {
+                btnDelete.Enabled = false;
+            }
         }
 
         private async Task RefreshAsync(int id = 0)
@@ -40,6 +52,8 @@ namespace WinForms
             await RefreshAsync();
 
             dgvResponses.DataSource = bsResponses;
+            dgvResponses.Columns["SentOn"].Visible = false;
+            dgvResponses.Columns["Member"].Visible = false;
         }
 
         private async void btnAdd_Click(object sender, EventArgs e)
@@ -74,6 +88,12 @@ namespace WinForms
         private async void btnRefresh_Click(object sender, EventArgs e)
         {
             await RefreshAsync();
+        }
+
+        private void btnUpdatePassword_Click(object sender, EventArgs e)
+        {
+            UpdatePasswordForm updatePasswordForm = new UpdatePasswordForm();
+            updatePasswordForm.ShowDialog();
         }
     }
 }
