@@ -13,10 +13,12 @@ namespace WinForms
 {
     public partial class RelaxZoneForm : Form
     {
+        static RelaxZoneForm _relaxZoneForm = null;
+
         DAL _dal = DAL.getDAL();
         List<Topic> _lstTopics;
 
-        public RelaxZoneForm()
+        private RelaxZoneForm()
         {
             InitializeComponent();
 
@@ -33,6 +35,14 @@ namespace WinForms
                 btnEdit.Enabled = false;
                 btnDelete.Enabled = false;
             }
+        }
+
+        public static RelaxZoneForm getRelaxZoneForm()
+        {
+            if (_relaxZoneForm == null)
+                _relaxZoneForm = new RelaxZoneForm();
+
+            return _relaxZoneForm;
         }
 
         private async Task RefreshAsync(int id = 0)
@@ -122,21 +132,21 @@ namespace WinForms
 
         private void btnDev_Click(object sender, EventArgs e)
         {
-            DevelopmentForm developmentForm = new DevelopmentForm();
+            DevelopmentForm developmentForm = DevelopmentForm.getDevelopmentForm();
             developmentForm.Show();
             this.Hide();
         }
 
         private void btnAddress_Click(object sender, EventArgs e)
         {
-            AddressForm addressForm = new AddressForm();
+            AddressForm addressForm = AddressForm.getAddressForm();
             addressForm.Show();
             this.Hide();
         }
 
         private void btnQuestions_Click(object sender, EventArgs e)
         {
-            QuestionsForm questionsForm = new QuestionsForm();
+            QuestionsForm questionsForm = QuestionsForm.getQuestionsForm();
             questionsForm.Show();
             this.Hide();
         }

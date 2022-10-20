@@ -25,7 +25,7 @@ namespace WinForms
 
             if (jwt != null)
             {
-                DevelopmentForm developmentForm = new DevelopmentForm();
+                DevelopmentForm developmentForm = DevelopmentForm.getDevelopmentForm();
                 developmentForm.Show();
                 this.Hide();
             }
@@ -37,7 +37,7 @@ namespace WinForms
 
         private void btnContinue_Click(object sender, EventArgs e)
         {
-            DevelopmentForm developmentForm = new DevelopmentForm();
+            DevelopmentForm developmentForm = DevelopmentForm.getDevelopmentForm();
             developmentForm.Show();
             this.Hide();
         }

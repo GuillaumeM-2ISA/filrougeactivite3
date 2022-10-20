@@ -13,10 +13,12 @@ namespace WinForms
 {
     public partial class AddressForm : Form
     {
+        static AddressForm _addressForm = null;
+
         DAL _dal = DAL.getDAL();
         List<Topic> _lstTopics;
 
-        public AddressForm()
+        private AddressForm()
         {
             InitializeComponent();
 
@@ -33,6 +35,14 @@ namespace WinForms
                 btnEdit.Enabled = false;
                 btnDelete.Enabled = false;
             }
+        }
+
+        public static AddressForm getAddressForm()
+        {
+            if (_addressForm == null)
+                _addressForm = new AddressForm();
+
+            return _addressForm;
         }
 
         private async Task RefreshAsync(int id = 0)
@@ -122,21 +132,21 @@ namespace WinForms
 
         private void btnDev_Click(object sender, EventArgs e)
         {
-            DevelopmentForm developmentForm = new DevelopmentForm();
+            DevelopmentForm developmentForm = DevelopmentForm.getDevelopmentForm();
             developmentForm.Show();
             this.Hide();
         }
 
         private void btnQuestions_Click(object sender, EventArgs e)
         {
-            QuestionsForm questionsForm = new QuestionsForm();
+            QuestionsForm questionsForm = QuestionsForm.getQuestionsForm();
             questionsForm.Show();
             this.Hide();
         }
 
         private void btnRelaxZone_Click(object sender, EventArgs e)
         {
-            RelaxZoneForm relaxZoneForm = new RelaxZoneForm();
+            RelaxZoneForm relaxZoneForm = RelaxZoneForm.getRelaxZoneForm();
             relaxZoneForm.Show();
             this.Hide();
         }
