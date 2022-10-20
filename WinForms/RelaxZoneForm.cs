@@ -119,5 +119,26 @@ namespace WinForms
             UpdatePasswordForm updatePasswordForm = new UpdatePasswordForm();
             updatePasswordForm.ShowDialog();
         }
+
+        private void btnDev_Click(object sender, EventArgs e)
+        {
+            DevelopmentForm developmentForm = new DevelopmentForm();
+            developmentForm.Show();
+            this.Hide();
+        }
+
+        private void btnAddress_Click(object sender, EventArgs e)
+        {
+            AddressForm addressForm = new AddressForm();
+            addressForm.Show();
+            this.Hide();
+        }
+
+        private void btnQuestions_Click(object sender, EventArgs e)
+        {
+            QuestionsForm questionsForm = new QuestionsForm();
+            questionsForm.Show();
+            this.Hide();
+        }
     }
 }

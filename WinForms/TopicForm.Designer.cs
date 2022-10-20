@@ -100,6 +100,7 @@ namespace WinForms
             this.btnRelaxZone.TabIndex = 4;
             this.btnRelaxZone.Text = "Espace détente";
             this.btnRelaxZone.UseVisualStyleBackColor = true;
+            this.btnRelaxZone.Click += new System.EventHandler(this.btnRelaxZone_Click);
             // 
             // btnQuestions
             // 
@@ -109,6 +110,7 @@ namespace WinForms
             this.btnQuestions.TabIndex = 3;
             this.btnQuestions.Text = "Questions diverses";
             this.btnQuestions.UseVisualStyleBackColor = true;
+            this.btnQuestions.Click += new System.EventHandler(this.btnQuestions_Click);
             // 
             // btnAddress
             // 
@@ -118,6 +120,7 @@ namespace WinForms
             this.btnAddress.TabIndex = 2;
             this.btnAddress.Text = "Adresses utiles";
             this.btnAddress.UseVisualStyleBackColor = true;
+            this.btnAddress.Click += new System.EventHandler(this.btnAddress_Click);
             // 
             // btnDev
             // 
@@ -127,6 +130,7 @@ namespace WinForms
             this.btnDev.TabIndex = 1;
             this.btnDev.Text = "Développement";
             this.btnDev.UseVisualStyleBackColor = true;
+            this.btnDev.Click += new System.EventHandler(this.btnDev_Click);
             // 
             // tabControl1
             // 

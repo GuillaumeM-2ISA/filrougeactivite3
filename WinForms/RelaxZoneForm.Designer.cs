@@ -108,6 +108,7 @@ namespace WinForms
             // 
             // btnRelaxZone
             // 
+            this.btnRelaxZone.Enabled = false;
             this.btnRelaxZone.Location = new System.Drawing.Point(15, 360);
             this.btnRelaxZone.Name = "btnRelaxZone";
             this.btnRelaxZone.Size = new System.Drawing.Size(152, 29);
@@ -123,6 +124,7 @@ namespace WinForms
             this.btnQuestions.TabIndex = 3;
             this.btnQuestions.Text = "Questions diverses";
             this.btnQuestions.UseVisualStyleBackColor = true;
+            this.btnQuestions.Click += new System.EventHandler(this.btnQuestions_Click);
             // 
             // btnAddress
             // 
@@ -132,6 +134,7 @@ namespace WinForms
             this.btnAddress.TabIndex = 2;
             this.btnAddress.Text = "Adresses utiles";
             this.btnAddress.UseVisualStyleBackColor = true;
+            this.btnAddress.Click += new System.EventHandler(this.btnAddress_Click);
             // 
             // btnDev
             // 
@@ -141,6 +144,7 @@ namespace WinForms
             this.btnDev.TabIndex = 1;
             this.btnDev.Text = "Développement";
             this.btnDev.UseVisualStyleBackColor = true;
+            this.btnDev.Click += new System.EventHandler(this.btnDev_Click);
             // 
             // tabControl1
             // 
@@ -363,13 +367,13 @@ namespace WinForms
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
-            // DevelopmentForm
+            // RelaxZoneForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(957, 582);
             this.Controls.Add(this.splitContainer1);
-            this.Name = "DevelopmentForm";
+            this.Name = "RelaxZoneForm";
             this.Text = "Developpement";
             this.Load += new System.EventHandler(this.DevelopmentForm_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);

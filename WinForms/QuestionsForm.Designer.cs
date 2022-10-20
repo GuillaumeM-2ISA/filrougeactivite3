@@ -114,9 +114,11 @@ namespace WinForms
             this.btnRelaxZone.TabIndex = 4;
             this.btnRelaxZone.Text = "Espace détente";
             this.btnRelaxZone.UseVisualStyleBackColor = true;
+            this.btnRelaxZone.Click += new System.EventHandler(this.btnRelaxZone_Click);
             // 
             // btnQuestions
             // 
+            this.btnQuestions.Enabled = false;
             this.btnQuestions.Location = new System.Drawing.Point(15, 310);
             this.btnQuestions.Name = "btnQuestions";
             this.btnQuestions.Size = new System.Drawing.Size(152, 29);
@@ -132,6 +134,7 @@ namespace WinForms
             this.btnAddress.TabIndex = 2;
             this.btnAddress.Text = "Adresses utiles";
             this.btnAddress.UseVisualStyleBackColor = true;
+            this.btnAddress.Click += new System.EventHandler(this.btnAddress_Click);
             // 
             // btnDev
             // 
@@ -141,6 +144,7 @@ namespace WinForms
             this.btnDev.TabIndex = 1;
             this.btnDev.Text = "Développement";
             this.btnDev.UseVisualStyleBackColor = true;
+            this.btnDev.Click += new System.EventHandler(this.btnDev_Click);
             // 
             // tabControl1
             // 
@@ -363,13 +367,13 @@ namespace WinForms
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
-            // DevelopmentForm
+            // QuestionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(957, 582);
             this.Controls.Add(this.splitContainer1);
-            this.Name = "DevelopmentForm";
+            this.Name = "QuestionsForm";
             this.Text = "Developpement";
             this.Load += new System.EventHandler(this.DevelopmentForm_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
