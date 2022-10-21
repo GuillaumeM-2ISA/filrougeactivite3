@@ -356,6 +356,7 @@ namespace WinForms
             this.dgvTopics.RowTemplate.Height = 29;
             this.dgvTopics.Size = new System.Drawing.Size(728, 406);
             this.dgvTopics.TabIndex = 0;
+            this.dgvTopics.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTopics_CellDoubleClick);
             // 
             // btnRefresh
             // 

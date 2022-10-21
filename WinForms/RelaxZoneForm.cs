@@ -150,5 +150,14 @@ namespace WinForms
             questionsForm.Show();
             this.Hide();
         }
+
+        private void dgvTopics_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var topic = (Topic)bsTopics.Current;
+
+            TopicForm topicForm = new TopicForm(4, topic.Id);
+            topicForm.Show();
+            this.Hide();
+        }
     }
 }
