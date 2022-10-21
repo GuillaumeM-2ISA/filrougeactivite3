@@ -219,12 +219,16 @@ namespace WinForms
             // 
             this.dgvResponses.AllowUserToAddRows = false;
             this.dgvResponses.AllowUserToDeleteRows = false;
+            this.dgvResponses.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvResponses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvResponses.Location = new System.Drawing.Point(19, 12);
+            this.dgvResponses.MultiSelect = false;
             this.dgvResponses.Name = "dgvResponses";
             this.dgvResponses.ReadOnly = true;
+            this.dgvResponses.RowHeadersVisible = false;
             this.dgvResponses.RowHeadersWidth = 51;
             this.dgvResponses.RowTemplate.Height = 29;
+            this.dgvResponses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvResponses.Size = new System.Drawing.Size(728, 406);
             this.dgvResponses.TabIndex = 0;
             // 

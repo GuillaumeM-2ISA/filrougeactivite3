@@ -348,12 +348,16 @@ namespace WinForms
             // 
             this.dgvTopics.AllowUserToAddRows = false;
             this.dgvTopics.AllowUserToDeleteRows = false;
+            this.dgvTopics.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvTopics.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTopics.Location = new System.Drawing.Point(19, 12);
+            this.dgvTopics.MultiSelect = false;
             this.dgvTopics.Name = "dgvTopics";
             this.dgvTopics.ReadOnly = true;
+            this.dgvTopics.RowHeadersVisible = false;
             this.dgvTopics.RowHeadersWidth = 51;
             this.dgvTopics.RowTemplate.Height = 29;
+            this.dgvTopics.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTopics.Size = new System.Drawing.Size(728, 406);
             this.dgvTopics.TabIndex = 0;
             this.dgvTopics.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTopics_CellDoubleClick);
