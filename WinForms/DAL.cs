@@ -162,7 +162,7 @@ namespace WinForms
                 string content = await res.Content.ReadAsStringAsync();
                 var lstDTO = JsonSerializer.Deserialize<List<ResponseResponseDTO>>(content);
 
-                return lstDTO.ConvertAll(response => new Response { Id = response.Id, Content = response.Content, TopicId = response.TopicId, MemberId = response.MemberId });
+                return lstDTO.ConvertAll(response => new Response { Id = response.Id, Content = response.Content, TopicId = response.TopicId, MemberName = response.MemberName });
             }
             else
                 return null;
@@ -188,7 +188,7 @@ namespace WinForms
 
                 var DTOResponse = JsonSerializer.Deserialize<ResponseResponseDTO>(content);
 
-                return new Response() { Id = DTOResponse.Id, Content = DTOResponse.Content, TopicId = DTOResponse.TopicId, MemberId = DTOResponse.MemberId };
+                return new Response() { Id = DTOResponse.Id, Content = DTOResponse.Content, TopicId = DTOResponse.TopicId, MemberName = DTOResponse.MemberName };
             }
             else
                 return null;

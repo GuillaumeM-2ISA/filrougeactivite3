@@ -54,6 +54,7 @@ namespace WinForms
             dgvResponses.DataSource = bsResponses;
             dgvResponses.Columns["SentOn"].Visible = false;
             dgvResponses.Columns["Member"].Visible = false;
+            dgvResponses.Columns["MemberId"].Visible = false;
         }
 
         private async void btnAdd_Click(object sender, EventArgs e)

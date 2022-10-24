@@ -221,7 +221,7 @@ namespace API.Controllers
                 Id = response.Id,
                 Content = response.Content,
                 TopicId = topic.Id,
-                MemberId = response.MemberId
+                MemberName = response.Member.Nickname
             });
 
             return Ok(responsesResponse);
@@ -246,7 +246,7 @@ namespace API.Controllers
                 Id = response.Id,
                 Content = response.Content,
                 TopicId = topic.Id,
-                MemberId = response.MemberId
+                MemberName = response.Member.Nickname
             };
 
             return Ok(ResponseResponse);
@@ -288,7 +288,7 @@ namespace API.Controllers
                     Id = response.Id,
                     Content = response.Content,
                     TopicId = topic.Id,
-                    MemberId = response.MemberId
+                    MemberName = response.Member.Nickname
                 });
             }
             else

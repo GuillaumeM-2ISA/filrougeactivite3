@@ -189,9 +189,9 @@
             Id du sujet du DTO de réponse de réponse
             </summary>
         </member>
-        <member name="P:Domain.DTO.Responses.Responses.ResponseResponseDTO.MemberId">
+        <member name="P:Domain.DTO.Responses.Responses.ResponseResponseDTO.MemberName">
             <summary>
-            Id du membre du DTO de réponse de réponse
+            Nom du membre du DTO de réponse de réponse
             </summary>
         </member>
         <member name="T:Domain.DTO.Responses.Topics.TopicResponseDTO">
@@ -312,6 +312,11 @@
         <member name="P:Domain.Entities.Response.MemberId">
             <summary>
             Propriété de l'id de l'auteur de la réponse
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Response.MemberName">
+            <summary>
+            Propriété du nom de l'auteur de la réponse
             </summary>
         </member>
         <member name="P:Domain.Entities.Response.Member">

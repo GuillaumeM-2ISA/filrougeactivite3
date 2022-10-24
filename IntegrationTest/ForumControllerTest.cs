@@ -296,7 +296,7 @@ namespace IntegrationTest
             {
                 Content = "Non, mais je souhaiterai le découvrir",
                 TopicId = 1,
-                MemberId = 2
+                MemberName = "titi"
             };
 
             await SignIn("titi", "titipassword");
@@ -310,7 +310,7 @@ namespace IntegrationTest
 
             Assert.True(responseResponseDTO.Content == expected.Content);
             Assert.True(responseResponseDTO.TopicId == expected.TopicId);
-            Assert.True(responseResponseDTO.MemberId == expected.MemberId);
+            Assert.True(responseResponseDTO.MemberName == expected.MemberName);
 
             //clean 
             SignOut();

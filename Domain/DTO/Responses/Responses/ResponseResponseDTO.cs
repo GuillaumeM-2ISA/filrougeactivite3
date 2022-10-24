@@ -28,8 +28,8 @@ namespace Domain.DTO.Responses.Responses
         public int TopicId { get; set; }
 
         /// <summary>
-        /// Id du membre du DTO de réponse de réponse
+        /// Nom du membre du DTO de réponse de réponse
         /// </summary>
-        public int MemberId { get; set; }
+        public string MemberName { get; set; }
     }
 }
