@@ -59,7 +59,7 @@ namespace IntegrationTest
             //Assert
             Assert.True(response.StatusCode == HttpStatusCode.OK);
 
-            string token = (await response.Content.ReadFromJsonAsync<TokenResponseDTO>()).Token;
+            string token = await response.Content.ReadAsStringAsync();
 
             Assert.Equal(expected, token.Split(".")[0]);
         }

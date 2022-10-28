@@ -32,8 +32,8 @@ namespace IntegrationTest.Fixture
                 Password = password
             });
 
-            var login = await responseLogin.Content.ReadFromJsonAsync<TokenResponseDTO>();
-            _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", login.Token);
+            var login = await responseLogin.Content.ReadAsStringAsync();
+            _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", login);
         }
 
 
