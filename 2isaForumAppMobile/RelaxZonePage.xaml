@@ -1,0 +1,24 @@
+﻿<Page
+    x:Class="_2isaForumAppMobile.RelaxZonePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:_2isaForumAppMobile"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="2*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="0" Background="Orange">
+            <Button Content="Développement" FontSize="18" Margin="5" Foreground="LightGray"/>
+            <Button Content="Questions diverses" FontSize="18" Margin="5" Foreground="LightGray"/>
+            <Button Content="Espace détente" FontSize="18" Margin="5" Foreground="LightGray"/>
+            <Button Content="Adresses utiles" FontSize="18" Margin="5" Foreground="LightGray"/>
+        </StackPanel>
+    </Grid>
+</Page>
