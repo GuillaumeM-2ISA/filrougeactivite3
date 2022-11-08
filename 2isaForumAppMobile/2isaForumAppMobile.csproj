@@ -116,26 +116,28 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="AddressPage.xaml.cs">
+    <Compile Include="MVVM\ViewsModels\CategoryVM.cs" />
+    <Compile Include="MVVM\ViewsModels\ViewModelBase.cs" />
+    <Compile Include="MVVM\Views\AddressPage.xaml.cs">
       <DependentUpon>AddressPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DevelopmentPage.xaml.cs">
+    <Compile Include="MVVM\Views\DevelopmentPage.xaml.cs">
       <DependentUpon>DevelopmentPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainPage.xaml.cs">
+    <Compile Include="MVVM\Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuestionsPage.xaml.cs">
+    <Compile Include="MVVM\Views\QuestionsPage.xaml.cs">
       <DependentUpon>QuestionsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="RelaxZonePage.xaml.cs">
+    <Compile Include="MVVM\Views\RelaxZonePage.xaml.cs">
       <DependentUpon>RelaxZonePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TopicPage.xaml.cs">
+    <Compile Include="MVVM\Views\TopicPage.xaml.cs">
       <DependentUpon>TopicPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -203,27 +205,27 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="AddressPage.xaml">
+    <Page Include="MVVM\Views\AddressPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DevelopmentPage.xaml">
+    <Page Include="MVVM\Views\DevelopmentPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainPage.xaml">
+    <Page Include="MVVM\Views\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="QuestionsPage.xaml">
+    <Page Include="MVVM\Views\QuestionsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="RelaxZonePage.xaml">
+    <Page Include="MVVM\Views\RelaxZonePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TopicPage.xaml">
+    <Page Include="MVVM\Views\TopicPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -233,6 +235,7 @@
       <Version>6.2.12</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
