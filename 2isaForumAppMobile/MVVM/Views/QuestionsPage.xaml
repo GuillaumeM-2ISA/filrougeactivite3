@@ -14,11 +14,11 @@
             <RowDefinition Height="2*" />
         </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="0" Background="Orange">
-            <Button Content="Développement" FontSize="18" Margin="5" Foreground="LightGray"/>
-            <Button Content="Questions diverses" FontSize="18" Margin="5" Foreground="LightGray"/>
-            <Button Content="Espace détente" FontSize="18" Margin="5" Foreground="LightGray"/>
-            <Button Content="Adresses utiles" FontSize="18" Margin="5" Foreground="LightGray"/>
+        <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="0" Style="{StaticResource StyleMenu}">
+            <Button Name="DevelopmentButton" x:Uid="QuestionsPage_DevelopmentButton" Content="Developpement" Style="{StaticResource StyleButtonMenu}"/>
+            <Button Name="QuestionsButton" x:Uid="QuestionsPage_QuestionsButton" Content="Questions" Style="{StaticResource StyleButtonMenu}"/>
+            <Button Name="RelaxZoneButton" x:Uid="QuestionsPage_RelaxZoneButton" Content="Detente" Style="{StaticResource StyleButtonMenu}"/>
+            <Button Name="AddressButton" x:Uid="QuestionsPage_AddressButton" Content="Adresses" Style="{StaticResource StyleButtonMenu}"/>
         </StackPanel>
     </Grid>
 </Page>

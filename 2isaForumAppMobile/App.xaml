@@ -4,4 +4,16 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:_2isaForumAppMobile">
 
+    <Application.Resources>
+        <Style x:Key="StyleButtonMenu" TargetType="Button">
+            <Setter Property="Foreground" Value="LightGray"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Margin" Value="0 5"/>
+        </Style>
+
+        <Style x:Key="StyleMenu" TargetType="StackPanel">
+            <Setter Property="Background" Value="Orange"/>
+        </Style>
+    </Application.Resources>
 </Application>
