@@ -20,7 +20,7 @@ namespace DAL.UOW.Repositories
 
         public async Task<IEnumerable<Response>> GetAllAsync()
         {
-            string query = @"SELECT * FROM Response AS r INNER JOIN Member AS m ON r.MemberId = m.Id ORDER BY r.SentOn DESC";
+            string query = @"SELECT * FROM Response AS r INNER JOIN Member AS m ON r.MemberId = m.Id ORDER BY r.SentOn DESC LIMIT 10";
 
             IEnumerable<Response> responses = await _db.Connection.QueryAsync<Response, Member, Response>(query, (response, member) =>
             {
