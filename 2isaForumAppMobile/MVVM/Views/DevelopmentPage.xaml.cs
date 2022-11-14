@@ -22,9 +22,15 @@ namespace _2isaForumAppMobile
     /// </summary>
     public sealed partial class DevelopmentPage : Page
     {
+        //Création du ViewModel
+        private CategoryVM vm = new CategoryVM();
+
         public DevelopmentPage()
         {
             this.InitializeComponent();
+
+            // Liaison entre la View et le ViewModel
+            DataContext = vm;
         }
 
         private void MnuQuestions_Click(object sender, RoutedEventArgs e)

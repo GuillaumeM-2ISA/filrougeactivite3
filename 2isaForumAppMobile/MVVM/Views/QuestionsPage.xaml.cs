@@ -22,9 +22,15 @@ namespace _2isaForumAppMobile
     /// </summary>
     public sealed partial class QuestionsPage : Page
     {
+        //Création du ViewModel
+        private CategoryVM vm = new CategoryVM();
+
         public QuestionsPage()
         {
             this.InitializeComponent();
+
+            // Liaison entre la View et le ViewModel
+            DataContext = vm;
         }
 
         private void MnuRelaxZone_Click(object sender, RoutedEventArgs e)

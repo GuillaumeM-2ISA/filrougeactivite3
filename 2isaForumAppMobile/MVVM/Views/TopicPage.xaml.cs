@@ -22,9 +22,15 @@ namespace _2isaForumAppMobile
     /// </summary>
     public sealed partial class TopicPage : Page
     {
+        //Création du ViewModel
+        private TopicVM vm = new TopicVM();
+
         public TopicPage()
         {
             this.InitializeComponent();
+
+            // Liaison entre la View et le ViewModel
+            DataContext = vm;
         }
 
         private void MnuAddress_Click(object sender, RoutedEventArgs e)
@@ -45,6 +51,13 @@ namespace _2isaForumAppMobile
         private void MnuRelaxZone_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(RelaxZonePage));
+        }
+
+        private void MnuGoBack_Click(object sender, RoutedEventArgs e)
+        {
+            // Retour à la fenêtre appelante
+            if (Frame.CanGoBack)
+                Frame.GoBack();
         }
     }
 }

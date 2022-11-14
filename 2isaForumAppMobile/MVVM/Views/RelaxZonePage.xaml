@@ -10,10 +10,10 @@
 
     <Page.BottomAppBar>
         <CommandBar IsSticky="True" Background="Orange">
-            <AppBarButton x:Name="mnuDevelopment" x:Uid="DevelopmentPage_DevelopmentButton" Icon="Bullets" Label="Development" Click="MnuDevelopment_Click" />
-            <AppBarButton x:Name="mnuQuestions" x:Uid="DevelopmentPage_QuestionsButton" Icon="Help" Label="Questions" Click="MnuQuestions_Click" />
-            <AppBarButton x:Name="mnuRelaxZone" x:Uid="DevelopmentPage_RelaxZoneButton" Icon="Emoji2" Label="Detente" />
-            <AppBarButton x:Name="mnuAddress" x:Uid="DevelopmentPage_AddressButton" Icon="List" Label="Adresses" Click="MnuAddress_Click" />
+            <AppBarButton x:Name="mnuDevelopment" x:Uid="RelaxZonePage_DevelopmentButton" Icon="Bullets" Label="Development" Click="MnuDevelopment_Click" />
+            <AppBarButton x:Name="mnuQuestions" x:Uid="RelaxZonePage_QuestionsButton" Icon="Help" Label="Questions" Click="MnuQuestions_Click" />
+            <AppBarButton x:Name="mnuRelaxZone" x:Uid="RelaxZonePage_RelaxZoneButton" Icon="Emoji2" Label="Detente" />
+            <AppBarButton x:Name="mnuAddress" x:Uid="RelaxZonePage_AddressButton" Icon="List" Label="Adresses" Click="MnuAddress_Click" />
         </CommandBar>
     </Page.BottomAppBar>
     

@@ -183,6 +183,9 @@
   <data name="TopicPage_DevelopmentButton.Label" xml:space="preserve">
     <value>Development</value>
   </data>
+  <data name="TopicPage_GoBackButton.Label" xml:space="preserve">
+    <value>Go back</value>
+  </data>
   <data name="TopicPage_QuestionsButton.Label" xml:space="preserve">
     <value>Other matters</value>
   </data>

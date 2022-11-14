@@ -117,6 +117,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="MVVM\ViewsModels\CategoryVM.cs" />
+    <Compile Include="MVVM\ViewsModels\TopicVM.cs" />
     <Compile Include="MVVM\ViewsModels\ViewModelBase.cs" />
     <Compile Include="MVVM\Views\AddressPage.xaml.cs">
       <DependentUpon>AddressPage.xaml</DependentUpon>

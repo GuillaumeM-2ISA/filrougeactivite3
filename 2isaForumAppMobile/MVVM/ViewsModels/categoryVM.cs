@@ -8,6 +8,7 @@ namespace _2isaForumAppMobile
 {
     class CategoryVM : ViewModelBase
     {
+        /*
         private string _titre = "Mon titre";
         public string Titre
         {
@@ -22,5 +23,6 @@ namespace _2isaForumAppMobile
                 RaisePropertyChanged(); // Permet de notifier la View d'une modification
             }
         }
+        */
     }
 }

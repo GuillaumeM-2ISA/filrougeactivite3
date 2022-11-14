@@ -10,14 +10,14 @@
 
     <Page.BottomAppBar>
         <CommandBar IsSticky="True" Background="Orange">
-            <AppBarButton x:Name="mnuDevelopment" x:Uid="DevelopmentPage_DevelopmentButton" Icon="Bullets" Label="Development" Click="MnuDevelopment_Click" />
-            <AppBarButton x:Name="mnuQuestions" x:Uid="DevelopmentPage_QuestionsButton" Icon="Help" Label="Questions" Click="MnuQuestions_Click" />
-            <AppBarButton x:Name="mnuRelaxZone" x:Uid="DevelopmentPage_RelaxZoneButton" Icon="Emoji2" Label="Detente" Click="MnuRelaxZone_Click" />
-            <AppBarButton x:Name="mnuAddress" x:Uid="DevelopmentPage_AddressButton" Icon="List" Label="Adresses" Click="MnuAddress_Click" />
+            <AppBarButton x:Name="mnuDevelopment" x:Uid="TopicPage_DevelopmentButton" Icon="Bullets" Label="Development" Click="MnuDevelopment_Click" />
+            <AppBarButton x:Name="mnuQuestions" x:Uid="TopicPage_QuestionsButton" Icon="Help" Label="Questions" Click="MnuQuestions_Click" />
+            <AppBarButton x:Name="mnuRelaxZone" x:Uid="TopicPage_RelaxZoneButton" Icon="Emoji2" Label="Detente" Click="MnuRelaxZone_Click" />
+            <AppBarButton x:Name="mnuAddress" x:Uid="TopicPage_AddressButton" Icon="List" Label="Adresses" Click="MnuAddress_Click" />
+            <AppBarButton x:Name="mnuGoBack" x:Uid="TopicPage_GoBackButton" Icon="Back" Label="Retour" Click="MnuGoBack_Click" />
         </CommandBar>
     </Page.BottomAppBar>
-    
+
     <Grid>
-        <TextBlock Grid.Row="0" x:Uid="TopicPage_Title" Style="{StaticResource StyleTitre}" Text="Developpement"/>
     </Grid>
 </Page>
