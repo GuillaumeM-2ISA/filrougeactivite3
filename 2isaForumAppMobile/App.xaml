@@ -15,5 +15,12 @@
         <Style x:Key="StyleMenu" TargetType="StackPanel">
             <Setter Property="Background" Value="Orange"/>
         </Style>
+        
+        <Style x:Key="StyleTitre" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="Orange"/>
+            <Setter Property="FontSize" Value="32"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
     </Application.Resources>
 </Application>

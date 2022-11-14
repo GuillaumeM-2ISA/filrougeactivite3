@@ -117,64 +117,76 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AddressPage_AddressButton.Content" xml:space="preserve">
+  <data name="AddressPage_AddressButton.Label" xml:space="preserve">
     <value>Adresses utiles</value>
   </data>
-  <data name="AddressPage_DevelopmentButton.Content" xml:space="preserve">
+  <data name="AddressPage_DevelopmentButton.Label" xml:space="preserve">
     <value>Développement</value>
   </data>
-  <data name="AddressPage_QuestionsButton.Content" xml:space="preserve">
+  <data name="AddressPage_QuestionsButton.Label" xml:space="preserve">
     <value>Questions diverses</value>
   </data>
-  <data name="AddressPage_RelaxZoneButton.Content" xml:space="preserve">
+  <data name="AddressPage_RelaxZoneButton.Label" xml:space="preserve">
     <value>Espace détente</value>
   </data>
-  <data name="DevelopmentPage_AddressButton.Content" xml:space="preserve">
+  <data name="AddressPage_Title.Text" xml:space="preserve">
     <value>Adresses utiles</value>
   </data>
-  <data name="DevelopmentPage_DevelopmentButton.Content" xml:space="preserve">
+  <data name="DevelopmentPage_AddressButton.Label" xml:space="preserve">
+    <value>Adresses utiles</value>
+  </data>
+  <data name="DevelopmentPage_DevelopmentButton.Label" xml:space="preserve">
     <value>Développement</value>
   </data>
-  <data name="DevelopmentPage_QuestionsButton.Content" xml:space="preserve">
+  <data name="DevelopmentPage_QuestionsButton.Label" xml:space="preserve">
     <value>Questions diverses</value>
   </data>
-  <data name="DevelopmentPage_RelaxZoneButton.Content" xml:space="preserve">
+  <data name="DevelopmentPage_RelaxZoneButton.Label" xml:space="preserve">
     <value>Espace détente</value>
   </data>
-  <data name="QuestionsPage_AddressButton.Content" xml:space="preserve">
-    <value>Adresses utiles</value>
-  </data>
-  <data name="QuestionsPage_DevelopmentButton.Content" xml:space="preserve">
+  <data name="DevelopmentPage_Title.Text" xml:space="preserve">
     <value>Développement</value>
   </data>
-  <data name="QuestionsPage_QuestionsButton.Content" xml:space="preserve">
+  <data name="QuestionsPage_AddressButton.Label" xml:space="preserve">
+    <value>Adresses utiles</value>
+  </data>
+  <data name="QuestionsPage_DevelopmentButton.Label" xml:space="preserve">
+    <value>Développement</value>
+  </data>
+  <data name="QuestionsPage_QuestionsButton.Label" xml:space="preserve">
     <value>Questions diverses</value>
   </data>
-  <data name="QuestionsPage_RelaxZoneButton.Content" xml:space="preserve">
+  <data name="QuestionsPage_RelaxZoneButton.Label" xml:space="preserve">
     <value>Espace détente</value>
   </data>
-  <data name="RelaxZonePage_AddressButton.Content" xml:space="preserve">
-    <value>Adresses utiles</value>
-  </data>
-  <data name="RelaxZonePage_DevelopmentButton.Content" xml:space="preserve">
-    <value>Développement</value>
-  </data>
-  <data name="RelaxZonePage_QuestionsButton.Content" xml:space="preserve">
+  <data name="QuestionsPage_Title.Text" xml:space="preserve">
     <value>Questions diverses</value>
   </data>
-  <data name="RelaxZonePage_RelaxZoneButton.Content" xml:space="preserve">
+  <data name="RelaxZonePage_AddressButton.Label" xml:space="preserve">
+    <value>Adresses utiles</value>
+  </data>
+  <data name="RelaxZonePage_DevelopmentButton.Label" xml:space="preserve">
+    <value>Développement</value>
+  </data>
+  <data name="RelaxZonePage_QuestionsButton.Label" xml:space="preserve">
+    <value>Questions diverses</value>
+  </data>
+  <data name="RelaxZonePage_RelaxZoneButton.Label" xml:space="preserve">
     <value>Espace détente</value>
   </data>
-  <data name="TopicPage_AddressButton.Content" xml:space="preserve">
+  <data name="RelaxZonePage_Title.Text" xml:space="preserve">
+    <value>Espace détente</value>
+  </data>
+  <data name="TopicPage_AddressButton.Label" xml:space="preserve">
     <value>Adresses utiles</value>
   </data>
-  <data name="TopicPage_DevelopmentButton.Content" xml:space="preserve">
+  <data name="TopicPage_DevelopmentButton.Label" xml:space="preserve">
     <value>Développement</value>
   </data>
-  <data name="TopicPage_QuestionsButton.Content" xml:space="preserve">
+  <data name="TopicPage_QuestionsButton.Label" xml:space="preserve">
     <value>Questions diverses</value>
   </data>
-  <data name="TopicPage_RelaxZoneButton.Content" xml:space="preserve">
+  <data name="TopicPage_RelaxZoneButton.Label" xml:space="preserve">
     <value>Espace détente</value>
   </data>
 </root>

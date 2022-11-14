@@ -26,5 +26,20 @@ namespace _2isaForumAppMobile
         {
             this.InitializeComponent();
         }
+
+        private void MnuQuestions_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(QuestionsPage));
+        }
+
+        private void MnuRelaxZone_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(RelaxZonePage));
+        }
+
+        private void MnuAddress_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(AddressPage));
+        }
     }
 }
