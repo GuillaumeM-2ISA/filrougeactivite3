@@ -35,13 +35,6 @@ namespace _2isaForumAppMobile
             }
         }
 
-        /*
-        public int Id { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public int CategoryId { get; set; }
-        public int MemberId { get; set; }
-        */
         public async Task<List<BOTopic>> GetTopicsByCategoryId(int categoryId)
         {
             Uri uri = new Uri($"http://user39.2isa.org/api/forum/categories/{categoryId}/topics");
