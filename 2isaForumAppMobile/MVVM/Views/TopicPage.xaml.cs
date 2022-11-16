@@ -25,12 +25,23 @@ namespace _2isaForumAppMobile
         //Création du ViewModel
         private TopicVM vm = new TopicVM();
 
+        private int categoryId;
+        private int topicId;
+
         public TopicPage()
         {
             this.InitializeComponent();
 
             // Liaison entre la View et le ViewModel
             DataContext = vm;
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            TopicPageParameters tpp = e.Parameter as TopicPageParameters;
+            this.categoryId = tpp.CategoryId;
+            this.topicId = tpp.Id;
         }
 
         private void MnuAddress_Click(object sender, RoutedEventArgs e)
@@ -53,11 +64,21 @@ namespace _2isaForumAppMobile
             Frame.Navigate(typeof(RelaxZonePage));
         }
 
+        private void MnuRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            vm.GetResponsesByTopicId(this.categoryId, this.topicId);
+        }
+
         private void MnuGoBack_Click(object sender, RoutedEventArgs e)
         {
             // Retour à la fenêtre appelante
             if (Frame.CanGoBack)
                 Frame.GoBack();
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            vm.GetResponsesByTopicId(this.categoryId, this.topicId);
         }
     }
 }

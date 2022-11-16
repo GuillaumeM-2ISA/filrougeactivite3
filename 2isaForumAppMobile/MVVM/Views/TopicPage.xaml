@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Loaded="Page_Loaded">
 
     <Page.BottomAppBar>
         <CommandBar IsSticky="True" Background="Orange">
@@ -14,10 +14,29 @@
             <AppBarButton x:Name="mnuQuestions" x:Uid="TopicPage_QuestionsButton" Icon="Help" Label="Questions" Click="MnuQuestions_Click" />
             <AppBarButton x:Name="mnuRelaxZone" x:Uid="TopicPage_RelaxZoneButton" Icon="Emoji2" Label="Detente" Click="MnuRelaxZone_Click" />
             <AppBarButton x:Name="mnuAddress" x:Uid="TopicPage_AddressButton" Icon="List" Label="Adresses" Click="MnuAddress_Click" />
+            <AppBarButton x:Name="mnuRefresh" x:Uid="TopicPage_RefreshButton" Icon="Refresh" Label="Rafraichir" Click="MnuRefresh_Click" />
             <AppBarButton x:Name="mnuGoBack" x:Uid="TopicPage_GoBackButton" Icon="Back" Label="Retour" Click="MnuGoBack_Click" />
         </CommandBar>
     </Page.BottomAppBar>
 
     <Grid>
+        <ListView x:Name="lstResponses" Grid.Row="1" ItemsSource="{Binding Responses}" IsItemClickEnabled="False">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Id}" Style="{StaticResource StyleItemList}"/>
+                        <TextBlock Text="{Binding Content}" Style="{StaticResource StyleItemList}"/>
+                        <TextBlock Text="{Binding TopicId}" Style="{StaticResource StyleItemList}"/>
+                        <TextBlock Text="{Binding MemberName}" Style="{StaticResource StyleItemList}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Background" Value="LightSkyBlue"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
     </Grid>
 </Page>

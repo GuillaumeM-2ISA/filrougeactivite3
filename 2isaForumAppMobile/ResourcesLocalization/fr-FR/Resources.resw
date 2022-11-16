@@ -126,6 +126,9 @@
   <data name="AddressPage_QuestionsButton.Label" xml:space="preserve">
     <value>Questions diverses</value>
   </data>
+  <data name="AddressPage_RefreshButton.Label" xml:space="preserve">
+    <value>Rafraichir</value>
+  </data>
   <data name="AddressPage_RelaxZoneButton.Label" xml:space="preserve">
     <value>Espace détente</value>
   </data>
@@ -140,6 +143,9 @@
   </data>
   <data name="DevelopmentPage_QuestionsButton.Label" xml:space="preserve">
     <value>Questions diverses</value>
+  </data>
+  <data name="DevelopmentPage_RefreshButton.Label" xml:space="preserve">
+    <value>Rafraichir</value>
   </data>
   <data name="DevelopmentPage_RelaxZoneButton.Label" xml:space="preserve">
     <value>Espace détente</value>
@@ -156,6 +162,9 @@
   <data name="QuestionsPage_QuestionsButton.Label" xml:space="preserve">
     <value>Questions diverses</value>
   </data>
+  <data name="QuestionsPage_RefreshButton.Label" xml:space="preserve">
+    <value>Rafraichir</value>
+  </data>
   <data name="QuestionsPage_RelaxZoneButton.Label" xml:space="preserve">
     <value>Espace détente</value>
   </data>
@@ -170,6 +179,9 @@
   </data>
   <data name="RelaxZonePage_QuestionsButton.Label" xml:space="preserve">
     <value>Questions diverses</value>
+  </data>
+  <data name="RelaxZonePage_RefreshButton.Label" xml:space="preserve">
+    <value>Rafraichir</value>
   </data>
   <data name="RelaxZonePage_RelaxZoneButton.Label" xml:space="preserve">
     <value>Espace détente</value>
@@ -188,6 +200,9 @@
   </data>
   <data name="TopicPage_QuestionsButton.Label" xml:space="preserve">
     <value>Questions diverses</value>
+  </data>
+  <data name="TopicPage_RefreshButton" xml:space="preserve">
+    <value>Rafraichir</value>
   </data>
   <data name="TopicPage_RelaxZoneButton.Label" xml:space="preserve">
     <value>Espace détente</value>

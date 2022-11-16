@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,21 +9,24 @@ namespace _2isaForumAppMobile
 {
     class CategoryVM : ViewModelBase
     {
-        /*
-        private string _titre = "Mon titre";
-        public string Titre
+        private readonly ObservableCollection<BOTopic> _topics = new ObservableCollection<BOTopic>();
+        public ObservableCollection<BOTopic> Topics
         {
-            get
+            get { return _topics; }
+        }
+
+        public async Task<bool> GetTopicsByCategoryId(int categoryId)
+        {
+            var topics = await DAL.Instance.GetTopicsByCategoryId(categoryId);
+
+            if (topics != null)
             {
-                return _titre;
+                Topics.Clear();
+                topics.ForEach(x => Topics.Add(x));
+                return true;
             }
 
-            set
-            {
-                _titre = value;
-                RaisePropertyChanged(); // Permet de notifier la View d'une modification
-            }
+            return false;
         }
-        */
     }
 }

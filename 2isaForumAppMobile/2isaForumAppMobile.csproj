@@ -116,6 +116,13 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="BOResponse.cs" />
+    <Compile Include="BOTopic.cs" />
+    <Compile Include="DTOResponse.cs" />
+    <Compile Include="DTOTopic.cs" />
+    <Compile Include="MVVM\Models\DAL.cs" />
+    <Compile Include="MVVM\Models\ResponsesM.cs" />
+    <Compile Include="MVVM\Models\TopicsM.cs" />
     <Compile Include="MVVM\ViewsModels\CategoryVM.cs" />
     <Compile Include="MVVM\ViewsModels\TopicVM.cs" />
     <Compile Include="MVVM\ViewsModels\ViewModelBase.cs" />
@@ -141,6 +148,7 @@
     <Compile Include="MVVM\Views\TopicPage.xaml.cs">
       <DependentUpon>TopicPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TopicPageParameters.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -234,6 +242,9 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.12</Version>
+    </PackageReference>
+    <PackageReference Include="System.Text.Json">
+      <Version>7.0.0</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

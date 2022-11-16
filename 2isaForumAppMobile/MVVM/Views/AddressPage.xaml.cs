@@ -47,5 +47,22 @@ namespace _2isaForumAppMobile
         {
             Frame.Navigate(typeof(RelaxZonePage));
         }
+
+        private void MnuRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            vm.GetTopicsByCategoryId(2);
+        }
+
+        private void lstTopics_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var topic = e.ClickedItem as BOTopic;
+            TopicPageParameters tpp = new TopicPageParameters { CategoryId = topic.CategoryId, Id = topic.Id };
+            Frame.Navigate(typeof(TopicPage), tpp);
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            vm.GetTopicsByCategoryId(2);
+        }
     }
 }
