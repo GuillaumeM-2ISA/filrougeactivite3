@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -64,9 +65,9 @@ namespace _2isaForumAppMobile
             Frame.Navigate(typeof(RelaxZonePage));
         }
 
-        private void MnuRefresh_Click(object sender, RoutedEventArgs e)
+        private async void MnuRefresh_Click(object sender, RoutedEventArgs e)
         {
-            vm.GetResponsesByTopicId(this.categoryId, this.topicId);
+            await vm.GetResponsesByTopicId(this.categoryId, this.topicId);
         }
 
         private void MnuGoBack_Click(object sender, RoutedEventArgs e)
@@ -76,9 +77,9 @@ namespace _2isaForumAppMobile
                 Frame.GoBack();
         }
 
-        private void Page_Loaded(object sender, RoutedEventArgs e)
+        private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            vm.GetResponsesByTopicId(this.categoryId, this.topicId);
+            await vm.GetResponsesByTopicId(this.categoryId, this.topicId);
         }
     }
 }

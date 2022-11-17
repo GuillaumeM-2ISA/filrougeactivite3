@@ -26,6 +26,8 @@
 
         <TextBlock Grid.Row="0" x:Uid="QuestionsPage_Title" Style="{StaticResource StyleTitre}" Text="Questions"/>
 
+        <ProgressRing x:Name="LoadingIndicator" Grid.Row="1" IsActive="{Binding IsFind}" />
+        
         <ListView x:Name="lstTopics" Grid.Row="1" ItemsSource="{Binding Topics}" IsItemClickEnabled="True" ItemClick="lstTopics_ItemClick">
             <ListView.ItemTemplate>
                 <DataTemplate>

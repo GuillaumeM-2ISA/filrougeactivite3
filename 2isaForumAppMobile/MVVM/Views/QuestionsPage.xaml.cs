@@ -48,9 +48,9 @@ namespace _2isaForumAppMobile
             Frame.Navigate(typeof(DevelopmentPage));
         }
 
-        private void MnuRefresh_Click(object sender, RoutedEventArgs e)
+        private async void MnuRefresh_Click(object sender, RoutedEventArgs e)
         {
-            vm.GetTopicsByCategoryId(3);
+            await vm.GetTopicsByCategoryId(3);
         }
 
         private void lstTopics_ItemClick(object sender, ItemClickEventArgs e)
@@ -60,9 +60,9 @@ namespace _2isaForumAppMobile
             Frame.Navigate(typeof(TopicPage), tpp);
         }
 
-        private void Page_Loaded(object sender, RoutedEventArgs e)
+        private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            vm.GetTopicsByCategoryId(3);
+            await vm.GetTopicsByCategoryId(3);
         }
     }
 }

@@ -20,7 +20,9 @@
     </Page.BottomAppBar>
 
     <Grid>
-        <ListView x:Name="lstResponses" Grid.Row="1" ItemsSource="{Binding Responses}" IsItemClickEnabled="False">
+        <ProgressRing x:Name="LoadingIndicator" IsActive="{Binding IsFind}" />
+        
+        <ListView x:Name="lstResponses" ItemsSource="{Binding Responses}" IsItemClickEnabled="False">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
