@@ -104,11 +104,6 @@
             Description du DTO de requête de mise à jour du sujet
             </summary>
         </member>
-        <member name="P:Domain.DTO.Requests.Topic.UpdateTopicRequestDTO.CategoryId">
-            <summary>
-            Identifiant de la catégorie du DTO de requête de mise à jour du sujet
-            </summary>
-        </member>
         <member name="T:Domain.DTO.Requests.Security.AuthentificationRequestDTO">
             <summary>
             Classe DTO de requête d'authentification

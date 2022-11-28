@@ -165,7 +165,7 @@ namespace API.Controllers
                 Id = updateTopicRequestDTO.Id,
                 Title = updateTopicRequestDTO.Title,
                 Description = updateTopicRequestDTO.Description,
-                CategoryId = updateTopicRequestDTO.CategoryId
+                CategoryId = categoryId
             };
 
             //Actions 
@@ -174,7 +174,7 @@ namespace API.Controllers
             //Creation Reponse
             //if (topic is null) return NotFound();
 
-            var category = await _forumService.GetCategoryByIdAsync(topic.CategoryId);
+            var category = await _forumService.GetCategoryByIdAsync(categoryId);
 
             var reponse = new TopicResponseDTO()
             {

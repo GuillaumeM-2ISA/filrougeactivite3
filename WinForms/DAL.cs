@@ -135,7 +135,7 @@ namespace WinForms
 
         public async Task<Topic> UpdateTopicAsync(int id, string titre, string description, int categoryId)
         {
-            UpdateTopicRequestDTO updateTopicRequestDTO = new() { Id = id, Title = titre, Description = description, CategoryId = categoryId };
+            UpdateTopicRequestDTO updateTopicRequestDTO = new() { Id = id, Title = titre, Description = description };
 
             var jsonBodyParameter = new StringContent(JsonSerializer.Serialize(updateTopicRequestDTO), Encoding.UTF8, "application/json");
 

@@ -26,11 +26,6 @@ namespace Domain.DTO.Requests.Topic
         /// Description du DTO de requête de mise à jour du sujet
         /// </summary>
         public string Description { get; set; }
-
-        /// <summary>
-        /// Identifiant de la catégorie du DTO de requête de mise à jour du sujet
-        /// </summary>
-        public int CategoryId { get; set; }
     }
 
     public class UpdateTopicRequestDTOValidator : AbstractValidator<UpdateTopicRequestDTO>
@@ -40,7 +35,6 @@ namespace Domain.DTO.Requests.Topic
             RuleFor(x => x.Id).NotNull().NotEmpty();
             RuleFor(x => x.Title).NotNull().NotEmpty().MaximumLength(250);
             RuleFor(x => x.Description).NotNull().NotEmpty().MaximumLength(250);
-            RuleFor(x => x.CategoryId).NotNull().NotEmpty();
         }
     }
 }

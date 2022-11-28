@@ -45,8 +45,6 @@ namespace WinForms
             this.label1 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.tabEdit = new System.Windows.Forms.TabPage();
-            this.modifiedIdCategoryTextbox = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.modifiedDescriptionTextbox = new System.Windows.Forms.TextBox();
             this.modifiedTitleTextbox = new System.Windows.Forms.TextBox();
@@ -198,6 +196,7 @@ namespace WinForms
             // 
             this.newDescriptionTextbox.Location = new System.Drawing.Point(107, 45);
             this.newDescriptionTextbox.Name = "newDescriptionTextbox";
+            this.newDescriptionTextbox.PlaceholderText = "Saisir la description ici";
             this.newDescriptionTextbox.Size = new System.Drawing.Size(351, 27);
             this.newDescriptionTextbox.TabIndex = 5;
             // 
@@ -205,6 +204,7 @@ namespace WinForms
             // 
             this.newTitleTextbox.Location = new System.Drawing.Point(107, 10);
             this.newTitleTextbox.Name = "newTitleTextbox";
+            this.newTitleTextbox.PlaceholderText = "Saisir le titre ici";
             this.newTitleTextbox.Size = new System.Drawing.Size(203, 27);
             this.newTitleTextbox.TabIndex = 4;
             // 
@@ -229,8 +229,6 @@ namespace WinForms
             // 
             // tabEdit
             // 
-            this.tabEdit.Controls.Add(this.modifiedIdCategoryTextbox);
-            this.tabEdit.Controls.Add(this.label5);
             this.tabEdit.Controls.Add(this.label3);
             this.tabEdit.Controls.Add(this.modifiedDescriptionTextbox);
             this.tabEdit.Controls.Add(this.modifiedTitleTextbox);
@@ -243,22 +241,6 @@ namespace WinForms
             this.tabEdit.TabIndex = 1;
             this.tabEdit.Text = "Modifier";
             this.tabEdit.UseVisualStyleBackColor = true;
-            // 
-            // modifiedIdCategoryTextbox
-            // 
-            this.modifiedIdCategoryTextbox.Location = new System.Drawing.Point(459, 11);
-            this.modifiedIdCategoryTextbox.Name = "modifiedIdCategoryTextbox";
-            this.modifiedIdCategoryTextbox.Size = new System.Drawing.Size(50, 27);
-            this.modifiedIdCategoryTextbox.TabIndex = 13;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(327, 14);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(126, 20);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "Id de la catégorie";
             // 
             // label3
             // 
@@ -426,8 +408,6 @@ namespace WinForms
         private System.Windows.Forms.TabPage tabRead;
         private System.Windows.Forms.Button btnRead;
         private System.Windows.Forms.BindingSource bsTopics;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox modifiedIdCategoryTextbox;
         private System.Windows.Forms.Button btnUpdatePassword;
     }
 }

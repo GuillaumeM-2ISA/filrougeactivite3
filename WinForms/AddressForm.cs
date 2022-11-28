@@ -62,7 +62,6 @@ namespace WinForms
 
             modifiedTitleTextbox.DataBindings.Add("Text", bsTopics, "Title", false, DataSourceUpdateMode.Never);
             modifiedDescriptionTextbox.DataBindings.Add("Text", bsTopics, "Description", false, DataSourceUpdateMode.Never);
-            modifiedIdCategoryTextbox.DataBindings.Add("Text", bsTopics, "CategoryId", false, DataSourceUpdateMode.Never);
 
             dgvTopics.Columns["CreatedAt"].Visible = false;
             dgvTopics.Columns["UpdatedAt"].Visible = false;
@@ -86,7 +85,7 @@ namespace WinForms
 
         private async void btnAdd_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(newTitleTextbox.Text) && String.IsNullOrEmpty(newDescriptionTextbox.Text))
+            if (String.IsNullOrEmpty(newTitleTextbox.Text) || String.IsNullOrEmpty(newDescriptionTextbox.Text))
             {
                 labelError.Visible = true;
             }
@@ -104,7 +103,7 @@ namespace WinForms
 
             if (topic != null)
             {
-                var updateUtil = await _dal.UpdateTopicAsync(topic.Id, modifiedTitleTextbox.Text, modifiedDescriptionTextbox.Text, int.Parse(modifiedIdCategoryTextbox.Text));
+                var updateUtil = await _dal.UpdateTopicAsync(topic.Id, modifiedTitleTextbox.Text, modifiedDescriptionTextbox.Text, 2);
             }
 
             await RefreshAsync(topic.Id);
