@@ -31,6 +31,7 @@ namespace WinForms
         {
             this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.changeAccountBtn = new System.Windows.Forms.Button();
             this.btnUpdatePassword = new System.Windows.Forms.Button();
             this.btnRelaxZone = new System.Windows.Forms.Button();
             this.btnQuestions = new System.Windows.Forms.Button();
@@ -79,6 +80,7 @@ namespace WinForms
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.changeAccountBtn);
             this.splitContainer1.Panel1.Controls.Add(this.btnUpdatePassword);
             this.splitContainer1.Panel1.Controls.Add(this.btnRelaxZone);
             this.splitContainer1.Panel1.Controls.Add(this.btnQuestions);
@@ -93,6 +95,16 @@ namespace WinForms
             this.splitContainer1.Size = new System.Drawing.Size(957, 582);
             this.splitContainer1.SplitterDistance = 183;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // changeAccountBtn
+            // 
+            this.changeAccountBtn.Location = new System.Drawing.Point(15, 495);
+            this.changeAccountBtn.Name = "changeAccountBtn";
+            this.changeAccountBtn.Size = new System.Drawing.Size(152, 29);
+            this.changeAccountBtn.TabIndex = 6;
+            this.changeAccountBtn.Text = "Changer de compte";
+            this.changeAccountBtn.UseVisualStyleBackColor = true;
+            this.changeAccountBtn.Click += new System.EventHandler(this.changeAccountBtn_Click);
             // 
             // btnUpdatePassword
             // 
@@ -409,6 +421,7 @@ namespace WinForms
         private System.Windows.Forms.Button btnRead;
         private System.Windows.Forms.BindingSource bsTopics;
         private System.Windows.Forms.Button btnUpdatePassword;
+        private System.Windows.Forms.Button changeAccountBtn;
     }
 }
 

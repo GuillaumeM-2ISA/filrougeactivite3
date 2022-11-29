@@ -57,6 +57,7 @@ namespace WinForms
             this.dgvTopics = new System.Windows.Forms.DataGridView();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.bsTopics = new System.Windows.Forms.BindingSource(this.components);
+            this.changeAccountBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -79,6 +80,7 @@ namespace WinForms
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.changeAccountBtn);
             this.splitContainer1.Panel1.Controls.Add(this.btnUpdatePassword);
             this.splitContainer1.Panel1.Controls.Add(this.btnRelaxZone);
             this.splitContainer1.Panel1.Controls.Add(this.btnQuestions);
@@ -354,6 +356,16 @@ namespace WinForms
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
+            // changeAccountBtn
+            // 
+            this.changeAccountBtn.Location = new System.Drawing.Point(15, 498);
+            this.changeAccountBtn.Name = "changeAccountBtn";
+            this.changeAccountBtn.Size = new System.Drawing.Size(152, 29);
+            this.changeAccountBtn.TabIndex = 6;
+            this.changeAccountBtn.Text = "Changer de compte";
+            this.changeAccountBtn.UseVisualStyleBackColor = true;
+            this.changeAccountBtn.Click += new System.EventHandler(this.changeAccountBtn_Click);
+            // 
             // RelaxZoneForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -409,6 +421,7 @@ namespace WinForms
         private System.Windows.Forms.Button btnRead;
         private System.Windows.Forms.BindingSource bsTopics;
         private System.Windows.Forms.Button btnUpdatePassword;
+        private System.Windows.Forms.Button changeAccountBtn;
     }
 }
 

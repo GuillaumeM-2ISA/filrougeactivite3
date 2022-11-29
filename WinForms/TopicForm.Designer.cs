@@ -31,6 +31,7 @@ namespace WinForms
         {
             this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.changeAccountBtn = new System.Windows.Forms.Button();
             this.btnUpdatePassword = new System.Windows.Forms.Button();
             this.btnRelaxZone = new System.Windows.Forms.Button();
             this.btnQuestions = new System.Windows.Forms.Button();
@@ -38,6 +39,7 @@ namespace WinForms
             this.btnDev = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabAdd = new System.Windows.Forms.TabPage();
+            this.contentTextbox = new System.Windows.Forms.TextBox();
             this.labelError = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -46,7 +48,6 @@ namespace WinForms
             this.dgvResponses = new System.Windows.Forms.DataGridView();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.bsResponses = new System.Windows.Forms.BindingSource(this.components);
-            this.contentTextbox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -67,6 +68,7 @@ namespace WinForms
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.changeAccountBtn);
             this.splitContainer1.Panel1.Controls.Add(this.btnUpdatePassword);
             this.splitContainer1.Panel1.Controls.Add(this.btnRelaxZone);
             this.splitContainer1.Panel1.Controls.Add(this.btnQuestions);
@@ -81,6 +83,16 @@ namespace WinForms
             this.splitContainer1.Size = new System.Drawing.Size(957, 582);
             this.splitContainer1.SplitterDistance = 183;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // changeAccountBtn
+            // 
+            this.changeAccountBtn.Location = new System.Drawing.Point(15, 492);
+            this.changeAccountBtn.Name = "changeAccountBtn";
+            this.changeAccountBtn.Size = new System.Drawing.Size(152, 29);
+            this.changeAccountBtn.TabIndex = 7;
+            this.changeAccountBtn.Text = "Changer de compte";
+            this.changeAccountBtn.UseVisualStyleBackColor = true;
+            this.changeAccountBtn.Click += new System.EventHandler(this.changeAccountBtn_Click);
             // 
             // btnUpdatePassword
             // 
@@ -155,6 +167,15 @@ namespace WinForms
             this.tabAdd.TabIndex = 0;
             this.tabAdd.Text = "Ajouter";
             this.tabAdd.UseVisualStyleBackColor = true;
+            // 
+            // contentTextbox
+            // 
+            this.contentTextbox.Location = new System.Drawing.Point(87, 13);
+            this.contentTextbox.Multiline = true;
+            this.contentTextbox.Name = "contentTextbox";
+            this.contentTextbox.PlaceholderText = "Saisir la réponse ici";
+            this.contentTextbox.Size = new System.Drawing.Size(375, 65);
+            this.contentTextbox.TabIndex = 8;
             // 
             // labelError
             // 
@@ -234,15 +255,6 @@ namespace WinForms
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
-            // contentTextbox
-            // 
-            this.contentTextbox.Location = new System.Drawing.Point(87, 13);
-            this.contentTextbox.Multiline = true;
-            this.contentTextbox.Name = "contentTextbox";
-            this.contentTextbox.PlaceholderText = "Saisir la réponse ici";
-            this.contentTextbox.Size = new System.Drawing.Size(375, 65);
-            this.contentTextbox.TabIndex = 8;
-            // 
             // TopicForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -285,6 +297,7 @@ namespace WinForms
         private System.Windows.Forms.BindingSource bsResponses;
         private System.Windows.Forms.Button btnUpdatePassword;
         private System.Windows.Forms.TextBox contentTextbox;
+        private System.Windows.Forms.Button changeAccountBtn;
     }
 }
 

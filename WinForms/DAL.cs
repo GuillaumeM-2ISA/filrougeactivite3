@@ -77,6 +77,14 @@ namespace WinForms
             return null;
         }
 
+        public async Task LogoutAsync()
+        {
+            await Task.Delay(1000);
+            _client.DefaultRequestHeaders.Authorization = null;
+            roles.Clear();
+            idMember = -1;
+        }
+
         public async Task<string> UpdatePasswordAsync(int idMember, string newPassword)
         {
             UpdatePasswordRequestDTO updatePasswordRequestDTO = new() { Id = idMember, Password = newPassword };

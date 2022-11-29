@@ -158,5 +158,28 @@ namespace WinForms
             topicForm.Show();
             this.Hide();
         }
+
+        private async void changeAccountBtn_Click(object sender, EventArgs e)
+        {
+            await _dal.LogoutAsync();
+
+            if (_dal.IdMember == -1)
+            {
+                btnUpdatePassword.Enabled = false;
+                btnAdd.Enabled = false;
+                btnEdit.Enabled = false;
+                btnDelete.Enabled = false;
+            }
+
+            if (!_dal.Roles.Contains("MODERATOR"))
+            {
+                btnEdit.Enabled = false;
+                btnDelete.Enabled = false;
+            }
+
+            Login loginForm = new Login();
+            loginForm.Show();
+            this.Hide();
+        }
     }
 }
