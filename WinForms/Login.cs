@@ -27,6 +27,7 @@ namespace WinForms
             {
                 DevelopmentForm developmentForm = DevelopmentForm.getDevelopmentForm();
                 developmentForm.Show();
+                developmentForm.Grisage();
                 this.Hide();
             }
             else
@@ -39,6 +40,7 @@ namespace WinForms
         {
             DevelopmentForm developmentForm = DevelopmentForm.getDevelopmentForm();
             developmentForm.Show();
+            developmentForm.Grisage();
             this.Hide();
         }
     }

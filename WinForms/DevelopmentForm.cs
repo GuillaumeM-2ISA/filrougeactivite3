@@ -21,7 +21,10 @@ namespace WinForms
         private DevelopmentForm()
         {
             InitializeComponent();
+        }
 
+        public void Grisage()
+        {
             if (_dal.IdMember == -1)
             {
                 btnUpdatePassword.Enabled = false;
@@ -30,10 +33,20 @@ namespace WinForms
                 btnDelete.Enabled = false;
             }
 
-            if (!_dal.Roles.Contains("MODERATOR"))
+            if (_dal.IdMember != -1 && !_dal.Roles.Contains("MODERATOR"))
             {
+                btnUpdatePassword.Enabled = true;
+                btnAdd.Enabled = true;
                 btnEdit.Enabled = false;
                 btnDelete.Enabled = false;
+            }
+
+            if (_dal.IdMember != -1 && _dal.Roles.Contains("MODERATOR"))
+            {
+                btnUpdatePassword.Enabled = true;
+                btnAdd.Enabled = true;
+                btnEdit.Enabled = true;
+                btnDelete.Enabled = true;
             }
         }
 
@@ -133,6 +146,7 @@ namespace WinForms
         {
             AddressForm addressForm = AddressForm.getAddressForm();
             addressForm.Show();
+            addressForm.Grisage();
             this.Hide();
         }
 
@@ -140,6 +154,7 @@ namespace WinForms
         {
             QuestionsForm questionsForm = QuestionsForm.getQuestionsForm();
             questionsForm.Show();
+            questionsForm.Grisage();
             this.Hide();
         }
 
@@ -147,6 +162,7 @@ namespace WinForms
         {
             RelaxZoneForm relaxZoneForm = RelaxZoneForm.getRelaxZoneForm();
             relaxZoneForm.Show();
+            relaxZoneForm.Grisage();
             this.Hide();
         }
 
@@ -162,20 +178,6 @@ namespace WinForms
         private async void changeAccountBtn_Click(object sender, EventArgs e)
         {
             await _dal.LogoutAsync();
-
-            if (_dal.IdMember == -1)
-            {
-                btnUpdatePassword.Enabled = false;
-                btnAdd.Enabled = false;
-                btnEdit.Enabled = false;
-                btnDelete.Enabled = false;
-            }
-
-            if (!_dal.Roles.Contains("MODERATOR"))
-            {
-                btnEdit.Enabled = false;
-                btnDelete.Enabled = false;
-            }
 
             Login loginForm = new Login();
             loginForm.Show();
